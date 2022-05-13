@@ -1,0 +1,10 @@
+Contributor	# projects	# connections
+korosuke613@users.noreply.github.com	12	8
+korosuke613613@gmail.com	9	6
+futa-hirakoba@cybozu.co.jp	5	5
+bot@renovateapp.com	4	5
+azu@users.noreply.github.com	1	4
+azuciao@gmail.com	1	4
+s.kokuryo@gmail.com	1	3
+hyuyukun@gmail.com	1	3
+repo-visualizer@users.noreply.github.com	1	2

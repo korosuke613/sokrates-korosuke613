@@ -1,0 +1,21 @@
+Contributor 1	Contributor 2	# shared projects
+korosuke613@users.noreply.github.com	korosuke613613@gmail.com	9
+korosuke613@users.noreply.github.com	futa-hirakoba@cybozu.co.jp	4
+korosuke613613@gmail.com	futa-hirakoba@cybozu.co.jp	2
+korosuke613@users.noreply.github.com	repo-visualizer@users.noreply.github.com	1
+korosuke613613@gmail.com	repo-visualizer@users.noreply.github.com	1
+korosuke613@users.noreply.github.com	bot@renovateapp.com	4
+korosuke613@users.noreply.github.com	azuciao@gmail.com	1
+korosuke613@users.noreply.github.com	azu@users.noreply.github.com	1
+korosuke613613@gmail.com	bot@renovateapp.com	4
+korosuke613613@gmail.com	azuciao@gmail.com	1
+korosuke613613@gmail.com	azu@users.noreply.github.com	1
+bot@renovateapp.com	azuciao@gmail.com	1
+bot@renovateapp.com	azu@users.noreply.github.com	1
+azuciao@gmail.com	azu@users.noreply.github.com	1
+korosuke613@users.noreply.github.com	s.kokuryo@gmail.com	1
+korosuke613@users.noreply.github.com	hyuyukun@gmail.com	1
+futa-hirakoba@cybozu.co.jp	s.kokuryo@gmail.com	1
+futa-hirakoba@cybozu.co.jp	hyuyukun@gmail.com	1
+s.kokuryo@gmail.com	hyuyukun@gmail.com	1
+bot@renovateapp.com	futa-hirakoba@cybozu.co.jp	1

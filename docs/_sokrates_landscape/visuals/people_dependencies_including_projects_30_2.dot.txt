@@ -1,0 +1,41 @@
+graph G {
+    compound="true"
+    rankdir="LR"
+    bgcolor="white"
+    fontname="Tahoma"
+
+    node [
+        fixedsize="false"
+        fontname="Tahoma"
+        color="white"
+        fillcolor="deepskyblue2"
+        fontcolor="black"
+        shape="box"
+        style="filled"
+        penwidth="1.0"
+    ]
+    edge [
+        fontname="Arial"
+        color="#00688b"
+        fontcolor="black"
+        fontsize="12"
+        arrowsize="0.5"
+        penwidth="1.0"
+    ]
+
+
+
+
+    "korosuke613@users.noreply.github.com" -- "[korosuke613 / playground]" [label=" 1 ", penwidth="1", color="#00688b5E"];
+    "korosuke613@users.noreply.github.com" -- "[korosuke613 / zenn-articles]" [label=" 1 ", penwidth="1", color="#00688b5E"];
+    "korosuke613@users.noreply.github.com" -- "[korosuke613 / myHomepage]" [label=" 1 ", penwidth="1", color="#00688b5E"];
+    "korosuke613613@gmail.com" -- "[korosuke613 / dotfiles]" [label=" 1 ", penwidth="1", color="#00688b5E"];
+    "korosuke613613@gmail.com" -- "[korosuke613 / playground]" [label=" 1 ", penwidth="1", color="#00688b5E"];
+    "korosuke613613@gmail.com" -- "[korosuke613 / zenn-articles]" [label=" 1 ", penwidth="1", color="#00688b5E"];
+    "korosuke613613@gmail.com" -- "[korosuke613 / myHomepage]" [label=" 1 ", penwidth="1", color="#00688b5E"];
+    "bot@renovateapp.com" -- "[korosuke613 / grpshuffle]" [label=" 1 ", penwidth="1", color="#00688b5E"];
+    "bot@renovateapp.com" -- "[korosuke613 / zenn-articles]" [label=" 1 ", penwidth="1", color="#00688b5E"];
+    "bot@renovateapp.com" -- "[korosuke613 / myHomepage]" [label=" 1 ", penwidth="1", color="#00688b5E"];
+    "repo-visualizer@users.noreply.github.com" -- "[korosuke613 / playground]" [label=" 1 ", penwidth="1", color="#00688b5E"];
+
+}

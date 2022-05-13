@@ -1,0 +1,106 @@
+graph G {
+    compound="true"
+    rankdir="TB"
+    bgcolor="white"
+    fontname="Tahoma"
+
+    node [
+        fixedsize="false"
+        fontname="Tahoma"
+        color="white"
+        fillcolor="deepskyblue2"
+        fontcolor="black"
+        shape="box"
+        style="filled"
+        penwidth="1.0"
+    ]
+    edge [
+        fontname="Arial"
+        color="#00688b"
+        fontcolor="black"
+        fontsize="12"
+        arrowsize="0.5"
+        penwidth="1.0"
+    ]
+
+    "[korosuke613 / dotfiles]" [fillcolor="deepskyblue2"];
+    "[korosuke613 / playground]" [fillcolor="deepskyblue2"];
+    "[korosuke613 / korosuke613]" [fillcolor="deepskyblue2"];
+    "[korosuke613 / grpshuffle]" [fillcolor="deepskyblue2"];
+    "[korosuke613 / zenn-articles]" [fillcolor="deepskyblue2"];
+    "[korosuke613 / myHomepage]" [fillcolor="deepskyblue2"];
+
+
+
+    "[korosuke613 / myHomepage]" -- "[korosuke613 / secretlint]" [label=" 6 ", penwidth="6", color="#00688bB7"];
+    "[korosuke613 / zenn-articles]" -- "[korosuke613 / grpshuffle]" [label=" 6 ", penwidth="6", color="#00688bB7"];
+    "[korosuke613 / zenn-articles]" -- "[korosuke613 / myHomepage]" [label=" 6 ", penwidth="6", color="#00688bB7"];
+    "[korosuke613 / grpshuffle]" -- "[korosuke613 / dotfiles]" [label=" 6 ", penwidth="6", color="#00688bB7"];
+    "[korosuke613 / zenn-articles]" -- "[korosuke613 / secretlint]" [label=" 6 ", penwidth="6", color="#00688bB7"];
+    "[korosuke613 / grpshuffle]" -- "[korosuke613 / secretlint]" [label=" 6 ", penwidth="6", color="#00688bB7"];
+    "[korosuke613 / myHomepage]" -- "[korosuke613 / grpshuffle]" [label=" 6 ", penwidth="6", color="#00688bB7"];
+    "[korosuke613 / myHomepage]" -- "[korosuke613 / zenn-metadata-updater]" [label=" 4 ", penwidth="4", color="#00688b93"];
+    "[korosuke613 / grpshuffle]" -- "[korosuke613 / latex-template-ja]" [label=" 4 ", penwidth="4", color="#00688b93"];
+    "[korosuke613 / secretlint]" -- "[korosuke613 / zenn-metadata-updater-action]" [label=" 4 ", penwidth="4", color="#00688b93"];
+    "[korosuke613 / playground]" -- "[korosuke613 / zenn-metadata-updater-action]" [label=" 4 ", penwidth="4", color="#00688b93"];
+    "[korosuke613 / dotfiles]" -- "[korosuke613 / zenn-metadata-updater-action]" [label=" 4 ", penwidth="4", color="#00688b93"];
+    "[korosuke613 / myHomepage]" -- "[korosuke613 / dotfiles]" [label=" 4 ", penwidth="4", color="#00688b93"];
+    "[korosuke613 / secretlint]" -- "[korosuke613 / linear-kintone-sync]" [label=" 4 ", penwidth="4", color="#00688b93"];
+    "[korosuke613 / dotfiles]" -- "[korosuke613 / secretlint]" [label=" 4 ", penwidth="4", color="#00688b93"];
+    "[korosuke613 / zenn-articles]" -- "[korosuke613 / linear-kintone-sync]" [label=" 4 ", penwidth="4", color="#00688b93"];
+    "[korosuke613 / atcoder]" -- "[korosuke613 / latex-template-ja]" [label=" 4 ", penwidth="4", color="#00688b93"];
+    "[korosuke613 / zenn-articles]" -- "[korosuke613 / dotfiles]" [label=" 4 ", penwidth="4", color="#00688b93"];
+    "[korosuke613 / grpshuffle]" -- "[korosuke613 / atcoder]" [label=" 4 ", penwidth="4", color="#00688b93"];
+    "[korosuke613 / dotfiles]" -- "[korosuke613 / zenn-metadata-updater]" [label=" 4 ", penwidth="4", color="#00688b93"];
+    "[korosuke613 / grpshuffle]" -- "[korosuke613 / zenn-metadata-updater-action]" [label=" 4 ", penwidth="4", color="#00688b93"];
+    "[korosuke613 / zenn-articles]" -- "[korosuke613 / zenn-metadata-updater-action]" [label=" 4 ", penwidth="4", color="#00688b93"];
+    "[korosuke613 / dotfiles]" -- "[korosuke613 / atcoder]" [label=" 4 ", penwidth="4", color="#00688b93"];
+    "[korosuke613 / zenn-metadata-updater-action]" -- "[korosuke613 / linear-kintone-sync]" [label=" 4 ", penwidth="4", color="#00688b93"];
+    "[korosuke613 / playground]" -- "[korosuke613 / myHomepage]" [label=" 4 ", penwidth="4", color="#00688b93"];
+    "[korosuke613 / secretlint]" -- "[korosuke613 / zenn-metadata-updater]" [label=" 4 ", penwidth="4", color="#00688b93"];
+    "[korosuke613 / zenn-metadata-updater-action]" -- "[korosuke613 / zenn-metadata-updater]" [label=" 4 ", penwidth="4", color="#00688b93"];
+    "[korosuke613 / playground]" -- "[korosuke613 / secretlint]" [label=" 4 ", penwidth="4", color="#00688b93"];
+    "[korosuke613 / myHomepage]" -- "[korosuke613 / linear-kintone-sync]" [label=" 4 ", penwidth="4", color="#00688b93"];
+    "[korosuke613 / grpshuffle]" -- "[korosuke613 / zenn-metadata-updater]" [label=" 4 ", penwidth="4", color="#00688b93"];
+    "[korosuke613 / myHomepage]" -- "[korosuke613 / zenn-metadata-updater-action]" [label=" 4 ", penwidth="4", color="#00688b93"];
+    "[korosuke613 / dotfiles]" -- "[korosuke613 / linear-kintone-sync]" [label=" 4 ", penwidth="4", color="#00688b93"];
+    "[korosuke613 / playground]" -- "[korosuke613 / zenn-metadata-updater]" [label=" 4 ", penwidth="4", color="#00688b93"];
+    "[korosuke613 / playground]" -- "[korosuke613 / linear-kintone-sync]" [label=" 4 ", penwidth="4", color="#00688b93"];
+    "[korosuke613 / playground]" -- "[korosuke613 / grpshuffle]" [label=" 4 ", penwidth="4", color="#00688b93"];
+    "[korosuke613 / zenn-articles]" -- "[korosuke613 / zenn-metadata-updater]" [label=" 4 ", penwidth="4", color="#00688b93"];
+    "[korosuke613 / grpshuffle]" -- "[korosuke613 / linear-kintone-sync]" [label=" 4 ", penwidth="4", color="#00688b93"];
+    "[korosuke613 / zenn-articles]" -- "[korosuke613 / playground]" [label=" 4 ", penwidth="4", color="#00688b93"];
+    "[korosuke613 / playground]" -- "[korosuke613 / dotfiles]" [label=" 4 ", penwidth="4", color="#00688b93"];
+    "[korosuke613 / dotfiles]" -- "[korosuke613 / latex-template-ja]" [label=" 4 ", penwidth="4", color="#00688b93"];
+    "[korosuke613 / linear-kintone-sync]" -- "[korosuke613 / zenn-metadata-updater]" [label=" 4 ", penwidth="4", color="#00688b93"];
+    "[korosuke613 / myHomepage]" -- "[korosuke613 / latex-template-ja]" [label=" 2 ", penwidth="2", color="#00688b70"];
+    "[korosuke613 / zenn-metadata-updater-action]" -- "[korosuke613 / atcoder]" [label=" 2 ", penwidth="2", color="#00688b70"];
+    "[korosuke613 / dotfiles]" -- "[korosuke613 / gh-user-stars]" [label=" 2 ", penwidth="2", color="#00688b70"];
+    "[korosuke613 / zenn-articles]" -- "[korosuke613 / atcoder]" [label=" 2 ", penwidth="2", color="#00688b70"];
+    "[korosuke613 / gh-user-stars]" -- "[korosuke613 / zenn-metadata-updater]" [label=" 2 ", penwidth="2", color="#00688b70"];
+    "[korosuke613 / zenn-articles]" -- "[korosuke613 / gh-user-stars]" [label=" 2 ", penwidth="2", color="#00688b70"];
+    "[korosuke613 / grpshuffle]" -- "[korosuke613 / gh-user-stars]" [label=" 2 ", penwidth="2", color="#00688b70"];
+    "[korosuke613 / atcoder]" -- "[korosuke613 / bls-eth-go-binary]" [label=" 2 ", penwidth="2", color="#00688b70"];
+    "[korosuke613 / linear-kintone-sync]" -- "[korosuke613 / latex-template-ja]" [label=" 2 ", penwidth="2", color="#00688b70"];
+    "[korosuke613 / bls-eth-go-binary]" -- "[korosuke613 / latex-template-ja]" [label=" 2 ", penwidth="2", color="#00688b70"];
+    "[korosuke613 / playground]" -- "[korosuke613 / atcoder]" [label=" 2 ", penwidth="2", color="#00688b70"];
+    "[korosuke613 / myHomepage]" -- "[korosuke613 / gh-user-stars]" [label=" 2 ", penwidth="2", color="#00688b70"];
+    "[korosuke613 / zenn-metadata-updater-action]" -- "[korosuke613 / gh-user-stars]" [label=" 2 ", penwidth="2", color="#00688b70"];
+    "[korosuke613 / secretlint]" -- "[korosuke613 / gh-user-stars]" [label=" 2 ", penwidth="2", color="#00688b70"];
+    "[korosuke613 / atcoder]" -- "[korosuke613 / gh-user-stars]" [label=" 2 ", penwidth="2", color="#00688b70"];
+    "[korosuke613 / grpshuffle]" -- "[korosuke613 / bls-eth-go-binary]" [label=" 2 ", penwidth="2", color="#00688b70"];
+    "[korosuke613 / zenn-metadata-updater]" -- "[korosuke613 / latex-template-ja]" [label=" 2 ", penwidth="2", color="#00688b70"];
+    "[korosuke613 / myHomepage]" -- "[korosuke613 / atcoder]" [label=" 2 ", penwidth="2", color="#00688b70"];
+    "[korosuke613 / secretlint]" -- "[korosuke613 / atcoder]" [label=" 2 ", penwidth="2", color="#00688b70"];
+    "[korosuke613 / atcoder]" -- "[korosuke613 / linear-kintone-sync]" [label=" 2 ", penwidth="2", color="#00688b70"];
+    "[korosuke613 / secretlint]" -- "[korosuke613 / latex-template-ja]" [label=" 2 ", penwidth="2", color="#00688b70"];
+    "[korosuke613 / zenn-articles]" -- "[korosuke613 / latex-template-ja]" [label=" 2 ", penwidth="2", color="#00688b70"];
+    "[korosuke613 / playground]" -- "[korosuke613 / gh-user-stars]" [label=" 2 ", penwidth="2", color="#00688b70"];
+    "[korosuke613 / gh-user-stars]" -- "[korosuke613 / latex-template-ja]" [label=" 2 ", penwidth="2", color="#00688b70"];
+    "[korosuke613 / linear-kintone-sync]" -- "[korosuke613 / gh-user-stars]" [label=" 2 ", penwidth="2", color="#00688b70"];
+    "[korosuke613 / playground]" -- "[korosuke613 / latex-template-ja]" [label=" 2 ", penwidth="2", color="#00688b70"];
+    "[korosuke613 / zenn-metadata-updater-action]" -- "[korosuke613 / latex-template-ja]" [label=" 2 ", penwidth="2", color="#00688b70"];
+    "[korosuke613 / dotfiles]" -- "[korosuke613 / bls-eth-go-binary]" [label=" 2 ", penwidth="2", color="#00688b70"];
+    "[korosuke613 / atcoder]" -- "[korosuke613 / zenn-metadata-updater]" [label=" 2 ", penwidth="2", color="#00688b70"];
+
+}

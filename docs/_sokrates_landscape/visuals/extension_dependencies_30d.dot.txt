@@ -1,0 +1,51 @@
+graph G {
+    compound="true"
+    rankdir="TB"
+    bgcolor="white"
+    fontname="Tahoma"
+
+    node [
+        fixedsize="false"
+        fontname="Tahoma"
+        color="white"
+        fillcolor="deepskyblue2"
+        fontcolor="black"
+        shape="box"
+        style="filled"
+        penwidth="1.0"
+    ]
+    edge [
+        fontname="Arial"
+        color="#00688b"
+        fontcolor="black"
+        fontsize="12"
+        arrowsize="0.5"
+        penwidth="1.0"
+    ]
+
+    "vue (2)" [fillcolor="deepskyblue2"];
+    "yml (3)" [fillcolor="deepskyblue2"];
+    "go (2)" [fillcolor="deepskyblue2"];
+    "ts (2)" [fillcolor="deepskyblue2"];
+    "js (2)" [fillcolor="deepskyblue2"];
+    "yaml (2)" [fillcolor="deepskyblue2"];
+
+
+
+    "yml (3)" -- "js (2)" [label=" 2 ", penwidth="2", color="#00688b70"];
+    "yml (3)" -- "ts (2)" [label=" 2 ", penwidth="2", color="#00688b70"];
+    "yml (3)" -- "vue (2)" [label=" 2 ", penwidth="2", color="#00688b70"];
+    "yml (3)" -- "yaml (2)" [label=" 2 ", penwidth="2", color="#00688b70"];
+    "yml (3)" -- "go (2)" [label=" 2 ", penwidth="2", color="#00688b70"];
+    "js (2)" -- "ts (2)" [label=" 2 ", penwidth="2", color="#00688b70"];
+    "js (2)" -- "vue (2)" [label=" 2 ", penwidth="2", color="#00688b70"];
+    "js (2)" -- "yaml (2)" [label=" 2 ", penwidth="2", color="#00688b70"];
+    "js (2)" -- "go (2)" [label=" 2 ", penwidth="2", color="#00688b70"];
+    "ts (2)" -- "vue (2)" [label=" 2 ", penwidth="2", color="#00688b70"];
+    "ts (2)" -- "yaml (2)" [label=" 2 ", penwidth="2", color="#00688b70"];
+    "ts (2)" -- "go (2)" [label=" 2 ", penwidth="2", color="#00688b70"];
+    "vue (2)" -- "yaml (2)" [label=" 2 ", penwidth="2", color="#00688b70"];
+    "vue (2)" -- "go (2)" [label=" 2 ", penwidth="2", color="#00688b70"];
+    "yaml (2)" -- "go (2)" [label=" 2 ", penwidth="2", color="#00688b70"];
+
+}

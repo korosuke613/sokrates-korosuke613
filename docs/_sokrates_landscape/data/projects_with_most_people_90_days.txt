@@ -1,0 +1,9 @@
+Contributor	# people
+korosuke613 / secretlint	5
+korosuke613 / zenn-articles	3
+korosuke613 / playground	3
+korosuke613 / myHomepage	3
+korosuke613 / grpshuffle	3
+korosuke613 / dotfiles	2
+korosuke613 / zenn-metadata-updater-action	2
+korosuke613 / zenn-metadata-updater	2

@@ -1,0 +1,1359 @@
+{
+  "c2cConnectionsCount30Days" : 5.0,
+  "c2pConnectionsCount30Days" : 10.0,
+  "cIndex30Days" : 2.0,
+  "cIndex90Days" : 4.0,
+  "cIndex180Days" : 4.0,
+  "cMean30Days" : 2.5,
+  "cMean90Days" : 4.0,
+  "cMean180Days" : 4.444444444444445,
+  "cMedian30Days" : 2.5,
+  "cMedian90Days" : 4.0,
+  "cMedian180Days" : 4.0,
+  "pIndex30Days" : 2.0,
+  "pIndex90Days" : 2.0,
+  "pIndex180Days" : 3.0,
+  "pMean30Days" : 2.75,
+  "pMean90Days" : 3.8333333333333335,
+  "pMean180Days" : 3.888888888888889,
+  "pMedian30Days" : 3.0,
+  "pMedian90Days" : 2.5,
+  "pMedian180Days" : 1.0,
+  "latestCommitDate" : "2022-05-09",
+  "cIndex30DaysHistory" : [ 2.0, 3.0, 2.0, 2.0, 3.0, 2.0, 2.0, 2.0, 3.0, 1.0, 2.0, 2.0 ],
+  "pIndex30DaysHistory" : [ 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 0.0, 2.0, 2.0 ],
+  "cMean30DaysHistory" : [ 2.5, 3.0, 2.4, 2.0, 2.5714285714285716, 2.0, 1.6666666666666667, 2.0, 3.3333333333333335, 1.3333333333333333, 1.75, 1.4285714285714286 ],
+  "pMean30DaysHistory" : [ 2.75, 3.5, 2.8, 2.6, 2.142857142857143, 2.25, 2.0, 2.0, 2.1666666666666665, 5.0, 3.0, 3.142857142857143 ],
+  "cMedian30DaysHistory" : [ 2.5, 3.0, 2.0, 2.0, 3.0, 2.0, 1.5, 2.0, 3.0, 1.0, 1.5, 1.0 ],
+  "pMedian30DaysHistory" : [ 3.0, 4.0, 2.0, 2.0, 2.0, 2.0, 1.5, 1.0, 1.5, 4.0, 1.0, 1.0 ],
+  "overallFileLastModifiedDistribution" : {
+    "key" : "",
+    "lowRiskThreshold" : 0,
+    "mediumRiskThreshold" : 0,
+    "highRiskThreshold" : 0,
+    "veryHighRiskThreshold" : 0,
+    "negligibleRiskValue" : 67,
+    "lowRiskValue" : 5592,
+    "mediumRiskValue" : 2331,
+    "highRiskValue" : 6460,
+    "veryHighRiskValue" : 10997,
+    "lowRiskCount" : 72,
+    "negligibleRiskCount" : 5,
+    "mediumRiskCount" : 42,
+    "highRiskCount" : 168,
+    "veryHighRiskCount" : 180,
+    "negligibleRiskLabel" : "1-30 days",
+    "lowRiskLabel" : "31-90 days",
+    "mediumRiskLabel" : "91-180 days",
+    "highRiskLabel" : "181-365 days",
+    "veryHighRiskLabel" : "366+ days",
+    "negligibleRiskPercentage" : 0.26329233308445005,
+    "totalValue" : 25447,
+    "totalCount" : 467,
+    "veryHighRiskPercentage" : 43.215310252682045,
+    "highRiskPercentage" : 25.386096592918616,
+    "mediumRiskPercentage" : 9.160215349550045,
+    "lowRiskPercentage" : 21.975085471764846
+  },
+  "overallFileFirstModifiedDistribution" : {
+    "key" : "",
+    "lowRiskThreshold" : 0,
+    "mediumRiskThreshold" : 0,
+    "highRiskThreshold" : 0,
+    "veryHighRiskThreshold" : 0,
+    "negligibleRiskValue" : 50,
+    "lowRiskValue" : 1539,
+    "mediumRiskValue" : 1444,
+    "highRiskValue" : 5964,
+    "veryHighRiskValue" : 16450,
+    "lowRiskCount" : 27,
+    "negligibleRiskCount" : 4,
+    "mediumRiskCount" : 35,
+    "highRiskCount" : 160,
+    "veryHighRiskCount" : 241,
+    "negligibleRiskLabel" : "1-30 days",
+    "lowRiskLabel" : "31-90 days",
+    "mediumRiskLabel" : "91-180 days",
+    "highRiskLabel" : "181-365 days",
+    "veryHighRiskLabel" : "366+ days",
+    "negligibleRiskPercentage" : 0.1964868157346642,
+    "totalValue" : 25447,
+    "totalCount" : 467,
+    "veryHighRiskPercentage" : 64.64416237670453,
+    "highRiskPercentage" : 23.436947380830745,
+    "mediumRiskPercentage" : 5.674539238417102,
+    "lowRiskPercentage" : 6.047864188312964
+  },
+  "recentContributorsCount6Months" : 9,
+  "recentContributorsCount3Months" : 6,
+  "rookiesContributorsCount" : 1,
+  "commitsCount" : 4613,
+  "commitsCount30Days" : 53,
+  "projectsCount" : 34,
+  "mainLoc1YearActive" : 14450,
+  "mainLoc30DaysActive" : 67,
+  "mainLocNew" : 8997,
+  "generatedLoc" : 47949,
+  "buildAndDeploymentLoc" : 941,
+  "otherLoc" : 123107,
+  "contributorsCommits" : [ {
+    "badges@fossa.io" : [ {
+      "timeSlot" : "2020-08",
+      "contributorsCount" : 1,
+      "commitsCount" : 0
+    } ]
+  }, {
+    "ksato9700@gmail.com" : [ {
+      "timeSlot" : "2020-02",
+      "contributorsCount" : 1,
+      "commitsCount" : 0
+    } ]
+  }, {
+    "46071336+susam-projects@users.noreply.github.com" : [ {
+      "timeSlot" : "2021-06",
+      "contributorsCount" : 1,
+      "commitsCount" : 0
+    } ]
+  }, {
+    "akihisa-koyama@cybozu.co.jp" : [ {
+      "timeSlot" : "2020-12",
+      "contributorsCount" : 1,
+      "commitsCount" : 0
+    } ]
+  }, {
+    "repo-visualizer@users.noreply.github.com" : [ {
+      "timeSlot" : "2021-12",
+      "contributorsCount" : 1,
+      "commitsCount" : 2
+    }, {
+      "timeSlot" : "2022-01",
+      "contributorsCount" : 1,
+      "commitsCount" : 0
+    }, {
+      "timeSlot" : "2021-10",
+      "contributorsCount" : 1,
+      "commitsCount" : 0
+    }, {
+      "timeSlot" : "2022-02",
+      "contributorsCount" : 1,
+      "commitsCount" : 0
+    }, {
+      "timeSlot" : "2022-04",
+      "contributorsCount" : 1,
+      "commitsCount" : 0
+    }, {
+      "timeSlot" : "2022-05",
+      "contributorsCount" : 1,
+      "commitsCount" : 1
+    }, {
+      "timeSlot" : "2021-09",
+      "contributorsCount" : 1,
+      "commitsCount" : 5
+    }, {
+      "timeSlot" : "2021-08",
+      "contributorsCount" : 1,
+      "commitsCount" : 2
+    } ]
+  }, {
+    "bot@renovateapp.com" : [ {
+      "timeSlot" : "2021-07",
+      "contributorsCount" : 1,
+      "commitsCount" : 22
+    }, {
+      "timeSlot" : "2020-06",
+      "contributorsCount" : 1,
+      "commitsCount" : 4
+    }, {
+      "timeSlot" : "2021-06",
+      "contributorsCount" : 1,
+      "commitsCount" : 21
+    }, {
+      "timeSlot" : "2021-05",
+      "contributorsCount" : 1,
+      "commitsCount" : 20
+    }, {
+      "timeSlot" : "2021-04",
+      "contributorsCount" : 1,
+      "commitsCount" : 17
+    }, {
+      "timeSlot" : "2021-03",
+      "contributorsCount" : 1,
+      "commitsCount" : 23
+    }, {
+      "timeSlot" : "2021-02",
+      "contributorsCount" : 1,
+      "commitsCount" : 20
+    }, {
+      "timeSlot" : "2020-12",
+      "contributorsCount" : 1,
+      "commitsCount" : 16
+    }, {
+      "timeSlot" : "2021-12",
+      "contributorsCount" : 1,
+      "commitsCount" : 5
+    }, {
+      "timeSlot" : "2021-01",
+      "contributorsCount" : 1,
+      "commitsCount" : 19
+    }, {
+      "timeSlot" : "2020-11",
+      "contributorsCount" : 1,
+      "commitsCount" : 25
+    }, {
+      "timeSlot" : "2020-10",
+      "contributorsCount" : 1,
+      "commitsCount" : 30
+    }, {
+      "timeSlot" : "2021-11",
+      "contributorsCount" : 1,
+      "commitsCount" : 3
+    }, {
+      "timeSlot" : "2022-01",
+      "contributorsCount" : 1,
+      "commitsCount" : 4
+    }, {
+      "timeSlot" : "2022-02",
+      "contributorsCount" : 1,
+      "commitsCount" : 3
+    }, {
+      "timeSlot" : "2022-03",
+      "contributorsCount" : 1,
+      "commitsCount" : 8
+    }, {
+      "timeSlot" : "2022-04",
+      "contributorsCount" : 1,
+      "commitsCount" : 5
+    }, {
+      "timeSlot" : "2022-05",
+      "contributorsCount" : 1,
+      "commitsCount" : 1
+    }, {
+      "timeSlot" : "2020-09",
+      "contributorsCount" : 1,
+      "commitsCount" : 27
+    }, {
+      "timeSlot" : "2020-08",
+      "contributorsCount" : 1,
+      "commitsCount" : 18
+    }, {
+      "timeSlot" : "2021-09",
+      "contributorsCount" : 1,
+      "commitsCount" : 3
+    }, {
+      "timeSlot" : "2020-07",
+      "contributorsCount" : 1,
+      "commitsCount" : 21
+    }, {
+      "timeSlot" : "2021-10",
+      "contributorsCount" : 1,
+      "commitsCount" : 3
+    } ]
+  }, {
+    "waldyrious@gmail.com" : [ {
+      "timeSlot" : "2021-09",
+      "contributorsCount" : 1,
+      "commitsCount" : 0
+    } ]
+  }, {
+    "20086673+munierujp@users.noreply.github.com" : [ {
+      "timeSlot" : "2020-04",
+      "contributorsCount" : 1,
+      "commitsCount" : 3
+    } ]
+  }, {
+    "94024734+cm-dyoshikawa@users.noreply.github.com" : [ {
+      "timeSlot" : "2022-01",
+      "contributorsCount" : 1,
+      "commitsCount" : 0
+    } ]
+  }, {
+    "nintendo698@gmail.com" : [ {
+      "timeSlot" : "2018-08",
+      "contributorsCount" : 1,
+      "commitsCount" : 3
+    } ]
+  }, {
+    "22229196+maxdevjs@users.noreply.github.com" : [ {
+      "timeSlot" : "2021-10",
+      "contributorsCount" : 1,
+      "commitsCount" : 0
+    } ]
+  }, {
+    "kidonng@gmail.com" : [ {
+      "timeSlot" : "2021-11",
+      "contributorsCount" : 1,
+      "commitsCount" : 0
+    } ]
+  }, {
+    "proto@protolambda.com" : [ {
+      "timeSlot" : "2020-03",
+      "contributorsCount" : 1,
+      "commitsCount" : 0
+    } ]
+  }, {
+    "hideki.develop@gmail.com" : [ {
+      "timeSlot" : "2020-06",
+      "contributorsCount" : 1,
+      "commitsCount" : 3
+    }, {
+      "timeSlot" : "2020-05",
+      "contributorsCount" : 1,
+      "commitsCount" : 0
+    }, {
+      "timeSlot" : "2020-04",
+      "contributorsCount" : 1,
+      "commitsCount" : 5
+    }, {
+      "timeSlot" : "2020-03",
+      "contributorsCount" : 1,
+      "commitsCount" : 0
+    }, {
+      "timeSlot" : "2020-02",
+      "contributorsCount" : 1,
+      "commitsCount" : 2
+    }, {
+      "timeSlot" : "2020-01",
+      "contributorsCount" : 1,
+      "commitsCount" : 7
+    }, {
+      "timeSlot" : "2019-12",
+      "contributorsCount" : 1,
+      "commitsCount" : 5
+    }, {
+      "timeSlot" : "2019-11",
+      "contributorsCount" : 1,
+      "commitsCount" : 3
+    }, {
+      "timeSlot" : "2019-10",
+      "contributorsCount" : 1,
+      "commitsCount" : 2
+    }, {
+      "timeSlot" : "2020-09",
+      "contributorsCount" : 1,
+      "commitsCount" : 0
+    }, {
+      "timeSlot" : "2020-08",
+      "contributorsCount" : 1,
+      "commitsCount" : 1
+    }, {
+      "timeSlot" : "2020-07",
+      "contributorsCount" : 1,
+      "commitsCount" : 4
+    }, {
+      "timeSlot" : "2021-07",
+      "contributorsCount" : 1,
+      "commitsCount" : 0
+    }, {
+      "timeSlot" : "2019-06",
+      "contributorsCount" : 1,
+      "commitsCount" : 6
+    }, {
+      "timeSlot" : "2021-06",
+      "contributorsCount" : 1,
+      "commitsCount" : 4
+    }, {
+      "timeSlot" : "2019-05",
+      "contributorsCount" : 1,
+      "commitsCount" : 1
+    }, {
+      "timeSlot" : "2021-05",
+      "contributorsCount" : 1,
+      "commitsCount" : 2
+    }, {
+      "timeSlot" : "2019-08",
+      "contributorsCount" : 1,
+      "commitsCount" : 15
+    }, {
+      "timeSlot" : "2021-04",
+      "contributorsCount" : 1,
+      "commitsCount" : 2
+    }, {
+      "timeSlot" : "2019-07",
+      "contributorsCount" : 1,
+      "commitsCount" : 13
+    }, {
+      "timeSlot" : "2021-03",
+      "contributorsCount" : 1,
+      "commitsCount" : 6
+    }, {
+      "timeSlot" : "2021-02",
+      "contributorsCount" : 1,
+      "commitsCount" : 12
+    }, {
+      "timeSlot" : "2020-12",
+      "contributorsCount" : 1,
+      "commitsCount" : 0
+    }, {
+      "timeSlot" : "2021-01",
+      "contributorsCount" : 1,
+      "commitsCount" : 4
+    }, {
+      "timeSlot" : "2020-11",
+      "contributorsCount" : 1,
+      "commitsCount" : 0
+    }, {
+      "timeSlot" : "2019-04",
+      "contributorsCount" : 1,
+      "commitsCount" : 5
+    }, {
+      "timeSlot" : "2020-10",
+      "contributorsCount" : 1,
+      "commitsCount" : 1
+    }, {
+      "timeSlot" : "2019-03",
+      "contributorsCount" : 1,
+      "commitsCount" : 3
+    }, {
+      "timeSlot" : "2019-09",
+      "contributorsCount" : 1,
+      "commitsCount" : 11
+    } ]
+  }, {
+    "korosuke613@users.noreply.github.com" : [ {
+      "timeSlot" : "2017-11",
+      "contributorsCount" : 1,
+      "commitsCount" : 0
+    }, {
+      "timeSlot" : "2022-01",
+      "contributorsCount" : 1,
+      "commitsCount" : 9
+    }, {
+      "timeSlot" : "2022-02",
+      "contributorsCount" : 1,
+      "commitsCount" : 8
+    }, {
+      "timeSlot" : "2022-03",
+      "contributorsCount" : 1,
+      "commitsCount" : 9
+    }, {
+      "timeSlot" : "2022-04",
+      "contributorsCount" : 1,
+      "commitsCount" : 8
+    }, {
+      "timeSlot" : "2022-05",
+      "contributorsCount" : 1,
+      "commitsCount" : 2
+    }, {
+      "timeSlot" : "2017-03",
+      "contributorsCount" : 1,
+      "commitsCount" : 0
+    }, {
+      "timeSlot" : "2017-04",
+      "contributorsCount" : 1,
+      "commitsCount" : 0
+    }, {
+      "timeSlot" : "2017-05",
+      "contributorsCount" : 1,
+      "commitsCount" : 2
+    }, {
+      "timeSlot" : "2020-12",
+      "contributorsCount" : 1,
+      "commitsCount" : 2
+    }, {
+      "timeSlot" : "2020-11",
+      "contributorsCount" : 1,
+      "commitsCount" : 1
+    }, {
+      "timeSlot" : "2020-10",
+      "contributorsCount" : 1,
+      "commitsCount" : 1
+    }, {
+      "timeSlot" : "2017-02",
+      "contributorsCount" : 1,
+      "commitsCount" : 4
+    }, {
+      "timeSlot" : "2018-10",
+      "contributorsCount" : 1,
+      "commitsCount" : 1
+    }, {
+      "timeSlot" : "2017-07",
+      "contributorsCount" : 1,
+      "commitsCount" : 0
+    }, {
+      "timeSlot" : "2017-08",
+      "contributorsCount" : 1,
+      "commitsCount" : 2
+    }, {
+      "timeSlot" : "2017-09",
+      "contributorsCount" : 1,
+      "commitsCount" : 0
+    }, {
+      "timeSlot" : "2020-06",
+      "contributorsCount" : 1,
+      "commitsCount" : 0
+    }, {
+      "timeSlot" : "2020-05",
+      "contributorsCount" : 1,
+      "commitsCount" : 0
+    }, {
+      "timeSlot" : "2020-03",
+      "contributorsCount" : 1,
+      "commitsCount" : 2
+    }, {
+      "timeSlot" : "2020-02",
+      "contributorsCount" : 1,
+      "commitsCount" : 3
+    }, {
+      "timeSlot" : "2019-12",
+      "contributorsCount" : 1,
+      "commitsCount" : 3
+    }, {
+      "timeSlot" : "2021-12",
+      "contributorsCount" : 1,
+      "commitsCount" : 9
+    }, {
+      "timeSlot" : "2021-11",
+      "contributorsCount" : 1,
+      "commitsCount" : 10
+    }, {
+      "timeSlot" : "2019-11",
+      "contributorsCount" : 1,
+      "commitsCount" : 0
+    }, {
+      "timeSlot" : "2019-10",
+      "contributorsCount" : 1,
+      "commitsCount" : 2
+    }, {
+      "timeSlot" : "2020-09",
+      "contributorsCount" : 1,
+      "commitsCount" : 10
+    }, {
+      "timeSlot" : "2020-08",
+      "contributorsCount" : 1,
+      "commitsCount" : 1
+    }, {
+      "timeSlot" : "2020-07",
+      "contributorsCount" : 1,
+      "commitsCount" : 2
+    }, {
+      "timeSlot" : "2021-10",
+      "contributorsCount" : 1,
+      "commitsCount" : 17
+    }, {
+      "timeSlot" : "2018-08",
+      "contributorsCount" : 1,
+      "commitsCount" : 2
+    }, {
+      "timeSlot" : "2018-09",
+      "contributorsCount" : 1,
+      "commitsCount" : 0
+    }, {
+      "timeSlot" : "2019-06",
+      "contributorsCount" : 1,
+      "commitsCount" : 4
+    }, {
+      "timeSlot" : "2021-07",
+      "contributorsCount" : 1,
+      "commitsCount" : 14
+    }, {
+      "timeSlot" : "2021-06",
+      "contributorsCount" : 1,
+      "commitsCount" : 10
+    }, {
+      "timeSlot" : "2019-05",
+      "contributorsCount" : 1,
+      "commitsCount" : 7
+    }, {
+      "timeSlot" : "2021-05",
+      "contributorsCount" : 1,
+      "commitsCount" : 12
+    }, {
+      "timeSlot" : "2019-08",
+      "contributorsCount" : 1,
+      "commitsCount" : 2
+    }, {
+      "timeSlot" : "2019-07",
+      "contributorsCount" : 1,
+      "commitsCount" : 5
+    }, {
+      "timeSlot" : "2021-04",
+      "contributorsCount" : 1,
+      "commitsCount" : 10
+    }, {
+      "timeSlot" : "2021-03",
+      "contributorsCount" : 1,
+      "commitsCount" : 13
+    }, {
+      "timeSlot" : "2019-02",
+      "contributorsCount" : 1,
+      "commitsCount" : 0
+    }, {
+      "timeSlot" : "2021-02",
+      "contributorsCount" : 1,
+      "commitsCount" : 15
+    }, {
+      "timeSlot" : "2019-01",
+      "contributorsCount" : 1,
+      "commitsCount" : 0
+    }, {
+      "timeSlot" : "2021-01",
+      "contributorsCount" : 1,
+      "commitsCount" : 4
+    }, {
+      "timeSlot" : "2019-04",
+      "contributorsCount" : 1,
+      "commitsCount" : 1
+    }, {
+      "timeSlot" : "2019-03",
+      "contributorsCount" : 1,
+      "commitsCount" : 3
+    }, {
+      "timeSlot" : "2021-09",
+      "contributorsCount" : 1,
+      "commitsCount" : 12
+    }, {
+      "timeSlot" : "2021-08",
+      "contributorsCount" : 1,
+      "commitsCount" : 10
+    }, {
+      "timeSlot" : "2019-09",
+      "contributorsCount" : 1,
+      "commitsCount" : 2
+    } ]
+  }, {
+    "mtsalenc@gmail.com" : [ {
+      "timeSlot" : "2020-04",
+      "contributorsCount" : 1,
+      "commitsCount" : 2
+    } ]
+  }, {
+    "hyuyukun@gmail.com" : [ {
+      "timeSlot" : "2022-01",
+      "contributorsCount" : 1,
+      "commitsCount" : 1
+    } ]
+  }, {
+    "16703337+numb86@users.noreply.github.com" : [ {
+      "timeSlot" : "2020-02",
+      "contributorsCount" : 1,
+      "commitsCount" : 0
+    } ]
+  }, {
+    "azu@users.noreply.github.com" : [ {
+      "timeSlot" : "2021-07",
+      "contributorsCount" : 1,
+      "commitsCount" : 1
+    }, {
+      "timeSlot" : "2020-06",
+      "contributorsCount" : 1,
+      "commitsCount" : 1
+    }, {
+      "timeSlot" : "2021-06",
+      "contributorsCount" : 1,
+      "commitsCount" : 3
+    }, {
+      "timeSlot" : "2020-05",
+      "contributorsCount" : 1,
+      "commitsCount" : 0
+    }, {
+      "timeSlot" : "2021-05",
+      "contributorsCount" : 1,
+      "commitsCount" : 1
+    }, {
+      "timeSlot" : "2020-04",
+      "contributorsCount" : 1,
+      "commitsCount" : 6
+    }, {
+      "timeSlot" : "2021-04",
+      "contributorsCount" : 1,
+      "commitsCount" : 2
+    }, {
+      "timeSlot" : "2020-03",
+      "contributorsCount" : 1,
+      "commitsCount" : 10
+    }, {
+      "timeSlot" : "2020-02",
+      "contributorsCount" : 1,
+      "commitsCount" : 11
+    }, {
+      "timeSlot" : "2020-11",
+      "contributorsCount" : 1,
+      "commitsCount" : 0
+    }, {
+      "timeSlot" : "2022-01",
+      "contributorsCount" : 1,
+      "commitsCount" : 0
+    }, {
+      "timeSlot" : "2022-02",
+      "contributorsCount" : 1,
+      "commitsCount" : 0
+    }, {
+      "timeSlot" : "2022-03",
+      "contributorsCount" : 1,
+      "commitsCount" : 5
+    }, {
+      "timeSlot" : "2021-09",
+      "contributorsCount" : 1,
+      "commitsCount" : 4
+    }, {
+      "timeSlot" : "2021-08",
+      "contributorsCount" : 1,
+      "commitsCount" : 3
+    }, {
+      "timeSlot" : "2021-10",
+      "contributorsCount" : 1,
+      "commitsCount" : 0
+    } ]
+  }, {
+    "hidekazu.tanaka@gmail.com" : [ {
+      "timeSlot" : "2020-03",
+      "contributorsCount" : 1,
+      "commitsCount" : 0
+    } ]
+  }, {
+    "korosuke613613@gmail.com" : [ {
+      "timeSlot" : "2020-06",
+      "contributorsCount" : 1,
+      "commitsCount" : 1
+    }, {
+      "timeSlot" : "2020-05",
+      "contributorsCount" : 1,
+      "commitsCount" : 0
+    }, {
+      "timeSlot" : "2018-05",
+      "contributorsCount" : 1,
+      "commitsCount" : 0
+    }, {
+      "timeSlot" : "2020-02",
+      "contributorsCount" : 1,
+      "commitsCount" : 6
+    }, {
+      "timeSlot" : "2020-01",
+      "contributorsCount" : 1,
+      "commitsCount" : 3
+    }, {
+      "timeSlot" : "2019-12",
+      "contributorsCount" : 1,
+      "commitsCount" : 9
+    }, {
+      "timeSlot" : "2018-01",
+      "contributorsCount" : 1,
+      "commitsCount" : 1
+    }, {
+      "timeSlot" : "2017-11",
+      "contributorsCount" : 1,
+      "commitsCount" : 1
+    }, {
+      "timeSlot" : "2021-12",
+      "contributorsCount" : 1,
+      "commitsCount" : 12
+    }, {
+      "timeSlot" : "2017-12",
+      "contributorsCount" : 1,
+      "commitsCount" : 0
+    }, {
+      "timeSlot" : "2021-11",
+      "contributorsCount" : 1,
+      "commitsCount" : 5
+    }, {
+      "timeSlot" : "2022-01",
+      "contributorsCount" : 1,
+      "commitsCount" : 11
+    }, {
+      "timeSlot" : "2022-02",
+      "contributorsCount" : 1,
+      "commitsCount" : 6
+    }, {
+      "timeSlot" : "2022-03",
+      "contributorsCount" : 1,
+      "commitsCount" : 9
+    }, {
+      "timeSlot" : "2022-04",
+      "contributorsCount" : 1,
+      "commitsCount" : 8
+    }, {
+      "timeSlot" : "2022-05",
+      "contributorsCount" : 1,
+      "commitsCount" : 2
+    }, {
+      "timeSlot" : "2020-09",
+      "contributorsCount" : 1,
+      "commitsCount" : 2
+    }, {
+      "timeSlot" : "2021-10",
+      "contributorsCount" : 1,
+      "commitsCount" : 8
+    }, {
+      "timeSlot" : "2018-08",
+      "contributorsCount" : 1,
+      "commitsCount" : 2
+    }, {
+      "timeSlot" : "2021-07",
+      "contributorsCount" : 1,
+      "commitsCount" : 8
+    }, {
+      "timeSlot" : "2017-03",
+      "contributorsCount" : 1,
+      "commitsCount" : 3
+    }, {
+      "timeSlot" : "2019-06",
+      "contributorsCount" : 1,
+      "commitsCount" : 3
+    }, {
+      "timeSlot" : "2021-06",
+      "contributorsCount" : 1,
+      "commitsCount" : 14
+    }, {
+      "timeSlot" : "2017-04",
+      "contributorsCount" : 1,
+      "commitsCount" : 2
+    }, {
+      "timeSlot" : "2019-05",
+      "contributorsCount" : 1,
+      "commitsCount" : 3
+    }, {
+      "timeSlot" : "2021-05",
+      "contributorsCount" : 1,
+      "commitsCount" : 5
+    }, {
+      "timeSlot" : "2017-05",
+      "contributorsCount" : 1,
+      "commitsCount" : 3
+    }, {
+      "timeSlot" : "2021-04",
+      "contributorsCount" : 1,
+      "commitsCount" : 2
+    }, {
+      "timeSlot" : "2019-07",
+      "contributorsCount" : 1,
+      "commitsCount" : 3
+    }, {
+      "timeSlot" : "2017-06",
+      "contributorsCount" : 1,
+      "commitsCount" : 1
+    }, {
+      "timeSlot" : "2018-11",
+      "contributorsCount" : 1,
+      "commitsCount" : 0
+    }, {
+      "timeSlot" : "2021-03",
+      "contributorsCount" : 1,
+      "commitsCount" : 5
+    }, {
+      "timeSlot" : "2019-02",
+      "contributorsCount" : 1,
+      "commitsCount" : 0
+    }, {
+      "timeSlot" : "2019-01",
+      "contributorsCount" : 1,
+      "commitsCount" : 1
+    }, {
+      "timeSlot" : "2021-02",
+      "contributorsCount" : 1,
+      "commitsCount" : 6
+    }, {
+      "timeSlot" : "2019-04",
+      "contributorsCount" : 1,
+      "commitsCount" : 0
+    }, {
+      "timeSlot" : "2021-01",
+      "contributorsCount" : 1,
+      "commitsCount" : 3
+    }, {
+      "timeSlot" : "2017-02",
+      "contributorsCount" : 1,
+      "commitsCount" : 6
+    }, {
+      "timeSlot" : "2019-03",
+      "contributorsCount" : 1,
+      "commitsCount" : 6
+    }, {
+      "timeSlot" : "2018-10",
+      "contributorsCount" : 1,
+      "commitsCount" : 1
+    }, {
+      "timeSlot" : "2021-09",
+      "contributorsCount" : 1,
+      "commitsCount" : 14
+    }, {
+      "timeSlot" : "2021-08",
+      "contributorsCount" : 1,
+      "commitsCount" : 12
+    }, {
+      "timeSlot" : "2017-07",
+      "contributorsCount" : 1,
+      "commitsCount" : 4
+    }, {
+      "timeSlot" : "2017-08",
+      "contributorsCount" : 1,
+      "commitsCount" : 3
+    }, {
+      "timeSlot" : "2017-09",
+      "contributorsCount" : 1,
+      "commitsCount" : 0
+    } ]
+  }, {
+    "azuciao@gmail.com" : [ {
+      "timeSlot" : "2021-07",
+      "contributorsCount" : 1,
+      "commitsCount" : 0
+    }, {
+      "timeSlot" : "2020-06",
+      "contributorsCount" : 1,
+      "commitsCount" : 1
+    }, {
+      "timeSlot" : "2021-06",
+      "contributorsCount" : 1,
+      "commitsCount" : 0
+    }, {
+      "timeSlot" : "2021-05",
+      "contributorsCount" : 1,
+      "commitsCount" : 2
+    }, {
+      "timeSlot" : "2020-04",
+      "contributorsCount" : 1,
+      "commitsCount" : 5
+    }, {
+      "timeSlot" : "2020-03",
+      "contributorsCount" : 1,
+      "commitsCount" : 12
+    }, {
+      "timeSlot" : "2020-02",
+      "contributorsCount" : 1,
+      "commitsCount" : 19
+    }, {
+      "timeSlot" : "2021-10",
+      "contributorsCount" : 1,
+      "commitsCount" : 0
+    }, {
+      "timeSlot" : "2022-03",
+      "contributorsCount" : 1,
+      "commitsCount" : 1
+    }, {
+      "timeSlot" : "2020-09",
+      "contributorsCount" : 1,
+      "commitsCount" : 0
+    }, {
+      "timeSlot" : "2021-09",
+      "contributorsCount" : 1,
+      "commitsCount" : 1
+    }, {
+      "timeSlot" : "2020-07",
+      "contributorsCount" : 1,
+      "commitsCount" : 0
+    } ]
+  }, {
+    "support@dependabot.com" : [ {
+      "timeSlot" : "2019-05",
+      "contributorsCount" : 1,
+      "commitsCount" : 6
+    }, {
+      "timeSlot" : "2019-04",
+      "contributorsCount" : 1,
+      "commitsCount" : 7
+    }, {
+      "timeSlot" : "2019-03",
+      "contributorsCount" : 1,
+      "commitsCount" : 1
+    } ]
+  }, {
+    "imgbothelp@gmail.com" : [ {
+      "timeSlot" : "2019-05",
+      "contributorsCount" : 1,
+      "commitsCount" : 0
+    }, {
+      "timeSlot" : "2020-02",
+      "contributorsCount" : 1,
+      "commitsCount" : 0
+    }, {
+      "timeSlot" : "2020-12",
+      "contributorsCount" : 1,
+      "commitsCount" : 0
+    }, {
+      "timeSlot" : "2019-01",
+      "contributorsCount" : 1,
+      "commitsCount" : 0
+    }, {
+      "timeSlot" : "2021-01",
+      "contributorsCount" : 1,
+      "commitsCount" : 0
+    }, {
+      "timeSlot" : "2018-08",
+      "contributorsCount" : 1,
+      "commitsCount" : 0
+    }, {
+      "timeSlot" : "2020-09",
+      "contributorsCount" : 1,
+      "commitsCount" : 0
+    } ]
+  }, {
+    "dphoude@gmail.com" : [ {
+      "timeSlot" : "2020-06",
+      "contributorsCount" : 1,
+      "commitsCount" : 0
+    } ]
+  }, {
+    "nicolas.vuillamy@gmail.com" : [ {
+      "timeSlot" : "2021-08",
+      "contributorsCount" : 1,
+      "commitsCount" : 0
+    } ]
+  }, {
+    "herumi@nifty.com" : [ {
+      "timeSlot" : "2020-06",
+      "contributorsCount" : 1,
+      "commitsCount" : 5
+    }, {
+      "timeSlot" : "2020-05",
+      "contributorsCount" : 1,
+      "commitsCount" : 2
+    }, {
+      "timeSlot" : "2021-05",
+      "contributorsCount" : 1,
+      "commitsCount" : 1
+    }, {
+      "timeSlot" : "2020-04",
+      "contributorsCount" : 1,
+      "commitsCount" : 2
+    }, {
+      "timeSlot" : "2021-04",
+      "contributorsCount" : 1,
+      "commitsCount" : 2
+    }, {
+      "timeSlot" : "2020-03",
+      "contributorsCount" : 1,
+      "commitsCount" : 8
+    }, {
+      "timeSlot" : "2021-03",
+      "contributorsCount" : 1,
+      "commitsCount" : 4
+    }, {
+      "timeSlot" : "2020-02",
+      "contributorsCount" : 1,
+      "commitsCount" : 2
+    }, {
+      "timeSlot" : "2021-02",
+      "contributorsCount" : 1,
+      "commitsCount" : 2
+    }, {
+      "timeSlot" : "2020-01",
+      "contributorsCount" : 1,
+      "commitsCount" : 1
+    }, {
+      "timeSlot" : "2019-12",
+      "contributorsCount" : 1,
+      "commitsCount" : 1
+    }, {
+      "timeSlot" : "2021-01",
+      "contributorsCount" : 1,
+      "commitsCount" : 4
+    }, {
+      "timeSlot" : "2020-11",
+      "contributorsCount" : 1,
+      "commitsCount" : 0
+    }, {
+      "timeSlot" : "2021-11",
+      "contributorsCount" : 1,
+      "commitsCount" : 0
+    }, {
+      "timeSlot" : "2020-10",
+      "contributorsCount" : 1,
+      "commitsCount" : 5
+    }, {
+      "timeSlot" : "2019-11",
+      "contributorsCount" : 1,
+      "commitsCount" : 3
+    }, {
+      "timeSlot" : "2019-10",
+      "contributorsCount" : 1,
+      "commitsCount" : 8
+    }, {
+      "timeSlot" : "2020-09",
+      "contributorsCount" : 1,
+      "commitsCount" : 3
+    }, {
+      "timeSlot" : "2021-09",
+      "contributorsCount" : 1,
+      "commitsCount" : 2
+    }, {
+      "timeSlot" : "2020-07",
+      "contributorsCount" : 1,
+      "commitsCount" : 4
+    } ]
+  }, {
+    "taiki-nishi@cybozu.co.jp" : [ {
+      "timeSlot" : "2020-05",
+      "contributorsCount" : 1,
+      "commitsCount" : 0
+    } ]
+  }, {
+    "yuki-nishitani@cybozu.co.jp" : [ {
+      "timeSlot" : "2019-12",
+      "contributorsCount" : 1,
+      "commitsCount" : 0
+    } ]
+  }, {
+    "sano307@naver.com" : [ {
+      "timeSlot" : "2021-07",
+      "contributorsCount" : 1,
+      "commitsCount" : 0
+    } ]
+  }, {
+    "zi@freebsd.org" : [ {
+      "timeSlot" : "2021-03",
+      "contributorsCount" : 1,
+      "commitsCount" : 0
+    } ]
+  }, {
+    "nishdas93@gmail.com" : [ {
+      "timeSlot" : "2020-03",
+      "contributorsCount" : 1,
+      "commitsCount" : 1
+    } ]
+  }, {
+    "efueger@users.noreply.github.com" : [ {
+      "timeSlot" : "2021-06",
+      "contributorsCount" : 1,
+      "commitsCount" : 0
+    } ]
+  }, {
+    "ayuwata.bakuya.phone@gmail.com" : [ {
+      "timeSlot" : "2019-12",
+      "contributorsCount" : 1,
+      "commitsCount" : 0
+    } ]
+  }, {
+    "teppeis@gmail.com" : [ {
+      "timeSlot" : "2020-02",
+      "contributorsCount" : 1,
+      "commitsCount" : 0
+    } ]
+  }, {
+    "commits@restyled.io" : [ {
+      "timeSlot" : "2019-06",
+      "contributorsCount" : 1,
+      "commitsCount" : 1
+    } ]
+  }, {
+    "jumpei-miyata@cybozu.co.jp" : [ {
+      "timeSlot" : "2019-05",
+      "contributorsCount" : 1,
+      "commitsCount" : 1
+    }, {
+      "timeSlot" : "2021-03",
+      "contributorsCount" : 1,
+      "commitsCount" : 0
+    }, {
+      "timeSlot" : "2020-12",
+      "contributorsCount" : 1,
+      "commitsCount" : 0
+    }, {
+      "timeSlot" : "2020-01",
+      "contributorsCount" : 1,
+      "commitsCount" : 0
+    }, {
+      "timeSlot" : "2019-12",
+      "contributorsCount" : 1,
+      "commitsCount" : 0
+    }, {
+      "timeSlot" : "2019-04",
+      "contributorsCount" : 1,
+      "commitsCount" : 4
+    }, {
+      "timeSlot" : "2019-03",
+      "contributorsCount" : 1,
+      "commitsCount" : 2
+    }, {
+      "timeSlot" : "2020-09",
+      "contributorsCount" : 1,
+      "commitsCount" : 1
+    }, {
+      "timeSlot" : "2020-08",
+      "contributorsCount" : 1,
+      "commitsCount" : 0
+    } ]
+  }, {
+    "oiharukawa@pm.me" : [ {
+      "timeSlot" : "2019-06",
+      "contributorsCount" : 1,
+      "commitsCount" : 0
+    } ]
+  }, {
+    "preston@prysmaticlabs.com" : [ {
+      "timeSlot" : "2020-05",
+      "contributorsCount" : 1,
+      "commitsCount" : 0
+    } ]
+  }, {
+    "malencar@pm.me" : [ {
+      "timeSlot" : "2020-04",
+      "contributorsCount" : 1,
+      "commitsCount" : 0
+    }, {
+      "timeSlot" : "2020-03",
+      "contributorsCount" : 1,
+      "commitsCount" : 1
+    } ]
+  }, {
+    "miyajan777@gmail.com" : [ {
+      "timeSlot" : "2019-05",
+      "contributorsCount" : 1,
+      "commitsCount" : 0
+    }, {
+      "timeSlot" : "2019-04",
+      "contributorsCount" : 1,
+      "commitsCount" : 4
+    }, {
+      "timeSlot" : "2019-03",
+      "contributorsCount" : 1,
+      "commitsCount" : 1
+    } ]
+  }, {
+    "s.kokuryo@gmail.com" : [ {
+      "timeSlot" : "2021-02",
+      "contributorsCount" : 1,
+      "commitsCount" : 1
+    }, {
+      "timeSlot" : "2020-12",
+      "contributorsCount" : 1,
+      "commitsCount" : 4
+    }, {
+      "timeSlot" : "2019-12",
+      "contributorsCount" : 1,
+      "commitsCount" : 1
+    }, {
+      "timeSlot" : "2021-12",
+      "contributorsCount" : 1,
+      "commitsCount" : 0
+    }, {
+      "timeSlot" : "2020-11",
+      "contributorsCount" : 1,
+      "commitsCount" : 1
+    }, {
+      "timeSlot" : "2021-11",
+      "contributorsCount" : 1,
+      "commitsCount" : 0
+    }, {
+      "timeSlot" : "2022-01",
+      "contributorsCount" : 1,
+      "commitsCount" : 1
+    } ]
+  }, {
+    "hpujhari7@gmail.com" : [ {
+      "timeSlot" : "2022-03",
+      "contributorsCount" : 1,
+      "commitsCount" : 0
+    } ]
+  }, {
+    "futa-hirakoba@cybozu.co.jp" : [ {
+      "timeSlot" : "2021-07",
+      "contributorsCount" : 1,
+      "commitsCount" : 9
+    }, {
+      "timeSlot" : "2021-06",
+      "contributorsCount" : 1,
+      "commitsCount" : 7
+    }, {
+      "timeSlot" : "2021-05",
+      "contributorsCount" : 1,
+      "commitsCount" : 13
+    }, {
+      "timeSlot" : "2021-04",
+      "contributorsCount" : 1,
+      "commitsCount" : 11
+    }, {
+      "timeSlot" : "2021-03",
+      "contributorsCount" : 1,
+      "commitsCount" : 9
+    }, {
+      "timeSlot" : "2021-02",
+      "contributorsCount" : 1,
+      "commitsCount" : 8
+    }, {
+      "timeSlot" : "2020-12",
+      "contributorsCount" : 1,
+      "commitsCount" : 1
+    }, {
+      "timeSlot" : "2020-11",
+      "contributorsCount" : 1,
+      "commitsCount" : 0
+    }, {
+      "timeSlot" : "2021-01",
+      "contributorsCount" : 1,
+      "commitsCount" : 1
+    }, {
+      "timeSlot" : "2021-12",
+      "contributorsCount" : 1,
+      "commitsCount" : 1
+    }, {
+      "timeSlot" : "2020-10",
+      "contributorsCount" : 1,
+      "commitsCount" : 0
+    }, {
+      "timeSlot" : "2021-11",
+      "contributorsCount" : 1,
+      "commitsCount" : 8
+    }, {
+      "timeSlot" : "2022-01",
+      "contributorsCount" : 1,
+      "commitsCount" : 3
+    }, {
+      "timeSlot" : "2020-09",
+      "contributorsCount" : 1,
+      "commitsCount" : 10
+    }, {
+      "timeSlot" : "2021-09",
+      "contributorsCount" : 1,
+      "commitsCount" : 0
+    }, {
+      "timeSlot" : "2020-08",
+      "contributorsCount" : 1,
+      "commitsCount" : 1
+    }, {
+      "timeSlot" : "2021-08",
+      "contributorsCount" : 1,
+      "commitsCount" : 1
+    }, {
+      "timeSlot" : "2021-10",
+      "contributorsCount" : 1,
+      "commitsCount" : 14
+    } ]
+  }, {
+    "yuya-kawabata@cybozu.co.jp" : [ {
+      "timeSlot" : "2021-02",
+      "contributorsCount" : 1,
+      "commitsCount" : 0
+    }, {
+      "timeSlot" : "2020-01",
+      "contributorsCount" : 1,
+      "commitsCount" : 0
+    }, {
+      "timeSlot" : "2019-12",
+      "contributorsCount" : 1,
+      "commitsCount" : 0
+    } ]
+  }, {
+    "matheus@kleros.io" : [ {
+      "timeSlot" : "2020-03",
+      "contributorsCount" : 1,
+      "commitsCount" : 0
+    } ]
+  }, {
+    "hitoshi-akama@cybozu.co.jp" : [ {
+      "timeSlot" : "2019-06",
+      "contributorsCount" : 1,
+      "commitsCount" : 0
+    } ]
+  }, {
+    "53790060+deviouslab@users.noreply.github.com" : [ {
+      "timeSlot" : "2021-06",
+      "contributorsCount" : 1,
+      "commitsCount" : 0
+    } ]
+  }, {
+    "ymmt2005@gmail.com" : [ {
+      "timeSlot" : "2021-07",
+      "contributorsCount" : 1,
+      "commitsCount" : 0
+    }, {
+      "timeSlot" : "2021-06",
+      "contributorsCount" : 1,
+      "commitsCount" : 3
+    } ]
+  } ],
+  "contributorsCount" : 27,
+  "recentContributorsCount" : 4,
+  "mainLoc" : 30821,
+  "testLoc" : 8631,
+  "allLoc" : 211449
+}

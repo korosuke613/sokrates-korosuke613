@@ -1,0 +1,5 @@
+Contributor	# projects	# connections
+korosuke613@users.noreply.github.com	3	3
+korosuke613613@gmail.com	4	3
+repo-visualizer@users.noreply.github.com	1	2
+bot@renovateapp.com	3	2

@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+
+    .node {
+        cursor: pointer;
+    }
+
+    .node:hover {
+        stroke: #000;
+        stroke-width: 1.5px;
+    }
+
+    .node--leaf {
+        fill: white;
+    }
+
+    .label {
+        font: 11px "Helvetica Neue", Helvetica, Arial, sans-serif;
+        text-anchor: middle;
+        text-shadow: 0 1px 0 #fff, 1px 0 0 #fff, -1px 0 0 #fff, 0 -1px 0 #fff;
+    }
+
+    .label,
+    .node--root,
+    .node--leaf {
+        pointer-events: none;
+    }
+
+</style>
+<svg width="960" height="960"></svg>
+<script src="https://d3js.org/d3.v4.min.js"></script>
+<script>
+
+    var svg = d3.select("svg"),
+        margin = 20,
+        diameter = +svg.attr("width"),
+        g = svg.append("g").attr("transform", "translate(" + diameter / 2 + "," + diameter / 2 + ")");
+
+    var color = d3.scaleLinear()
+        .domain([-1, 5])
+        .range(["hsl(152,80%,80%)", "hsl(228,30%,40%)"])
+        .interpolate(d3.interpolateHcl);
+
+    var pack = d3.pack()
+        .size([diameter - margin, diameter - margin])
+        .padding(2);
+
+
+    var root = {
+        "name": "cluster",
+        "children": [ {
+  "name" : "safetone (5.4K)",
+  "color" : "",
+  "size" : 5395,
+  "children" : [ ]
+}, {
+  "name" : "secretlint (4.7K)",
+  "color" : "",
+  "size" : 4656,
+  "children" : [ ]
+}, {
+  "name" : "myHomepage (3.5K)",
+  "color" : "",
+  "size" : 3477,
+  "children" : [ ]
+}, {
+  "name" : "atcoder (2.5K)",
+  "color" : "",
+  "size" : 2463,
+  "children" : [ ]
+}, {
+  "name" : "bls-eth-go-binary (2.1K)",
+  "color" : "",
+  "size" : 2105,
+  "children" : [ ]
+}, {
+  "name" : "trekin (1.6K)",
+  "color" : "",
+  "size" : 1563,
+  "children" : [ ]
+}, {
+  "name" : "marktone (1.5K)",
+  "color" : "",
+  "size" : 1517,
+  "children" : [ ]
+}, {
+  "name" : "grpshuffle (1.5K)",
+  "color" : "",
+  "size" : 1503,
+  "children" : [ ]
+}, {
+  "name" : "icon-generate-support-service (1.4K)",
+  "color" : "",
+  "size" : 1382,
+  "children" : [ ]
+}, {
+  "name" : "playground (1.3K)",
+  "color" : "",
+  "size" : 1261,
+  "children" : [ ]
+}, {
+  "name" : "grpc-tutorial (770)",
+  "color" : "",
+  "size" : 770,
+  "children" : [ ]
+}, {
+  "name" : "linear-kintone-sync (622)",
+  "color" : "",
+  "size" : 622,
+  "children" : [ ]
+}, {
+  "name" : "assam (616)",
+  "color" : "",
+  "size" : 616,
+  "children" : [ ]
+}, {
+  "name" : "latex-template-ja (466)",
+  "color" : "",
+  "size" : 466,
+  "children" : [ ]
+}, {
+  "name" : "linear-webhook (412)",
+  "color" : "",
+  "size" : 412,
+  "children" : [ ]
+}, {
+  "name" : "zenn-metadata-updater-action (363)",
+  "color" : "",
+  "size" : 363,
+  "children" : [ ]
+}, {
+  "name" : "book-info-from-amazon (312)",
+  "color" : "",
+  "size" : 312,
+  "children" : [ ]
+}, {
+  "name" : "octlango (273)",
+  "color" : "",
+  "size" : 273,
+  "children" : [ ]
+}, {
+  "name" : "konishi_python_learn (236)",
+  "color" : "",
+  "size" : 236,
+  "children" : [ ]
+}, {
+  "name" : "linear-app-create-issue-action (219)",
+  "color" : "",
+  "size" : 219,
+  "children" : [ ]
+}, {
+  "name" : "terraform-oci-kubernetes (175)",
+  "color" : "",
+  "size" : 175,
+  "children" : [ ]
+}, {
+  "name" : "zenn-metadata-updater (170)",
+  "color" : "",
+  "size" : 170,
+  "children" : [ ]
+}, {
+  "name" : "miyadai-sso-auto-login (165)",
+  "color" : "",
+  "size" : 165,
+  "children" : [ ]
+}, {
+  "name" : "tempura (147)",
+  "color" : "",
+  "size" : 147,
+  "children" : [ ]
+}, {
+  "name" : "tfplantesting (133)",
+  "color" : "",
+  "size" : 133,
+  "children" : [ ]
+}, {
+  "name" : "vdmpp-vscode-extension (117)",
+  "color" : "",
+  "size" : 117,
+  "children" : [ ]
+}, {
+  "name" : "dotfiles (80)",
+  "color" : "",
+  "size" : 80,
+  "children" : [ ]
+}, {
+  "name" : "my-contribution-data (70)",
+  "color" : "",
+  "size" : 70,
+  "children" : [ ]
+}, {
+  "name" : "zenn-articles (63)",
+  "color" : "",
+  "size" : 63,
+  "children" : [ ]
+}, {
+  "name" : "webhook-preview-on-aws (50)",
+  "color" : "",
+  "size" : 50,
+  "children" : [ ]
+}, {
+  "name" : "hello-world-javascript-action (25)",
+  "color" : "",
+  "size" : 25,
+  "children" : [ ]
+}, {
+  "name" : "korosuke613 (10)",
+  "color" : "",
+  "size" : 10,
+  "children" : [ ]
+}, {
+  "name" : "auto-insert-co-author-githook (5)",
+  "color" : "",
+  "size" : 5,
+  "children" : [ ]
+} ]
+    }
+
+    root = d3.hierarchy(root)
+        .sum(function (d) {
+            return d.size;
+        })
+        .sort(function (a, b) {
+            return b.value - a.value;
+        });
+
+    var focus = root,
+        nodes = pack(root).descendants(),
+        view;
+
+    var circle = g.selectAll("circle")
+        .data(nodes)
+        .enter().append("circle")
+        .attr("class", function (d) {
+            return d.parent ? d.children ? "node" : "node node--leaf" : "node node--root";
+        })
+        .style("fill", function (d) {
+            return d.children ? color(d.depth) : (d.data.color ? d.data.color : null);
+        })
+        .on("click", function (d) {
+            if (focus !== d) zoom(d), d3.event.stopPropagation();
+        });
+
+    var text = g.selectAll("text")
+        .data(nodes)
+        .enter().append("text")
+        .attr("class", "label")
+        .style("fill-opacity", function (d) {
+            return d.parent === root ? 1 : 0;
+        })
+        .style("display", function (d) {
+            return d.parent === root ? "inline" : "none";
+        })
+        .text(function (d) {
+            return d.data.name;
+        });
+
+    var node = g.selectAll("circle,text");
+
+    svg
+        .style("background", color(-1))
+        .on("click", function () {
+            zoom(root);
+        });
+
+    zoomTo([root.x, root.y, root.r * 2 + margin]);
+
+    function zoom(d) {
+        var focus0 = focus;
+        focus = d;
+
+        var transition = d3.transition()
+            .duration(d3.event.altKey ? 7500 : 750)
+            .tween("zoom", function (d) {
+                var i = d3.interpolateZoom(view, [focus.x, focus.y, focus.r * 2 + margin]);
+                return function (t) {
+                    zoomTo(i(t));
+                };
+            });
+
+        transition.selectAll("text")
+            .filter(function (d) {
+                return d.parent === focus || this.style.display === "inline";
+            })
+            .style("fill-opacity", function (d) {
+                return d.parent === focus ? 1 : 0;
+            })
+            .on("start", function (d) {
+                if (d.parent === focus) this.style.display = "inline";
+            })
+            .on("end", function (d) {
+                if (d.parent !== focus) this.style.display = "none";
+            });
+    }
+
+    function zoomTo(v) {
+        var k = diameter / v[2];
+        view = v;
+        node.attr("transform", function (d) {
+            return "translate(" + (d.x - v[0]) * k + "," + (d.y - v[1]) * k + ")";
+        });
+        circle.attr("r", function (d) {
+            return d.r * k;
+        });
+    }
+
+</script>

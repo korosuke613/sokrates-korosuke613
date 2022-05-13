@@ -1,0 +1,635 @@
+<head>
+    <style> body {
+        margin: 0;
+    } </style>
+
+    <script src="https://unpkg.com/3d-force-graph"></script>
+</head>
+
+<body>
+<div id="3d-graph"></div>
+
+<script>
+    const gData = {
+  "nodes" : [ {
+    "id" : "[korosuke613 / dotfiles]",
+    "size" : 12
+  }, {
+    "id" : "[korosuke613 / atcoder]",
+    "size" : 12
+  }, {
+    "id" : "[korosuke613 / gh-user-stars]",
+    "size" : 11
+  }, {
+    "id" : "[korosuke613 / zenn-metadata-updater-action]",
+    "size" : 11
+  }, {
+    "id" : "[korosuke613 / playground]",
+    "size" : 11
+  }, {
+    "id" : "[korosuke613 / secretlint]",
+    "size" : 11
+  }, {
+    "id" : "[korosuke613 / latex-template-ja]",
+    "size" : 12
+  }, {
+    "id" : "[korosuke613 / zenn-metadata-updater]",
+    "size" : 11
+  }, {
+    "id" : "[korosuke613 / zenn-articles]",
+    "size" : 11
+  }, {
+    "id" : "[korosuke613 / bls-eth-go-binary]",
+    "size" : 4
+  }, {
+    "id" : "[korosuke613 / linear-kintone-sync]",
+    "size" : 11
+  }, {
+    "id" : "[korosuke613 / myHomepage]",
+    "size" : 11
+  }, {
+    "id" : "[korosuke613 / grpshuffle]",
+    "size" : 12
+  } ],
+  "links" : [ {
+    "source" : "[korosuke613 / myHomepage]",
+    "target" : "[korosuke613 / secretlint]",
+    "count" : 6
+  }, {
+    "source" : "[korosuke613 / secretlint]",
+    "target" : "[korosuke613 / myHomepage]",
+    "count" : 6
+  }, {
+    "source" : "[korosuke613 / zenn-articles]",
+    "target" : "[korosuke613 / grpshuffle]",
+    "count" : 6
+  }, {
+    "source" : "[korosuke613 / grpshuffle]",
+    "target" : "[korosuke613 / zenn-articles]",
+    "count" : 6
+  }, {
+    "source" : "[korosuke613 / zenn-articles]",
+    "target" : "[korosuke613 / myHomepage]",
+    "count" : 6
+  }, {
+    "source" : "[korosuke613 / myHomepage]",
+    "target" : "[korosuke613 / zenn-articles]",
+    "count" : 6
+  }, {
+    "source" : "[korosuke613 / grpshuffle]",
+    "target" : "[korosuke613 / dotfiles]",
+    "count" : 6
+  }, {
+    "source" : "[korosuke613 / dotfiles]",
+    "target" : "[korosuke613 / grpshuffle]",
+    "count" : 6
+  }, {
+    "source" : "[korosuke613 / zenn-articles]",
+    "target" : "[korosuke613 / secretlint]",
+    "count" : 6
+  }, {
+    "source" : "[korosuke613 / secretlint]",
+    "target" : "[korosuke613 / zenn-articles]",
+    "count" : 6
+  }, {
+    "source" : "[korosuke613 / grpshuffle]",
+    "target" : "[korosuke613 / secretlint]",
+    "count" : 6
+  }, {
+    "source" : "[korosuke613 / secretlint]",
+    "target" : "[korosuke613 / grpshuffle]",
+    "count" : 6
+  }, {
+    "source" : "[korosuke613 / myHomepage]",
+    "target" : "[korosuke613 / grpshuffle]",
+    "count" : 6
+  }, {
+    "source" : "[korosuke613 / grpshuffle]",
+    "target" : "[korosuke613 / myHomepage]",
+    "count" : 6
+  }, {
+    "source" : "[korosuke613 / myHomepage]",
+    "target" : "[korosuke613 / zenn-metadata-updater]",
+    "count" : 4
+  }, {
+    "source" : "[korosuke613 / zenn-metadata-updater]",
+    "target" : "[korosuke613 / myHomepage]",
+    "count" : 4
+  }, {
+    "source" : "[korosuke613 / grpshuffle]",
+    "target" : "[korosuke613 / latex-template-ja]",
+    "count" : 4
+  }, {
+    "source" : "[korosuke613 / latex-template-ja]",
+    "target" : "[korosuke613 / grpshuffle]",
+    "count" : 4
+  }, {
+    "source" : "[korosuke613 / secretlint]",
+    "target" : "[korosuke613 / zenn-metadata-updater-action]",
+    "count" : 4
+  }, {
+    "source" : "[korosuke613 / zenn-metadata-updater-action]",
+    "target" : "[korosuke613 / secretlint]",
+    "count" : 4
+  }, {
+    "source" : "[korosuke613 / playground]",
+    "target" : "[korosuke613 / zenn-metadata-updater-action]",
+    "count" : 4
+  }, {
+    "source" : "[korosuke613 / zenn-metadata-updater-action]",
+    "target" : "[korosuke613 / playground]",
+    "count" : 4
+  }, {
+    "source" : "[korosuke613 / dotfiles]",
+    "target" : "[korosuke613 / zenn-metadata-updater-action]",
+    "count" : 4
+  }, {
+    "source" : "[korosuke613 / zenn-metadata-updater-action]",
+    "target" : "[korosuke613 / dotfiles]",
+    "count" : 4
+  }, {
+    "source" : "[korosuke613 / myHomepage]",
+    "target" : "[korosuke613 / dotfiles]",
+    "count" : 4
+  }, {
+    "source" : "[korosuke613 / dotfiles]",
+    "target" : "[korosuke613 / myHomepage]",
+    "count" : 4
+  }, {
+    "source" : "[korosuke613 / secretlint]",
+    "target" : "[korosuke613 / linear-kintone-sync]",
+    "count" : 4
+  }, {
+    "source" : "[korosuke613 / linear-kintone-sync]",
+    "target" : "[korosuke613 / secretlint]",
+    "count" : 4
+  }, {
+    "source" : "[korosuke613 / dotfiles]",
+    "target" : "[korosuke613 / secretlint]",
+    "count" : 4
+  }, {
+    "source" : "[korosuke613 / secretlint]",
+    "target" : "[korosuke613 / dotfiles]",
+    "count" : 4
+  }, {
+    "source" : "[korosuke613 / zenn-articles]",
+    "target" : "[korosuke613 / linear-kintone-sync]",
+    "count" : 4
+  }, {
+    "source" : "[korosuke613 / linear-kintone-sync]",
+    "target" : "[korosuke613 / zenn-articles]",
+    "count" : 4
+  }, {
+    "source" : "[korosuke613 / atcoder]",
+    "target" : "[korosuke613 / latex-template-ja]",
+    "count" : 4
+  }, {
+    "source" : "[korosuke613 / latex-template-ja]",
+    "target" : "[korosuke613 / atcoder]",
+    "count" : 4
+  }, {
+    "source" : "[korosuke613 / zenn-articles]",
+    "target" : "[korosuke613 / dotfiles]",
+    "count" : 4
+  }, {
+    "source" : "[korosuke613 / dotfiles]",
+    "target" : "[korosuke613 / zenn-articles]",
+    "count" : 4
+  }, {
+    "source" : "[korosuke613 / grpshuffle]",
+    "target" : "[korosuke613 / atcoder]",
+    "count" : 4
+  }, {
+    "source" : "[korosuke613 / atcoder]",
+    "target" : "[korosuke613 / grpshuffle]",
+    "count" : 4
+  }, {
+    "source" : "[korosuke613 / dotfiles]",
+    "target" : "[korosuke613 / zenn-metadata-updater]",
+    "count" : 4
+  }, {
+    "source" : "[korosuke613 / zenn-metadata-updater]",
+    "target" : "[korosuke613 / dotfiles]",
+    "count" : 4
+  }, {
+    "source" : "[korosuke613 / grpshuffle]",
+    "target" : "[korosuke613 / zenn-metadata-updater-action]",
+    "count" : 4
+  }, {
+    "source" : "[korosuke613 / zenn-metadata-updater-action]",
+    "target" : "[korosuke613 / grpshuffle]",
+    "count" : 4
+  }, {
+    "source" : "[korosuke613 / zenn-articles]",
+    "target" : "[korosuke613 / zenn-metadata-updater-action]",
+    "count" : 4
+  }, {
+    "source" : "[korosuke613 / zenn-metadata-updater-action]",
+    "target" : "[korosuke613 / zenn-articles]",
+    "count" : 4
+  }, {
+    "source" : "[korosuke613 / dotfiles]",
+    "target" : "[korosuke613 / atcoder]",
+    "count" : 4
+  }, {
+    "source" : "[korosuke613 / atcoder]",
+    "target" : "[korosuke613 / dotfiles]",
+    "count" : 4
+  }, {
+    "source" : "[korosuke613 / zenn-metadata-updater-action]",
+    "target" : "[korosuke613 / linear-kintone-sync]",
+    "count" : 4
+  }, {
+    "source" : "[korosuke613 / linear-kintone-sync]",
+    "target" : "[korosuke613 / zenn-metadata-updater-action]",
+    "count" : 4
+  }, {
+    "source" : "[korosuke613 / playground]",
+    "target" : "[korosuke613 / myHomepage]",
+    "count" : 4
+  }, {
+    "source" : "[korosuke613 / myHomepage]",
+    "target" : "[korosuke613 / playground]",
+    "count" : 4
+  }, {
+    "source" : "[korosuke613 / secretlint]",
+    "target" : "[korosuke613 / zenn-metadata-updater]",
+    "count" : 4
+  }, {
+    "source" : "[korosuke613 / zenn-metadata-updater]",
+    "target" : "[korosuke613 / secretlint]",
+    "count" : 4
+  }, {
+    "source" : "[korosuke613 / zenn-metadata-updater-action]",
+    "target" : "[korosuke613 / zenn-metadata-updater]",
+    "count" : 4
+  }, {
+    "source" : "[korosuke613 / zenn-metadata-updater]",
+    "target" : "[korosuke613 / zenn-metadata-updater-action]",
+    "count" : 4
+  }, {
+    "source" : "[korosuke613 / playground]",
+    "target" : "[korosuke613 / secretlint]",
+    "count" : 4
+  }, {
+    "source" : "[korosuke613 / secretlint]",
+    "target" : "[korosuke613 / playground]",
+    "count" : 4
+  }, {
+    "source" : "[korosuke613 / myHomepage]",
+    "target" : "[korosuke613 / linear-kintone-sync]",
+    "count" : 4
+  }, {
+    "source" : "[korosuke613 / linear-kintone-sync]",
+    "target" : "[korosuke613 / myHomepage]",
+    "count" : 4
+  }, {
+    "source" : "[korosuke613 / grpshuffle]",
+    "target" : "[korosuke613 / zenn-metadata-updater]",
+    "count" : 4
+  }, {
+    "source" : "[korosuke613 / zenn-metadata-updater]",
+    "target" : "[korosuke613 / grpshuffle]",
+    "count" : 4
+  }, {
+    "source" : "[korosuke613 / myHomepage]",
+    "target" : "[korosuke613 / zenn-metadata-updater-action]",
+    "count" : 4
+  }, {
+    "source" : "[korosuke613 / zenn-metadata-updater-action]",
+    "target" : "[korosuke613 / myHomepage]",
+    "count" : 4
+  }, {
+    "source" : "[korosuke613 / dotfiles]",
+    "target" : "[korosuke613 / linear-kintone-sync]",
+    "count" : 4
+  }, {
+    "source" : "[korosuke613 / linear-kintone-sync]",
+    "target" : "[korosuke613 / dotfiles]",
+    "count" : 4
+  }, {
+    "source" : "[korosuke613 / playground]",
+    "target" : "[korosuke613 / zenn-metadata-updater]",
+    "count" : 4
+  }, {
+    "source" : "[korosuke613 / zenn-metadata-updater]",
+    "target" : "[korosuke613 / playground]",
+    "count" : 4
+  }, {
+    "source" : "[korosuke613 / playground]",
+    "target" : "[korosuke613 / linear-kintone-sync]",
+    "count" : 4
+  }, {
+    "source" : "[korosuke613 / linear-kintone-sync]",
+    "target" : "[korosuke613 / playground]",
+    "count" : 4
+  }, {
+    "source" : "[korosuke613 / playground]",
+    "target" : "[korosuke613 / grpshuffle]",
+    "count" : 4
+  }, {
+    "source" : "[korosuke613 / grpshuffle]",
+    "target" : "[korosuke613 / playground]",
+    "count" : 4
+  }, {
+    "source" : "[korosuke613 / zenn-articles]",
+    "target" : "[korosuke613 / zenn-metadata-updater]",
+    "count" : 4
+  }, {
+    "source" : "[korosuke613 / zenn-metadata-updater]",
+    "target" : "[korosuke613 / zenn-articles]",
+    "count" : 4
+  }, {
+    "source" : "[korosuke613 / grpshuffle]",
+    "target" : "[korosuke613 / linear-kintone-sync]",
+    "count" : 4
+  }, {
+    "source" : "[korosuke613 / linear-kintone-sync]",
+    "target" : "[korosuke613 / grpshuffle]",
+    "count" : 4
+  }, {
+    "source" : "[korosuke613 / zenn-articles]",
+    "target" : "[korosuke613 / playground]",
+    "count" : 4
+  }, {
+    "source" : "[korosuke613 / playground]",
+    "target" : "[korosuke613 / zenn-articles]",
+    "count" : 4
+  }, {
+    "source" : "[korosuke613 / playground]",
+    "target" : "[korosuke613 / dotfiles]",
+    "count" : 4
+  }, {
+    "source" : "[korosuke613 / dotfiles]",
+    "target" : "[korosuke613 / playground]",
+    "count" : 4
+  }, {
+    "source" : "[korosuke613 / dotfiles]",
+    "target" : "[korosuke613 / latex-template-ja]",
+    "count" : 4
+  }, {
+    "source" : "[korosuke613 / latex-template-ja]",
+    "target" : "[korosuke613 / dotfiles]",
+    "count" : 4
+  }, {
+    "source" : "[korosuke613 / linear-kintone-sync]",
+    "target" : "[korosuke613 / zenn-metadata-updater]",
+    "count" : 4
+  }, {
+    "source" : "[korosuke613 / zenn-metadata-updater]",
+    "target" : "[korosuke613 / linear-kintone-sync]",
+    "count" : 4
+  }, {
+    "source" : "[korosuke613 / myHomepage]",
+    "target" : "[korosuke613 / latex-template-ja]",
+    "count" : 2
+  }, {
+    "source" : "[korosuke613 / latex-template-ja]",
+    "target" : "[korosuke613 / myHomepage]",
+    "count" : 2
+  }, {
+    "source" : "[korosuke613 / zenn-metadata-updater-action]",
+    "target" : "[korosuke613 / atcoder]",
+    "count" : 2
+  }, {
+    "source" : "[korosuke613 / atcoder]",
+    "target" : "[korosuke613 / zenn-metadata-updater-action]",
+    "count" : 2
+  }, {
+    "source" : "[korosuke613 / dotfiles]",
+    "target" : "[korosuke613 / gh-user-stars]",
+    "count" : 2
+  }, {
+    "source" : "[korosuke613 / gh-user-stars]",
+    "target" : "[korosuke613 / dotfiles]",
+    "count" : 2
+  }, {
+    "source" : "[korosuke613 / zenn-articles]",
+    "target" : "[korosuke613 / atcoder]",
+    "count" : 2
+  }, {
+    "source" : "[korosuke613 / atcoder]",
+    "target" : "[korosuke613 / zenn-articles]",
+    "count" : 2
+  }, {
+    "source" : "[korosuke613 / gh-user-stars]",
+    "target" : "[korosuke613 / zenn-metadata-updater]",
+    "count" : 2
+  }, {
+    "source" : "[korosuke613 / zenn-metadata-updater]",
+    "target" : "[korosuke613 / gh-user-stars]",
+    "count" : 2
+  }, {
+    "source" : "[korosuke613 / zenn-articles]",
+    "target" : "[korosuke613 / gh-user-stars]",
+    "count" : 2
+  }, {
+    "source" : "[korosuke613 / gh-user-stars]",
+    "target" : "[korosuke613 / zenn-articles]",
+    "count" : 2
+  }, {
+    "source" : "[korosuke613 / grpshuffle]",
+    "target" : "[korosuke613 / gh-user-stars]",
+    "count" : 2
+  }, {
+    "source" : "[korosuke613 / gh-user-stars]",
+    "target" : "[korosuke613 / grpshuffle]",
+    "count" : 2
+  }, {
+    "source" : "[korosuke613 / atcoder]",
+    "target" : "[korosuke613 / bls-eth-go-binary]",
+    "count" : 2
+  }, {
+    "source" : "[korosuke613 / bls-eth-go-binary]",
+    "target" : "[korosuke613 / atcoder]",
+    "count" : 2
+  }, {
+    "source" : "[korosuke613 / linear-kintone-sync]",
+    "target" : "[korosuke613 / latex-template-ja]",
+    "count" : 2
+  }, {
+    "source" : "[korosuke613 / latex-template-ja]",
+    "target" : "[korosuke613 / linear-kintone-sync]",
+    "count" : 2
+  }, {
+    "source" : "[korosuke613 / bls-eth-go-binary]",
+    "target" : "[korosuke613 / latex-template-ja]",
+    "count" : 2
+  }, {
+    "source" : "[korosuke613 / latex-template-ja]",
+    "target" : "[korosuke613 / bls-eth-go-binary]",
+    "count" : 2
+  }, {
+    "source" : "[korosuke613 / playground]",
+    "target" : "[korosuke613 / atcoder]",
+    "count" : 2
+  }, {
+    "source" : "[korosuke613 / atcoder]",
+    "target" : "[korosuke613 / playground]",
+    "count" : 2
+  }, {
+    "source" : "[korosuke613 / myHomepage]",
+    "target" : "[korosuke613 / gh-user-stars]",
+    "count" : 2
+  }, {
+    "source" : "[korosuke613 / gh-user-stars]",
+    "target" : "[korosuke613 / myHomepage]",
+    "count" : 2
+  }, {
+    "source" : "[korosuke613 / zenn-metadata-updater-action]",
+    "target" : "[korosuke613 / gh-user-stars]",
+    "count" : 2
+  }, {
+    "source" : "[korosuke613 / gh-user-stars]",
+    "target" : "[korosuke613 / zenn-metadata-updater-action]",
+    "count" : 2
+  }, {
+    "source" : "[korosuke613 / secretlint]",
+    "target" : "[korosuke613 / gh-user-stars]",
+    "count" : 2
+  }, {
+    "source" : "[korosuke613 / gh-user-stars]",
+    "target" : "[korosuke613 / secretlint]",
+    "count" : 2
+  }, {
+    "source" : "[korosuke613 / atcoder]",
+    "target" : "[korosuke613 / gh-user-stars]",
+    "count" : 2
+  }, {
+    "source" : "[korosuke613 / gh-user-stars]",
+    "target" : "[korosuke613 / atcoder]",
+    "count" : 2
+  }, {
+    "source" : "[korosuke613 / grpshuffle]",
+    "target" : "[korosuke613 / bls-eth-go-binary]",
+    "count" : 2
+  }, {
+    "source" : "[korosuke613 / bls-eth-go-binary]",
+    "target" : "[korosuke613 / grpshuffle]",
+    "count" : 2
+  }, {
+    "source" : "[korosuke613 / zenn-metadata-updater]",
+    "target" : "[korosuke613 / latex-template-ja]",
+    "count" : 2
+  }, {
+    "source" : "[korosuke613 / latex-template-ja]",
+    "target" : "[korosuke613 / zenn-metadata-updater]",
+    "count" : 2
+  }, {
+    "source" : "[korosuke613 / myHomepage]",
+    "target" : "[korosuke613 / atcoder]",
+    "count" : 2
+  }, {
+    "source" : "[korosuke613 / atcoder]",
+    "target" : "[korosuke613 / myHomepage]",
+    "count" : 2
+  }, {
+    "source" : "[korosuke613 / secretlint]",
+    "target" : "[korosuke613 / atcoder]",
+    "count" : 2
+  }, {
+    "source" : "[korosuke613 / atcoder]",
+    "target" : "[korosuke613 / secretlint]",
+    "count" : 2
+  }, {
+    "source" : "[korosuke613 / atcoder]",
+    "target" : "[korosuke613 / linear-kintone-sync]",
+    "count" : 2
+  }, {
+    "source" : "[korosuke613 / linear-kintone-sync]",
+    "target" : "[korosuke613 / atcoder]",
+    "count" : 2
+  }, {
+    "source" : "[korosuke613 / secretlint]",
+    "target" : "[korosuke613 / latex-template-ja]",
+    "count" : 2
+  }, {
+    "source" : "[korosuke613 / latex-template-ja]",
+    "target" : "[korosuke613 / secretlint]",
+    "count" : 2
+  }, {
+    "source" : "[korosuke613 / zenn-articles]",
+    "target" : "[korosuke613 / latex-template-ja]",
+    "count" : 2
+  }, {
+    "source" : "[korosuke613 / latex-template-ja]",
+    "target" : "[korosuke613 / zenn-articles]",
+    "count" : 2
+  }, {
+    "source" : "[korosuke613 / playground]",
+    "target" : "[korosuke613 / gh-user-stars]",
+    "count" : 2
+  }, {
+    "source" : "[korosuke613 / gh-user-stars]",
+    "target" : "[korosuke613 / playground]",
+    "count" : 2
+  }, {
+    "source" : "[korosuke613 / gh-user-stars]",
+    "target" : "[korosuke613 / latex-template-ja]",
+    "count" : 2
+  }, {
+    "source" : "[korosuke613 / latex-template-ja]",
+    "target" : "[korosuke613 / gh-user-stars]",
+    "count" : 2
+  }, {
+    "source" : "[korosuke613 / linear-kintone-sync]",
+    "target" : "[korosuke613 / gh-user-stars]",
+    "count" : 2
+  }, {
+    "source" : "[korosuke613 / gh-user-stars]",
+    "target" : "[korosuke613 / linear-kintone-sync]",
+    "count" : 2
+  }, {
+    "source" : "[korosuke613 / playground]",
+    "target" : "[korosuke613 / latex-template-ja]",
+    "count" : 2
+  }, {
+    "source" : "[korosuke613 / latex-template-ja]",
+    "target" : "[korosuke613 / playground]",
+    "count" : 2
+  }, {
+    "source" : "[korosuke613 / zenn-metadata-updater-action]",
+    "target" : "[korosuke613 / latex-template-ja]",
+    "count" : 2
+  }, {
+    "source" : "[korosuke613 / latex-template-ja]",
+    "target" : "[korosuke613 / zenn-metadata-updater-action]",
+    "count" : 2
+  }, {
+    "source" : "[korosuke613 / dotfiles]",
+    "target" : "[korosuke613 / bls-eth-go-binary]",
+    "count" : 2
+  }, {
+    "source" : "[korosuke613 / bls-eth-go-binary]",
+    "target" : "[korosuke613 / dotfiles]",
+    "count" : 2
+  }, {
+    "source" : "[korosuke613 / atcoder]",
+    "target" : "[korosuke613 / zenn-metadata-updater]",
+    "count" : 2
+  }, {
+    "source" : "[korosuke613 / zenn-metadata-updater]",
+    "target" : "[korosuke613 / atcoder]",
+    "count" : 2
+  } ]
+}
+
+    const maxNodeSize = gData.nodes.map(n => n.size).reduce((a, b) => Math.max(a, b));
+    const maxCount = gData.links.map(l => l.count).reduce((a, b) => Math.max(a, b));
+
+    gData.links = gData.links.map(l => { return {source: l.target, target: l.source, count: l.count} });
+
+    const Graph = ForceGraph3D()
+    (document.getElementById('3d-graph'))
+        .graphData(gData)
+        .nodeRelSize(4)
+        .nodeVal(n => Math.max(20 * n.size / maxNodeSize, 0.001))
+        .nodeLabel(n => n.id + " (" + n.size + ")")
+        .nodeColor(n => n.id.startsWith("[") ? "skyblue" : "")
+        .linkDirectionalParticles(6)
+        .linkDirectionalParticleSpeed(d => d.count / maxCount * 0.01)
+        .linkOpacity(0.1)
+        .linkWidth(d => 3 * d.count / maxCount + 0.1);
+
+</script>
+</body>

@@ -1,0 +1,14 @@
+Contributor	# people
+korosuke613 / secretlint	5
+korosuke613 / grpshuffle	4
+korosuke613 / latex-template-ja	4
+korosuke613 / zenn-articles	3
+korosuke613 / playground	3
+korosuke613 / myHomepage	3
+korosuke613 / dotfiles	3
+korosuke613 / zenn-metadata-updater-action	2
+korosuke613 / atcoder	2
+korosuke613 / linear-kintone-sync	2
+korosuke613 / zenn-metadata-updater	2
+korosuke613 / gh-user-stars	1
+korosuke613 / bls-eth-go-binary	1

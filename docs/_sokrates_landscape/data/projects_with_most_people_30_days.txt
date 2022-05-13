@@ -1,0 +1,6 @@
+Contributor	# people
+korosuke613 / zenn-articles	3
+korosuke613 / playground	3
+korosuke613 / myHomepage	3
+korosuke613 / dotfiles	1
+korosuke613 / grpshuffle	1

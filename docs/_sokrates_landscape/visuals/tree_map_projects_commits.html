@@ -1,0 +1,495 @@
+<!--
+  ~ Copyright (c) 2021 Željko Obrenović. All rights reserved.
+  -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>A treeview view on componets</title>
+    <script type="text/javascript" src="https://d3js.org/d3.v4.min.js"></script>
+
+    <style type="text/css">
+        svg {
+            font: 14px sans-serif;
+        }
+    </style>
+</head>
+<body>
+<svg width="960" height="570"></svg>
+<script>
+
+    var svg = d3.select("svg"),
+            width = +svg.attr("width"),
+            height = +svg.attr("height");
+
+    var fader = function (color) {
+                return d3.interpolateRgb(color, "#fff")(0.2);
+            },
+            color = d3.scaleOrdinal(d3.schemeCategory20.map(fader)),
+            format = d3.format(",d");
+
+    var treemap = d3.treemap()
+            .tile(d3.treemapResquarify)
+            .size([width, height])
+            .round(true)
+            .paddingInner(1);
+
+    var data = {
+        "name": "cluster",
+        "children": [ {
+  "name" : "korosuke613 / zenn-metadata-updater-action",
+  "color" : "",
+  "size" : 0,
+  "children" : [ ]
+}, {
+  "name" : "korosuke613 / zenn-metadata-updater-action",
+  "color" : "",
+  "size" : 447,
+  "children" : [ ]
+}, {
+  "name" : "korosuke613 / safetone",
+  "color" : "",
+  "size" : 0,
+  "children" : [ ]
+}, {
+  "name" : "korosuke613 / safetone",
+  "color" : "",
+  "size" : 0,
+  "children" : [ ]
+}, {
+  "name" : "korosuke613 / trekin",
+  "color" : "",
+  "size" : 0,
+  "children" : [ ]
+}, {
+  "name" : "korosuke613 / trekin",
+  "color" : "",
+  "size" : 622,
+  "children" : [ ]
+}, {
+  "name" : "korosuke613 / my-contribution-data",
+  "color" : "",
+  "size" : 0,
+  "children" : [ ]
+}, {
+  "name" : "korosuke613 / my-contribution-data",
+  "color" : "",
+  "size" : 360,
+  "children" : [ ]
+}, {
+  "name" : "korosuke613 / pict4java",
+  "color" : "",
+  "size" : 0,
+  "children" : [ ]
+}, {
+  "name" : "korosuke613 / pict4java",
+  "color" : "",
+  "size" : 1420,
+  "children" : [ ]
+}, {
+  "name" : "korosuke613 / dotfiles",
+  "color" : "",
+  "size" : 4,
+  "children" : [ ]
+}, {
+  "name" : "korosuke613 / dotfiles",
+  "color" : "",
+  "size" : 1928,
+  "children" : [ ]
+}, {
+  "name" : "korosuke613 / book-info-from-amazon",
+  "color" : "",
+  "size" : 0,
+  "children" : [ ]
+}, {
+  "name" : "korosuke613 / book-info-from-amazon",
+  "color" : "",
+  "size" : 1226,
+  "children" : [ ]
+}, {
+  "name" : "korosuke613 / playground",
+  "color" : "",
+  "size" : 18,
+  "children" : [ ]
+}, {
+  "name" : "korosuke613 / playground",
+  "color" : "",
+  "size" : 419,
+  "children" : [ ]
+}, {
+  "name" : "korosuke613 / octlango",
+  "color" : "",
+  "size" : 0,
+  "children" : [ ]
+}, {
+  "name" : "korosuke613 / octlango",
+  "color" : "",
+  "size" : 307,
+  "children" : [ ]
+}, {
+  "name" : "korosuke613 / tempura",
+  "color" : "",
+  "size" : 0,
+  "children" : [ ]
+}, {
+  "name" : "korosuke613 / tempura",
+  "color" : "",
+  "size" : 418,
+  "children" : [ ]
+}, {
+  "name" : "korosuke613 / bls-eth-go-binary",
+  "color" : "",
+  "size" : 0,
+  "children" : [ ]
+}, {
+  "name" : "korosuke613 / bls-eth-go-binary",
+  "color" : "",
+  "size" : 937,
+  "children" : [ ]
+}, {
+  "name" : "korosuke613 / linear-webhook",
+  "color" : "",
+  "size" : 0,
+  "children" : [ ]
+}, {
+  "name" : "korosuke613 / linear-webhook",
+  "color" : "",
+  "size" : 468,
+  "children" : [ ]
+}, {
+  "name" : "korosuke613 / korosuke613",
+  "color" : "",
+  "size" : 3,
+  "children" : [ ]
+}, {
+  "name" : "korosuke613 / korosuke613",
+  "color" : "",
+  "size" : 660,
+  "children" : [ ]
+}, {
+  "name" : "korosuke613 / vdmpp-vscode-extension",
+  "color" : "",
+  "size" : 0,
+  "children" : [ ]
+}, {
+  "name" : "korosuke613 / vdmpp-vscode-extension",
+  "color" : "",
+  "size" : 833,
+  "children" : [ ]
+}, {
+  "name" : "korosuke613 / terraform-oci-kubernetes",
+  "color" : "",
+  "size" : 0,
+  "children" : [ ]
+}, {
+  "name" : "korosuke613 / terraform-oci-kubernetes",
+  "color" : "",
+  "size" : 342,
+  "children" : [ ]
+}, {
+  "name" : "korosuke613 / miyadai-sso-auto-login",
+  "color" : "",
+  "size" : 0,
+  "children" : [ ]
+}, {
+  "name" : "korosuke613 / miyadai-sso-auto-login",
+  "color" : "",
+  "size" : 1367,
+  "children" : [ ]
+}, {
+  "name" : "korosuke613 / linear-app-create-issue-action",
+  "color" : "",
+  "size" : 0,
+  "children" : [ ]
+}, {
+  "name" : "korosuke613 / linear-app-create-issue-action",
+  "color" : "",
+  "size" : 363,
+  "children" : [ ]
+}, {
+  "name" : "korosuke613 / webhook-preview-on-aws",
+  "color" : "",
+  "size" : 0,
+  "children" : [ ]
+}, {
+  "name" : "korosuke613 / webhook-preview-on-aws",
+  "color" : "",
+  "size" : 0,
+  "children" : [ ]
+}, {
+  "name" : "korosuke613 / latex-template-ja",
+  "color" : "",
+  "size" : 0,
+  "children" : [ ]
+}, {
+  "name" : "korosuke613 / latex-template-ja",
+  "color" : "",
+  "size" : 876,
+  "children" : [ ]
+}, {
+  "name" : "korosuke613 / secretlint",
+  "color" : "",
+  "size" : 0,
+  "children" : [ ]
+}, {
+  "name" : "korosuke613 / secretlint",
+  "color" : "",
+  "size" : 829,
+  "children" : [ ]
+}, {
+  "name" : "korosuke613 / grpshuffle",
+  "color" : "",
+  "size" : 6,
+  "children" : [ ]
+}, {
+  "name" : "korosuke613 / grpshuffle",
+  "color" : "",
+  "size" : 305,
+  "children" : [ ]
+}, {
+  "name" : "korosuke613 / marktone",
+  "color" : "",
+  "size" : 0,
+  "children" : [ ]
+}, {
+  "name" : "korosuke613 / marktone",
+  "color" : "",
+  "size" : 1059,
+  "children" : [ ]
+}, {
+  "name" : "korosuke613 / tfplantesting",
+  "color" : "",
+  "size" : 0,
+  "children" : [ ]
+}, {
+  "name" : "korosuke613 / tfplantesting",
+  "color" : "",
+  "size" : 198,
+  "children" : [ ]
+}, {
+  "name" : "korosuke613 / zenn-metadata-updater",
+  "color" : "",
+  "size" : 0,
+  "children" : [ ]
+}, {
+  "name" : "korosuke613 / zenn-metadata-updater",
+  "color" : "",
+  "size" : 447,
+  "children" : [ ]
+}, {
+  "name" : "korosuke613 / atcoder",
+  "color" : "",
+  "size" : 0,
+  "children" : [ ]
+}, {
+  "name" : "korosuke613 / atcoder",
+  "color" : "",
+  "size" : 219,
+  "children" : [ ]
+}, {
+  "name" : "korosuke613 / icon-generate-support-service",
+  "color" : "",
+  "size" : 0,
+  "children" : [ ]
+}, {
+  "name" : "korosuke613 / icon-generate-support-service",
+  "color" : "",
+  "size" : 877,
+  "children" : [ ]
+}, {
+  "name" : "korosuke613 / gh-user-stars",
+  "color" : "",
+  "size" : 0,
+  "children" : [ ]
+}, {
+  "name" : "korosuke613 / gh-user-stars",
+  "color" : "",
+  "size" : 262,
+  "children" : [ ]
+}, {
+  "name" : "korosuke613 / konishi_python_learn",
+  "color" : "",
+  "size" : 0,
+  "children" : [ ]
+}, {
+  "name" : "korosuke613 / konishi_python_learn",
+  "color" : "",
+  "size" : 1301,
+  "children" : [ ]
+}, {
+  "name" : "korosuke613 / zenn-articles",
+  "color" : "",
+  "size" : 14,
+  "children" : [ ]
+}, {
+  "name" : "korosuke613 / zenn-articles",
+  "color" : "",
+  "size" : 493,
+  "children" : [ ]
+}, {
+  "name" : "korosuke613 / linear-kintone-sync",
+  "color" : "",
+  "size" : 0,
+  "children" : [ ]
+}, {
+  "name" : "korosuke613 / linear-kintone-sync",
+  "color" : "",
+  "size" : 446,
+  "children" : [ ]
+}, {
+  "name" : "korosuke613 / hello-world-javascript-action",
+  "color" : "",
+  "size" : 0,
+  "children" : [ ]
+}, {
+  "name" : "korosuke613 / hello-world-javascript-action",
+  "color" : "",
+  "size" : 0,
+  "children" : [ ]
+}, {
+  "name" : "korosuke613 / auto-insert-co-author-githook",
+  "color" : "",
+  "size" : 0,
+  "children" : [ ]
+}, {
+  "name" : "korosuke613 / auto-insert-co-author-githook",
+  "color" : "",
+  "size" : 621,
+  "children" : [ ]
+}, {
+  "name" : "korosuke613 / assam",
+  "color" : "",
+  "size" : 0,
+  "children" : [ ]
+}, {
+  "name" : "korosuke613 / assam",
+  "color" : "",
+  "size" : 1149,
+  "children" : [ ]
+}, {
+  "name" : "korosuke613 / myHomepage",
+  "color" : "",
+  "size" : 8,
+  "children" : [ ]
+}, {
+  "name" : "korosuke613 / myHomepage",
+  "color" : "",
+  "size" : 1927,
+  "children" : [ ]
+}, {
+  "name" : "korosuke613 / grpc-tutorial",
+  "color" : "",
+  "size" : 0,
+  "children" : [ ]
+}, {
+  "name" : "korosuke613 / grpc-tutorial",
+  "color" : "",
+  "size" : 333,
+  "children" : [ ]
+} ]
+    }
+
+    var root = d3.hierarchy(data)
+            .eachBefore(function (d) {
+                d.data.id = (d.parent ? d.parent.data.id + "." : "") + d.data.name;
+            })
+            .sum(sumBySize)
+            .sort(function (a, b) {
+                return b.height - a.height || b.value - a.value;
+            });
+
+    treemap(root);
+
+    var cell = svg.selectAll("g")
+            .data(root.leaves())
+            .enter().append("g")
+            .attr("transform", function (d) {
+                return "translate(" + d.x0 + "," + d.y0 + ")";
+            });
+
+    cell.append("rect")
+            .attr("id", function (d) {
+                return d.data.id;
+            })
+            .attr("width", function (d) {
+                return d.x1 - d.x0;
+            })
+            .attr("height", function (d) {
+                return d.y1 - d.y0;
+            })
+            .style("fill", "#c0deed");
+
+    cell.append("clipPath")
+            .attr("id", function (d) {
+                return "clip-" + d.data.id;
+            })
+            .append("use")
+            .attr("xlink:href", function (d) {
+                return "#" + d.data.id;
+            });
+
+    cell.append("text")
+            .attr("clip-path", function (d) {
+                return "url(#clip-" + d.data.id + ")";
+            })
+            .selectAll("tspan")
+            .data(function (d) {
+                return d.data.name.split(/(?=[A-Z][^A-Z])/g);
+            })
+            .enter().append("tspan")
+            .attr("x", 4)
+            .attr("y", function (d, i) {
+                return 13 + i * 10;
+            })
+            .text(function (d) {
+                return d;
+            });
+
+    cell.append("title")
+            .text(function (d) {
+                return d.data.name + ": " + format(d.value);
+            });
+
+    d3.selectAll("input")
+            .data([sumBySize, sumByCount], function (d) {
+                return d ? d.name : this.value;
+            })
+            .on("change", changed);
+
+    var timeout = d3.timeout(function () {
+        d3.select("input[value=\"sumByCount\"]")
+                .property("checked", true)
+                .dispatch("change");
+    }, 2000);
+
+    function changed(sum) {
+        timeout.stop();
+
+        treemap(root.sum(sum));
+
+        cell.transition()
+                .duration(750)
+                .attr("transform", function (d) {
+                    return "translate(" + d.x0 + "," + d.y0 + ")";
+                })
+                .select("rect")
+                .attr("width", function (d) {
+                    return d.x1 - d.x0;
+                })
+                .attr("height", function (d) {
+                    return d.y1 - d.y0;
+                });
+    }
+
+    function sumByCount(d) {
+        return d.children ? 0 : 1;
+    }
+
+    function sumBySize(d) {
+        return d.size;
+    }
+
+</script>
+</body>
+</html>

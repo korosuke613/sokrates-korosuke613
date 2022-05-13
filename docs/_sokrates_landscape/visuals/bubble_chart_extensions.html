@@ -1,0 +1,205 @@
+<!--
+  ~ Copyright (c) 2021 Željko Obrenović. All rights reserved.
+  -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>A bubble chart view on componets</title>
+    <script type="text/javascript" src="https://d3js.org/d3.v4.min.js"></script>
+
+    <style type="text/css">
+        svg {
+            font: 14px sans-serif;
+        }
+    </style>
+</head>
+<body>
+<script type="text/javascript">
+
+    var dataset = {
+        "name": "cluster",
+        "children": [ {
+  "name" : "  ts",
+  "color" : "",
+  "size" : 9765,
+  "children" : [ ]
+}, {
+  "name" : "  yaml",
+  "color" : "",
+  "size" : 5396,
+  "children" : [ ]
+}, {
+  "name" : "  go",
+  "color" : "",
+  "size" : 4586,
+  "children" : [ ]
+}, {
+  "name" : "  vue",
+  "color" : "",
+  "size" : 2676,
+  "children" : [ ]
+}, {
+  "name" : "  rs",
+  "color" : "",
+  "size" : 2115,
+  "children" : [ ]
+}, {
+  "name" : "  css",
+  "color" : "",
+  "size" : 1310,
+  "children" : [ ]
+}, {
+  "name" : "  js",
+  "color" : "",
+  "size" : 1178,
+  "children" : [ ]
+}, {
+  "name" : "  html",
+  "color" : "",
+  "size" : 520,
+  "children" : [ ]
+}, {
+  "name" : "  h",
+  "color" : "",
+  "size" : 509,
+  "children" : [ ]
+}, {
+  "name" : "  tsx",
+  "color" : "",
+  "size" : 443,
+  "children" : [ ]
+}, {
+  "name" : "  py",
+  "color" : "",
+  "size" : 407,
+  "children" : [ ]
+}, {
+  "name" : "  toml",
+  "color" : "",
+  "size" : 320,
+  "children" : [ ]
+}, {
+  "name" : "  tf",
+  "color" : "",
+  "size" : 299,
+  "children" : [ ]
+}, {
+  "name" : "  scss",
+  "color" : "",
+  "size" : 257,
+  "children" : [ ]
+}, {
+  "name" : "  tex",
+  "color" : "",
+  "size" : 231,
+  "children" : [ ]
+}, {
+  "name" : "  yml",
+  "color" : "",
+  "size" : 205,
+  "children" : [ ]
+}, {
+  "name" : "  sty",
+  "color" : "",
+  "size" : 203,
+  "children" : [ ]
+}, {
+  "name" : "  json5",
+  "color" : "",
+  "size" : 125,
+  "children" : [ ]
+}, {
+  "name" : "  tfstate",
+  "color" : "",
+  "size" : 104,
+  "children" : [ ]
+}, {
+  "name" : "  java",
+  "color" : "",
+  "size" : 103,
+  "children" : [ ]
+}, {
+  "name" : "  proto",
+  "color" : "",
+  "size" : 46,
+  "children" : [ ]
+}, {
+  "name" : "  mjs",
+  "color" : "",
+  "size" : 12,
+  "children" : [ ]
+}, {
+  "name" : "  lua",
+  "color" : "",
+  "size" : 11,
+  "children" : [ ]
+} ]
+    }
+
+    var diameter = 800;
+    var color = d3.scaleOrdinal(d3.schemeCategory20);
+
+    var bubble = d3.pack(dataset)
+        .size([diameter, diameter])
+        .padding(1.5);
+
+    var svg = d3.select("body")
+        .append("svg")
+        .attr("width", diameter)
+        .attr("height", diameter)
+        .attr("class", "bubble");
+
+    var nodes = d3.hierarchy(dataset)
+        .sum(function(d) { return d.size; });
+
+    var node = svg.selectAll(".node")
+        .data(bubble(nodes).descendants())
+        .enter()
+        .filter(function(d){
+            return  !d.children
+        })
+        .append("g")
+        .attr("class", "node")
+        .attr("transform", function(d) {
+            return "translate(" + d.x + "," + d.y + ")";
+        });
+
+    node.append("title")
+        .text(function(d) {
+            return d.data.name + ": " + d.data.size;
+        });
+
+    node.append("circle")
+        .attr("r", function(d) {
+            return d.r;
+        })
+        .style("fill", function(d,i) {
+            return "rgb(192, 222, 237)";
+        });
+
+    node.append("text")
+        .attr("dy", ".2em")
+        .style("text-anchor", "middle")
+        .text(function(d) {
+            return d.data.name.substring(0, d.r / 3);
+        })
+        .attr("font-family", "sans-serif")
+        .attr("fill", "black");
+
+    node.append("text")
+        .attr("dy", "1.3em")
+        .style("text-anchor", "middle")
+        .text(function(d) {
+            return d.data.Count;
+        })
+        .attr("font-family",  "Gill Sans", "Gill Sans MT")
+        .attr("fill", "white");
+
+    d3.select(self.frameElement)
+        .style("height", diameter + "px");
+
+</script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+graph G {
+    compound="true"
+    rankdir="TB"
+    bgcolor="white"
+    fontname="Tahoma"
+
+    node [
+        fixedsize="false"
+        fontname="Tahoma"
+        color="white"
+        fillcolor="deepskyblue2"
+        fontcolor="black"
+        shape="box"
+        style="filled"
+        penwidth="1.0"
+    ]
+    edge [
+        fontname="Arial"
+        color="#00688b"
+        fontcolor="black"
+        fontsize="12"
+        arrowsize="0.5"
+        penwidth="1.0"
+    ]
+
+
+
+
+    "korosuke613@users.noreply.github.com" -- "korosuke613613@gmail.com" [label=" 8 ", penwidth="8", color="#00688bDB"];
+    "korosuke613@users.noreply.github.com" -- "bot@renovateapp.com" [label=" 4 ", penwidth="4", color="#00688b93"];
+    "korosuke613613@gmail.com" -- "bot@renovateapp.com" [label=" 4 ", penwidth="4", color="#00688b93"];
+    "korosuke613@users.noreply.github.com" -- "repo-visualizer@users.noreply.github.com" [label=" 1 ", penwidth="1", color="#00688b5E"];
+    "korosuke613613@gmail.com" -- "repo-visualizer@users.noreply.github.com" [label=" 1 ", penwidth="1", color="#00688b5E"];
+    "korosuke613@users.noreply.github.com" -- "azuciao@gmail.com" [label=" 1 ", penwidth="1", color="#00688b5E"];
+    "korosuke613@users.noreply.github.com" -- "azu@users.noreply.github.com" [label=" 1 ", penwidth="1", color="#00688b5E"];
+    "korosuke613613@gmail.com" -- "azuciao@gmail.com" [label=" 1 ", penwidth="1", color="#00688b5E"];
+    "korosuke613613@gmail.com" -- "azu@users.noreply.github.com" [label=" 1 ", penwidth="1", color="#00688b5E"];
+    "bot@renovateapp.com" -- "azuciao@gmail.com" [label=" 1 ", penwidth="1", color="#00688b5E"];
+    "bot@renovateapp.com" -- "azu@users.noreply.github.com" [label=" 1 ", penwidth="1", color="#00688b5E"];
+    "azuciao@gmail.com" -- "azu@users.noreply.github.com" [label=" 1 ", penwidth="1", color="#00688b5E"];
+
+}

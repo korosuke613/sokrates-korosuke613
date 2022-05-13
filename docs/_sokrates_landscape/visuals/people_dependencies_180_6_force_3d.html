@@ -1,0 +1,223 @@
+<head>
+    <style> body {
+        margin: 0;
+    } </style>
+
+    <script src="https://unpkg.com/3d-force-graph"></script>
+</head>
+
+<body>
+<div id="3d-graph"></div>
+
+<script>
+    const gData = {
+  "nodes" : [ {
+    "id" : "s.kokuryo@gmail.com",
+    "size" : 3
+  }, {
+    "id" : "azu@users.noreply.github.com",
+    "size" : 4
+  }, {
+    "id" : "futa-hirakoba@cybozu.co.jp",
+    "size" : 5
+  }, {
+    "id" : "repo-visualizer@users.noreply.github.com",
+    "size" : 2
+  }, {
+    "id" : "korosuke613@users.noreply.github.com",
+    "size" : 8
+  }, {
+    "id" : "korosuke613613@gmail.com",
+    "size" : 6
+  }, {
+    "id" : "azuciao@gmail.com",
+    "size" : 4
+  }, {
+    "id" : "bot@renovateapp.com",
+    "size" : 5
+  }, {
+    "id" : "hyuyukun@gmail.com",
+    "size" : 3
+  } ],
+  "links" : [ {
+    "source" : "korosuke613@users.noreply.github.com",
+    "target" : "korosuke613613@gmail.com",
+    "count" : 9
+  }, {
+    "source" : "korosuke613613@gmail.com",
+    "target" : "korosuke613@users.noreply.github.com",
+    "count" : 9
+  }, {
+    "source" : "korosuke613@users.noreply.github.com",
+    "target" : "futa-hirakoba@cybozu.co.jp",
+    "count" : 4
+  }, {
+    "source" : "futa-hirakoba@cybozu.co.jp",
+    "target" : "korosuke613@users.noreply.github.com",
+    "count" : 4
+  }, {
+    "source" : "korosuke613@users.noreply.github.com",
+    "target" : "bot@renovateapp.com",
+    "count" : 4
+  }, {
+    "source" : "bot@renovateapp.com",
+    "target" : "korosuke613@users.noreply.github.com",
+    "count" : 4
+  }, {
+    "source" : "korosuke613613@gmail.com",
+    "target" : "bot@renovateapp.com",
+    "count" : 4
+  }, {
+    "source" : "bot@renovateapp.com",
+    "target" : "korosuke613613@gmail.com",
+    "count" : 4
+  }, {
+    "source" : "korosuke613613@gmail.com",
+    "target" : "futa-hirakoba@cybozu.co.jp",
+    "count" : 2
+  }, {
+    "source" : "futa-hirakoba@cybozu.co.jp",
+    "target" : "korosuke613613@gmail.com",
+    "count" : 2
+  }, {
+    "source" : "korosuke613@users.noreply.github.com",
+    "target" : "repo-visualizer@users.noreply.github.com",
+    "count" : 1
+  }, {
+    "source" : "repo-visualizer@users.noreply.github.com",
+    "target" : "korosuke613@users.noreply.github.com",
+    "count" : 1
+  }, {
+    "source" : "korosuke613613@gmail.com",
+    "target" : "repo-visualizer@users.noreply.github.com",
+    "count" : 1
+  }, {
+    "source" : "repo-visualizer@users.noreply.github.com",
+    "target" : "korosuke613613@gmail.com",
+    "count" : 1
+  }, {
+    "source" : "korosuke613@users.noreply.github.com",
+    "target" : "azuciao@gmail.com",
+    "count" : 1
+  }, {
+    "source" : "azuciao@gmail.com",
+    "target" : "korosuke613@users.noreply.github.com",
+    "count" : 1
+  }, {
+    "source" : "korosuke613@users.noreply.github.com",
+    "target" : "azu@users.noreply.github.com",
+    "count" : 1
+  }, {
+    "source" : "azu@users.noreply.github.com",
+    "target" : "korosuke613@users.noreply.github.com",
+    "count" : 1
+  }, {
+    "source" : "korosuke613613@gmail.com",
+    "target" : "azuciao@gmail.com",
+    "count" : 1
+  }, {
+    "source" : "azuciao@gmail.com",
+    "target" : "korosuke613613@gmail.com",
+    "count" : 1
+  }, {
+    "source" : "korosuke613613@gmail.com",
+    "target" : "azu@users.noreply.github.com",
+    "count" : 1
+  }, {
+    "source" : "azu@users.noreply.github.com",
+    "target" : "korosuke613613@gmail.com",
+    "count" : 1
+  }, {
+    "source" : "bot@renovateapp.com",
+    "target" : "azuciao@gmail.com",
+    "count" : 1
+  }, {
+    "source" : "azuciao@gmail.com",
+    "target" : "bot@renovateapp.com",
+    "count" : 1
+  }, {
+    "source" : "bot@renovateapp.com",
+    "target" : "azu@users.noreply.github.com",
+    "count" : 1
+  }, {
+    "source" : "azu@users.noreply.github.com",
+    "target" : "bot@renovateapp.com",
+    "count" : 1
+  }, {
+    "source" : "azuciao@gmail.com",
+    "target" : "azu@users.noreply.github.com",
+    "count" : 1
+  }, {
+    "source" : "azu@users.noreply.github.com",
+    "target" : "azuciao@gmail.com",
+    "count" : 1
+  }, {
+    "source" : "korosuke613@users.noreply.github.com",
+    "target" : "s.kokuryo@gmail.com",
+    "count" : 1
+  }, {
+    "source" : "s.kokuryo@gmail.com",
+    "target" : "korosuke613@users.noreply.github.com",
+    "count" : 1
+  }, {
+    "source" : "korosuke613@users.noreply.github.com",
+    "target" : "hyuyukun@gmail.com",
+    "count" : 1
+  }, {
+    "source" : "hyuyukun@gmail.com",
+    "target" : "korosuke613@users.noreply.github.com",
+    "count" : 1
+  }, {
+    "source" : "futa-hirakoba@cybozu.co.jp",
+    "target" : "s.kokuryo@gmail.com",
+    "count" : 1
+  }, {
+    "source" : "s.kokuryo@gmail.com",
+    "target" : "futa-hirakoba@cybozu.co.jp",
+    "count" : 1
+  }, {
+    "source" : "futa-hirakoba@cybozu.co.jp",
+    "target" : "hyuyukun@gmail.com",
+    "count" : 1
+  }, {
+    "source" : "hyuyukun@gmail.com",
+    "target" : "futa-hirakoba@cybozu.co.jp",
+    "count" : 1
+  }, {
+    "source" : "s.kokuryo@gmail.com",
+    "target" : "hyuyukun@gmail.com",
+    "count" : 1
+  }, {
+    "source" : "hyuyukun@gmail.com",
+    "target" : "s.kokuryo@gmail.com",
+    "count" : 1
+  }, {
+    "source" : "bot@renovateapp.com",
+    "target" : "futa-hirakoba@cybozu.co.jp",
+    "count" : 1
+  }, {
+    "source" : "futa-hirakoba@cybozu.co.jp",
+    "target" : "bot@renovateapp.com",
+    "count" : 1
+  } ]
+}
+
+    const maxNodeSize = gData.nodes.map(n => n.size).reduce((a, b) => Math.max(a, b));
+    const maxCount = gData.links.map(l => l.count).reduce((a, b) => Math.max(a, b));
+
+    gData.links = gData.links.map(l => { return {source: l.target, target: l.source, count: l.count} });
+
+    const Graph = ForceGraph3D()
+    (document.getElementById('3d-graph'))
+        .graphData(gData)
+        .nodeRelSize(4)
+        .nodeVal(n => Math.max(20 * n.size / maxNodeSize, 0.001))
+        .nodeLabel(n => n.id + " (" + n.size + ")")
+        .nodeColor(n => n.id.startsWith("[") ? "skyblue" : "")
+        .linkDirectionalParticles(6)
+        .linkDirectionalParticleSpeed(d => d.count / maxCount * 0.01)
+        .linkOpacity(0.1)
+        .linkWidth(d => 3 * d.count / maxCount + 0.1);
+
+</script>
+</body>

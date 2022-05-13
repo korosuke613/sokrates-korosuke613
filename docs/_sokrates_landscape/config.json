@@ -1,0 +1,186 @@
+{
+  "metadata" : {
+    "name" : "korosuke613",
+    "description" : "",
+    "tooltip" : "",
+    "logoLink" : "",
+    "links" : [ ]
+  },
+  "analysisRoot" : ".",
+  "projectReportsUrlPrefix" : "../",
+  "parentUrl" : "",
+  "breadcrumbs" : [ ],
+  "extensionThresholdLoc" : 0,
+  "projectThresholdLocMain" : 0,
+  "projectThresholdContributors" : 2,
+  "contributorThresholdCommits" : 2,
+  "ignoreProjectsLastUpdatedBefore" : "2020-01-01",
+  "commitsMaxYears" : 10,
+  "anonymizeContributors" : false,
+  "showProjectControls" : true,
+  "projectsShortListLimit" : 100,
+  "projectsListLimit" : 1000,
+  "projectsHistoryLimit" : 30,
+  "contributorsListLimit" : 1000,
+  "contributorLinkTemplate" : "",
+  "contributorAvatarLinkTemplate" : "",
+  "ignoreContributors" : [ ".*\\[bot\\].*", ".*[-]bot[@].*" ],
+  "ignoreExtensions" : [ ],
+  "includeOnlyFirstProjectWithSameName" : true,
+  "mergeExtensions" : [ ],
+  "transformContributorEmails" : [ ],
+  "showExtensionsOnFirstTab" : true,
+  "showContributorsTrendsOnFirstTab" : true,
+  "maxSublandscapeDepth" : 0,
+  "iFramesAtStart" : [ ],
+  "iFrames" : [ ],
+  "iFramesProjectsAtStart" : [ ],
+  "iFramesProjects" : [ ],
+  "iFramesContributorsAtStart" : [ ],
+  "iFramesContributors" : [ ],
+  "customTabs" : [ ],
+  "customHtmlReportHeaderFragment" : "",
+  "projectTags" : [ ],
+  "subLandscapes" : [ ],
+  "projects" : [ {
+    "analysisResultsPath" : "zenn-metadata-updater-action/data/analysisResults.json",
+    "htmlReportsRoot" : "zenn-metadata-updater-action/html",
+    "note" : ""
+  }, {
+    "analysisResultsPath" : "safetone/data/analysisResults.json",
+    "htmlReportsRoot" : "safetone/html",
+    "note" : ""
+  }, {
+    "analysisResultsPath" : "trekin/data/analysisResults.json",
+    "htmlReportsRoot" : "trekin/html",
+    "note" : ""
+  }, {
+    "analysisResultsPath" : "my-contribution-data/data/analysisResults.json",
+    "htmlReportsRoot" : "my-contribution-data/html",
+    "note" : ""
+  }, {
+    "analysisResultsPath" : "pict4java/data/analysisResults.json",
+    "htmlReportsRoot" : "pict4java/html",
+    "note" : ""
+  }, {
+    "analysisResultsPath" : "dotfiles/data/analysisResults.json",
+    "htmlReportsRoot" : "dotfiles/html",
+    "note" : ""
+  }, {
+    "analysisResultsPath" : "book-info-from-amazon/data/analysisResults.json",
+    "htmlReportsRoot" : "book-info-from-amazon/html",
+    "note" : ""
+  }, {
+    "analysisResultsPath" : "playground/data/analysisResults.json",
+    "htmlReportsRoot" : "playground/html",
+    "note" : ""
+  }, {
+    "analysisResultsPath" : "octlango/data/analysisResults.json",
+    "htmlReportsRoot" : "octlango/html",
+    "note" : ""
+  }, {
+    "analysisResultsPath" : "tempura/data/analysisResults.json",
+    "htmlReportsRoot" : "tempura/html",
+    "note" : ""
+  }, {
+    "analysisResultsPath" : "bls-eth-go-binary/data/analysisResults.json",
+    "htmlReportsRoot" : "bls-eth-go-binary/html",
+    "note" : ""
+  }, {
+    "analysisResultsPath" : "linear-webhook/data/analysisResults.json",
+    "htmlReportsRoot" : "linear-webhook/html",
+    "note" : ""
+  }, {
+    "analysisResultsPath" : "korosuke613/data/analysisResults.json",
+    "htmlReportsRoot" : "korosuke613/html",
+    "note" : ""
+  }, {
+    "analysisResultsPath" : "vdmpp-vscode-extension/data/analysisResults.json",
+    "htmlReportsRoot" : "vdmpp-vscode-extension/html",
+    "note" : ""
+  }, {
+    "analysisResultsPath" : "terraform-oci-kubernetes/data/analysisResults.json",
+    "htmlReportsRoot" : "terraform-oci-kubernetes/html",
+    "note" : ""
+  }, {
+    "analysisResultsPath" : "miyadai-sso-auto-login/data/analysisResults.json",
+    "htmlReportsRoot" : "miyadai-sso-auto-login/html",
+    "note" : ""
+  }, {
+    "analysisResultsPath" : "linear-app-create-issue-action/data/analysisResults.json",
+    "htmlReportsRoot" : "linear-app-create-issue-action/html",
+    "note" : ""
+  }, {
+    "analysisResultsPath" : "webhook-preview-on-aws/data/analysisResults.json",
+    "htmlReportsRoot" : "webhook-preview-on-aws/html",
+    "note" : ""
+  }, {
+    "analysisResultsPath" : "latex-template-ja/data/analysisResults.json",
+    "htmlReportsRoot" : "latex-template-ja/html",
+    "note" : ""
+  }, {
+    "analysisResultsPath" : "secretlint/data/analysisResults.json",
+    "htmlReportsRoot" : "secretlint/html",
+    "note" : ""
+  }, {
+    "analysisResultsPath" : "grpshuffle/data/analysisResults.json",
+    "htmlReportsRoot" : "grpshuffle/html",
+    "note" : ""
+  }, {
+    "analysisResultsPath" : "marktone/data/analysisResults.json",
+    "htmlReportsRoot" : "marktone/html",
+    "note" : ""
+  }, {
+    "analysisResultsPath" : "tfplantesting/data/analysisResults.json",
+    "htmlReportsRoot" : "tfplantesting/html",
+    "note" : ""
+  }, {
+    "analysisResultsPath" : "zenn-metadata-updater/data/analysisResults.json",
+    "htmlReportsRoot" : "zenn-metadata-updater/html",
+    "note" : ""
+  }, {
+    "analysisResultsPath" : "atcoder/data/analysisResults.json",
+    "htmlReportsRoot" : "atcoder/html",
+    "note" : ""
+  }, {
+    "analysisResultsPath" : "icon-generate-support-service/data/analysisResults.json",
+    "htmlReportsRoot" : "icon-generate-support-service/html",
+    "note" : ""
+  }, {
+    "analysisResultsPath" : "gh-user-stars/data/analysisResults.json",
+    "htmlReportsRoot" : "gh-user-stars/html",
+    "note" : ""
+  }, {
+    "analysisResultsPath" : "konishi_python_learn/data/analysisResults.json",
+    "htmlReportsRoot" : "konishi_python_learn/html",
+    "note" : ""
+  }, {
+    "analysisResultsPath" : "zenn-articles/data/analysisResults.json",
+    "htmlReportsRoot" : "zenn-articles/html",
+    "note" : ""
+  }, {
+    "analysisResultsPath" : "linear-kintone-sync/data/analysisResults.json",
+    "htmlReportsRoot" : "linear-kintone-sync/html",
+    "note" : ""
+  }, {
+    "analysisResultsPath" : "hello-world-javascript-action/data/analysisResults.json",
+    "htmlReportsRoot" : "hello-world-javascript-action/html",
+    "note" : ""
+  }, {
+    "analysisResultsPath" : "auto-insert-co-author-githook/data/analysisResults.json",
+    "htmlReportsRoot" : "auto-insert-co-author-githook/html",
+    "note" : ""
+  }, {
+    "analysisResultsPath" : "assam/data/analysisResults.json",
+    "htmlReportsRoot" : "assam/html",
+    "note" : ""
+  }, {
+    "analysisResultsPath" : "myHomepage/data/analysisResults.json",
+    "htmlReportsRoot" : "myHomepage/html",
+    "note" : ""
+  }, {
+    "analysisResultsPath" : "grpc-tutorial/data/analysisResults.json",
+    "htmlReportsRoot" : "grpc-tutorial/html",
+    "note" : ""
+  } ]
+}

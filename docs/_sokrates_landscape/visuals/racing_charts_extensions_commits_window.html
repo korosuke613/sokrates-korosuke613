@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <style>
+        text {
+            font-size: 16px;
+            font-family: Open Sans, sans-serif;
+        }
+
+        text.title {
+            font-size: 24px;
+            font-weight: 500;
+        }
+
+        text.subTitle {
+            font-weight: 500;
+            fill: #777777;
+        }
+
+        text.caption {
+            font-weight: 400;
+            font-size: 14px;
+            fill: #777777;
+        }
+
+        text.label {
+            font-weight: 600;
+        }
+
+        text.valueLabel {
+            font-weight: 300;
+        }
+
+        text.yearText {
+            font-size: 64px;
+            font-weight: 700;
+            opacity: 0.25;
+        }
+
+        .tick text {
+            fill: #777777;
+        }
+
+        .xAxis .tick:nth-child(2) text {
+            text-anchor: start;
+        }
+
+        .tick line {
+            shape-rendering: CrispEdges;
+            stroke: #dddddd;
+        }
+
+        .tick line.origin {
+            stroke: #aaaaaa;
+        }
+
+        path.domain {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+<script>
+    var height = 3000;
+    var width = 1200;
+
+    var svg = d3.select("body").append("svg")
+        .attr("width", width)
+        .attr("height", height);
+
+
+    function findGetParameter(parameterName) {
+        var result = null, tmp = [];
+        location.search.substr(1).split("&").forEach(function (item) {
+            tmp = item.split("=");
+            if (tmp[0] === parameterName) result = decodeURIComponent(tmp[1]);
+        });
+        return result;
+    }
+
+    var tickDuration = 1200;
+    var durationParam = findGetParameter('tickDuration');
+    if (durationParam) {
+        tickDuration = parseInt(durationParam);
+    }
+
+    var factor = 1;
+    var factorParam = findGetParameter('valueFactor');
+    if (factorParam) {
+        factor = parseFloat(factorParam);
+    }
+
+    var start = 0;
+    var startParam = findGetParameter('start');
+    if (startParam) {
+        start = parseInt(startParam);
+    }
+
+    var top_n = 50;
+
+    const margin = {
+        top: 80,
+        right: 0,
+        bottom: 5,
+        left: 0
+    };
+
+    let barPadding = (height - (margin.bottom + margin.top)) / (top_n * 5);
+
+    let title = svg.append('text')
+        .attr('class', 'title')
+        .attr('y', 24)
+        .html('Commits per file extensions since 2017 (12 months window)');
+
+    let subTitle = svg.append("text")
+        .attr("class", "subTitle")
+        .attr("y", 55)
+        .html("");
+
+    let caption = svg.append('text')
+        .attr('class', 'caption')
+        .attr('x', width)
+        .attr('y', height - 5)
+        .style('text-anchor', 'end');
+
+    let year = start > 0 ? start : 2017;
+
+
+    const data = [{"name":"yml","year":2017.0,"value":0.1},{"name":"yml","year":2017.1,"value":0.1},{"name":"yml","year":2017.2,"value":0.1},{"name":"yml","year":2017.3,"value":0.1},{"name":"yml","year":2017.4,"value":0.1},{"name":"yml","year":2017.5,"value":0.1},{"name":"yml","year":2017.6,"value":0.1},{"name":"yml","year":2017.7,"value":0.1},{"name":"yml","year":2017.8,"value":0.1},{"name":"yml","year":2017.9,"value":0.1},{"name":"yml","year":2018.0,"value":0.1},{"name":"yml","year":2018.1,"value":0.1},{"name":"yml","year":2018.2,"value":0.1},{"name":"yml","year":2018.3,"value":0.1},{"name":"yml","year":2018.4,"value":1.0},{"name":"yml","year":2018.5,"value":1.0},{"name":"yml","year":2018.6,"value":1.0},{"name":"yml","year":2018.7,"value":1.0},{"name":"yml","year":2018.8,"value":1.0},{"name":"yml","year":2018.9,"value":1.0},{"name":"yml","year":2019.0,"value":10.0},{"name":"yml","year":2019.1,"value":19.0},{"name":"yml","year":2019.2,"value":28.0},{"name":"yml","year":2019.3,"value":37.0},{"name":"yml","year":2019.4,"value":46.0},{"name":"yml","year":2019.5,"value":54.0},{"name":"yml","year":2019.6,"value":63.0},{"name":"yml","year":2019.7,"value":72.0},{"name":"yml","year":2019.8,"value":81.0},{"name":"yml","year":2019.9,"value":90.0},{"name":"yml","year":2020.0,"value":108.0},{"name":"yml","year":2020.1,"value":125.0},{"name":"yml","year":2020.2,"value":143.0},{"name":"yml","year":2020.3,"value":160.0},{"name":"yml","year":2020.4,"value":178.0},{"name":"yml","year":2020.5,"value":195.0},{"name":"yml","year":2020.6,"value":213.0},{"name":"yml","year":2020.7,"value":230.0},{"name":"yml","year":2020.8,"value":248.0},{"name":"yml","year":2020.9,"value":265.0},{"name":"yml","year":2021.0,"value":261.0},{"name":"yml","year":2021.1,"value":257.0},{"name":"yml","year":2021.2,"value":253.0},{"name":"yml","year":2021.3,"value":249.0},{"name":"yml","year":2021.4,"value":245.0},{"name":"yml","year":2021.5,"value":240.0},{"name":"yml","year":2021.6,"value":236.0},{"name":"yml","year":2021.7,"value":232.0},{"name":"yml","year":2021.8,"value":228.0},{"name":"yml","year":2021.9,"value":224.0},{"name":"yml","year":2022.0,"value":208.0},{"name":"yml","year":2022.1,"value":191.0},{"name":"yml","year":2022.2,"value":175.0},{"name":"yml","year":2022.3,"value":158.0},{"name":"yml","year":2022.4,"value":142.0},{"name":"yml","year":2022.5,"value":126.0},{"name":"yml","year":2022.6,"value":109.0},{"name":"yml","year":2022.7,"value":93.0},{"name":"yml","year":2022.8,"value":76.0},{"name":"yml","year":2022.9,"value":60.0},{"name":"ts","year":2017.0,"value":0.1},{"name":"ts","year":2017.1,"value":0.1},{"name":"ts","year":2017.2,"value":0.1},{"name":"ts","year":2017.3,"value":0.1},{"name":"ts","year":2017.4,"value":0.1},{"name":"ts","year":2017.5,"value":0.1},{"name":"ts","year":2017.6,"value":0.1},{"name":"ts","year":2017.7,"value":0.1},{"name":"ts","year":2017.8,"value":0.1},{"name":"ts","year":2017.9,"value":0.1},{"name":"ts","year":2018.0,"value":0.1},{"name":"ts","year":2018.1,"value":0.1},{"name":"ts","year":2018.2,"value":0.1},{"name":"ts","year":2018.3,"value":0.1},{"name":"ts","year":2018.4,"value":0.1},{"name":"ts","year":2018.5,"value":0.1},{"name":"ts","year":2018.6,"value":0.1},{"name":"ts","year":2018.7,"value":0.1},{"name":"ts","year":2018.8,"value":0.1},{"name":"ts","year":2018.9,"value":0.1},{"name":"ts","year":2019.0,"value":10.0},{"name":"ts","year":2019.1,"value":20.0},{"name":"ts","year":2019.2,"value":30.0},{"name":"ts","year":2019.3,"value":40.0},{"name":"ts","year":2019.4,"value":50.0},{"name":"ts","year":2019.5,"value":60.0},{"name":"ts","year":2019.6,"value":70.0},{"name":"ts","year":2019.7,"value":80.0},{"name":"ts","year":2019.8,"value":90.0},{"name":"ts","year":2019.9,"value":100.0},{"name":"ts","year":2020.0,"value":115.0},{"name":"ts","year":2020.1,"value":129.0},{"name":"ts","year":2020.2,"value":144.0},{"name":"ts","year":2020.3,"value":158.0},{"name":"ts","year":2020.4,"value":173.0},{"name":"ts","year":2020.5,"value":188.0},{"name":"ts","year":2020.6,"value":202.0},{"name":"ts","year":2020.7,"value":217.0},{"name":"ts","year":2020.8,"value":231.0},{"name":"ts","year":2020.9,"value":246.0},{"name":"ts","year":2021.0,"value":238.0},{"name":"ts","year":2021.1,"value":230.0},{"name":"ts","year":2021.2,"value":223.0},{"name":"ts","year":2021.3,"value":215.0},{"name":"ts","year":2021.4,"value":207.0},{"name":"ts","year":2021.5,"value":199.0},{"name":"ts","year":2021.6,"value":191.0},{"name":"ts","year":2021.7,"value":184.0},{"name":"ts","year":2021.8,"value":176.0},{"name":"ts","year":2021.9,"value":168.0},{"name":"ts","year":2022.0,"value":155.0},{"name":"ts","year":2022.1,"value":142.0},{"name":"ts","year":2022.2,"value":129.0},{"name":"ts","year":2022.3,"value":116.0},{"name":"ts","year":2022.4,"value":103.0},{"name":"ts","year":2022.5,"value":89.0},{"name":"ts","year":2022.6,"value":76.0},{"name":"ts","year":2022.7,"value":63.0},{"name":"ts","year":2022.8,"value":50.0},{"name":"ts","year":2022.9,"value":37.0},{"name":"yaml","year":2017.0,"value":0.1},{"name":"yaml","year":2017.1,"value":0.1},{"name":"yaml","year":2017.2,"value":0.1},{"name":"yaml","year":2017.3,"value":0.1},{"name":"yaml","year":2017.4,"value":0.1},{"name":"yaml","year":2017.5,"value":0.1},{"name":"yaml","year":2017.6,"value":0.1},{"name":"yaml","year":2017.7,"value":0.1},{"name":"yaml","year":2017.8,"value":0.1},{"name":"yaml","year":2017.9,"value":0.1},{"name":"yaml","year":2018.0,"value":0.1},{"name":"yaml","year":2018.1,"value":0.1},{"name":"yaml","year":2018.2,"value":0.1},{"name":"yaml","year":2018.3,"value":0.1},{"name":"yaml","year":2018.4,"value":0.1},{"name":"yaml","year":2018.5,"value":0.1},{"name":"yaml","year":2018.6,"value":0.1},{"name":"yaml","year":2018.7,"value":0.1},{"name":"yaml","year":2018.8,"value":0.1},{"name":"yaml","year":2018.9,"value":0.1},{"name":"yaml","year":2019.0,"value":0.1},{"name":"yaml","year":2019.1,"value":0.1},{"name":"yaml","year":2019.2,"value":1.0},{"name":"yaml","year":2019.3,"value":1.0},{"name":"yaml","year":2019.4,"value":1.0},{"name":"yaml","year":2019.5,"value":1.0},{"name":"yaml","year":2019.6,"value":1.0},{"name":"yaml","year":2019.7,"value":2.0},{"name":"yaml","year":2019.8,"value":2.0},{"name":"yaml","year":2019.9,"value":2.0},{"name":"yaml","year":2020.0,"value":5.0},{"name":"yaml","year":2020.1,"value":9.0},{"name":"yaml","year":2020.2,"value":12.0},{"name":"yaml","year":2020.3,"value":16.0},{"name":"yaml","year":2020.4,"value":19.0},{"name":"yaml","year":2020.5,"value":22.0},{"name":"yaml","year":2020.6,"value":26.0},{"name":"yaml","year":2020.7,"value":29.0},{"name":"yaml","year":2020.8,"value":33.0},{"name":"yaml","year":2020.9,"value":36.0},{"name":"yaml","year":2021.0,"value":45.0},{"name":"yaml","year":2021.1,"value":53.0},{"name":"yaml","year":2021.2,"value":62.0},{"name":"yaml","year":2021.3,"value":70.0},{"name":"yaml","year":2021.4,"value":79.0},{"name":"yaml","year":2021.5,"value":87.0},{"name":"yaml","year":2021.6,"value":96.0},{"name":"yaml","year":2021.7,"value":104.0},{"name":"yaml","year":2021.8,"value":113.0},{"name":"yaml","year":2021.9,"value":121.0},{"name":"yaml","year":2022.0,"value":112.0},{"name":"yaml","year":2022.1,"value":102.0},{"name":"yaml","year":2022.2,"value":93.0},{"name":"yaml","year":2022.3,"value":84.0},{"name":"yaml","year":2022.4,"value":75.0},{"name":"yaml","year":2022.5,"value":65.0},{"name":"yaml","year":2022.6,"value":56.0},{"name":"yaml","year":2022.7,"value":47.0},{"name":"yaml","year":2022.8,"value":37.0},{"name":"yaml","year":2022.9,"value":28.0},{"name":"go","year":2017.0,"value":0.1},{"name":"go","year":2017.1,"value":0.1},{"name":"go","year":2017.2,"value":0.1},{"name":"go","year":2017.3,"value":0.1},{"name":"go","year":2017.4,"value":0.1},{"name":"go","year":2017.5,"value":0.1},{"name":"go","year":2017.6,"value":0.1},{"name":"go","year":2017.7,"value":0.1},{"name":"go","year":2017.8,"value":0.1},{"name":"go","year":2017.9,"value":0.1},{"name":"go","year":2018.0,"value":0.1},{"name":"go","year":2018.1,"value":0.1},{"name":"go","year":2018.2,"value":0.1},{"name":"go","year":2018.3,"value":0.1},{"name":"go","year":2018.4,"value":0.1},{"name":"go","year":2018.5,"value":0.1},{"name":"go","year":2018.6,"value":0.1},{"name":"go","year":2018.7,"value":0.1},{"name":"go","year":2018.8,"value":0.1},{"name":"go","year":2018.9,"value":0.1},{"name":"go","year":2019.0,"value":6.0},{"name":"go","year":2019.1,"value":12.0},{"name":"go","year":2019.2,"value":18.0},{"name":"go","year":2019.3,"value":24.0},{"name":"go","year":2019.4,"value":31.0},{"name":"go","year":2019.5,"value":37.0},{"name":"go","year":2019.6,"value":43.0},{"name":"go","year":2019.7,"value":49.0},{"name":"go","year":2019.8,"value":55.0},{"name":"go","year":2019.9,"value":61.0},{"name":"go","year":2020.0,"value":62.0},{"name":"go","year":2020.1,"value":62.0},{"name":"go","year":2020.2,"value":63.0},{"name":"go","year":2020.3,"value":63.0},{"name":"go","year":2020.4,"value":64.0},{"name":"go","year":2020.5,"value":65.0},{"name":"go","year":2020.6,"value":65.0},{"name":"go","year":2020.7,"value":66.0},{"name":"go","year":2020.8,"value":66.0},{"name":"go","year":2020.9,"value":67.0},{"name":"go","year":2021.0,"value":69.0},{"name":"go","year":2021.1,"value":72.0},{"name":"go","year":2021.2,"value":74.0},{"name":"go","year":2021.3,"value":76.0},{"name":"go","year":2021.4,"value":79.0},{"name":"go","year":2021.5,"value":81.0},{"name":"go","year":2021.6,"value":83.0},{"name":"go","year":2021.7,"value":85.0},{"name":"go","year":2021.8,"value":88.0},{"name":"go","year":2021.9,"value":90.0},{"name":"go","year":2022.0,"value":85.0},{"name":"go","year":2022.1,"value":79.0},{"name":"go","year":2022.2,"value":74.0},{"name":"go","year":2022.3,"value":69.0},{"name":"go","year":2022.4,"value":64.0},{"name":"go","year":2022.5,"value":58.0},{"name":"go","year":2022.6,"value":53.0},{"name":"go","year":2022.7,"value":48.0},{"name":"go","year":2022.8,"value":42.0},{"name":"go","year":2022.9,"value":37.0},{"name":"js","year":2017.0,"value":1.0},{"name":"js","year":2017.1,"value":2.0},{"name":"js","year":2017.2,"value":4.0},{"name":"js","year":2017.3,"value":5.0},{"name":"js","year":2017.4,"value":6.0},{"name":"js","year":2017.5,"value":7.0},{"name":"js","year":2017.6,"value":8.0},{"name":"js","year":2017.7,"value":10.0},{"name":"js","year":2017.8,"value":11.0},{"name":"js","year":2017.9,"value":12.0},{"name":"js","year":2018.0,"value":11.0},{"name":"js","year":2018.1,"value":10.0},{"name":"js","year":2018.2,"value":8.0},{"name":"js","year":2018.3,"value":7.0},{"name":"js","year":2018.4,"value":6.0},{"name":"js","year":2018.5,"value":5.0},{"name":"js","year":2018.6,"value":4.0},{"name":"js","year":2018.7,"value":2.0},{"name":"js","year":2018.8,"value":1.0},{"name":"js","year":2018.9,"value":0.1},{"name":"js","year":2019.0,"value":12.0},{"name":"js","year":2019.1,"value":25.0},{"name":"js","year":2019.2,"value":37.0},{"name":"js","year":2019.3,"value":49.0},{"name":"js","year":2019.4,"value":62.0},{"name":"js","year":2019.5,"value":74.0},{"name":"js","year":2019.6,"value":86.0},{"name":"js","year":2019.7,"value":98.0},{"name":"js","year":2019.8,"value":111.0},{"name":"js","year":2019.9,"value":123.0},{"name":"js","year":2020.0,"value":116.0},{"name":"js","year":2020.1,"value":108.0},{"name":"js","year":2020.2,"value":101.0},{"name":"js","year":2020.3,"value":93.0},{"name":"js","year":2020.4,"value":86.0},{"name":"js","year":2020.5,"value":79.0},{"name":"js","year":2020.6,"value":71.0},{"name":"js","year":2020.7,"value":64.0},{"name":"js","year":2020.8,"value":56.0},{"name":"js","year":2020.9,"value":49.0},{"name":"js","year":2021.0,"value":52.0},{"name":"js","year":2021.1,"value":56.0},{"name":"js","year":2021.2,"value":59.0},{"name":"js","year":2021.3,"value":62.0},{"name":"js","year":2021.4,"value":66.0},{"name":"js","year":2021.5,"value":69.0},{"name":"js","year":2021.6,"value":72.0},{"name":"js","year":2021.7,"value":75.0},{"name":"js","year":2021.8,"value":79.0},{"name":"js","year":2021.9,"value":82.0},{"name":"js","year":2022.0,"value":77.0},{"name":"js","year":2022.1,"value":72.0},{"name":"js","year":2022.2,"value":66.0},{"name":"js","year":2022.3,"value":61.0},{"name":"js","year":2022.4,"value":56.0},{"name":"js","year":2022.5,"value":51.0},{"name":"js","year":2022.6,"value":46.0},{"name":"js","year":2022.7,"value":40.0},{"name":"js","year":2022.8,"value":35.0},{"name":"js","year":2022.9,"value":30.0},{"name":"toml","year":2017.0,"value":0.1},{"name":"toml","year":2017.1,"value":0.1},{"name":"toml","year":2017.2,"value":0.1},{"name":"toml","year":2017.3,"value":0.1},{"name":"toml","year":2017.4,"value":0.1},{"name":"toml","year":2017.5,"value":0.1},{"name":"toml","year":2017.6,"value":0.1},{"name":"toml","year":2017.7,"value":0.1},{"name":"toml","year":2017.8,"value":0.1},{"name":"toml","year":2017.9,"value":0.1},{"name":"toml","year":2018.0,"value":0.1},{"name":"toml","year":2018.1,"value":0.1},{"name":"toml","year":2018.2,"value":0.1},{"name":"toml","year":2018.3,"value":0.1},{"name":"toml","year":2018.4,"value":0.1},{"name":"toml","year":2018.5,"value":0.1},{"name":"toml","year":2018.6,"value":0.1},{"name":"toml","year":2018.7,"value":0.1},{"name":"toml","year":2018.8,"value":0.1},{"name":"toml","year":2018.9,"value":0.1},{"name":"toml","year":2019.0,"value":0.1},{"name":"toml","year":2019.1,"value":0.1},{"name":"toml","year":2019.2,"value":0.1},{"name":"toml","year":2019.3,"value":0.1},{"name":"toml","year":2019.4,"value":0.1},{"name":"toml","year":2019.5,"value":0.1},{"name":"toml","year":2019.6,"value":0.1},{"name":"toml","year":2019.7,"value":0.1},{"name":"toml","year":2019.8,"value":0.1},{"name":"toml","year":2019.9,"value":0.1},{"name":"toml","year":2020.0,"value":0.1},{"name":"toml","year":2020.1,"value":0.1},{"name":"toml","year":2020.2,"value":0.1},{"name":"toml","year":2020.3,"value":0.1},{"name":"toml","year":2020.4,"value":1.0},{"name":"toml","year":2020.5,"value":1.0},{"name":"toml","year":2020.6,"value":1.0},{"name":"toml","year":2020.7,"value":1.0},{"name":"toml","year":2020.8,"value":1.0},{"name":"toml","year":2020.9,"value":1.0},{"name":"toml","year":2021.0,"value":6.0},{"name":"toml","year":2021.1,"value":11.0},{"name":"toml","year":2021.2,"value":15.0},{"name":"toml","year":2021.3,"value":20.0},{"name":"toml","year":2021.4,"value":25.0},{"name":"toml","year":2021.5,"value":30.0},{"name":"toml","year":2021.6,"value":35.0},{"name":"toml","year":2021.7,"value":39.0},{"name":"toml","year":2021.8,"value":44.0},{"name":"toml","year":2021.9,"value":49.0},{"name":"toml","year":2022.0,"value":45.0},{"name":"toml","year":2022.1,"value":40.0},{"name":"toml","year":2022.2,"value":36.0},{"name":"toml","year":2022.3,"value":31.0},{"name":"toml","year":2022.4,"value":27.0},{"name":"toml","year":2022.5,"value":22.0},{"name":"toml","year":2022.6,"value":18.0},{"name":"toml","year":2022.7,"value":13.0},{"name":"toml","year":2022.8,"value":9.0},{"name":"toml","year":2022.9,"value":4.0},{"name":"rs","year":2017.0,"value":0.1},{"name":"rs","year":2017.1,"value":0.1},{"name":"rs","year":2017.2,"value":0.1},{"name":"rs","year":2017.3,"value":0.1},{"name":"rs","year":2017.4,"value":0.1},{"name":"rs","year":2017.5,"value":0.1},{"name":"rs","year":2017.6,"value":0.1},{"name":"rs","year":2017.7,"value":0.1},{"name":"rs","year":2017.8,"value":0.1},{"name":"rs","year":2017.9,"value":0.1},{"name":"rs","year":2018.0,"value":0.1},{"name":"rs","year":2018.1,"value":0.1},{"name":"rs","year":2018.2,"value":0.1},{"name":"rs","year":2018.3,"value":0.1},{"name":"rs","year":2018.4,"value":0.1},{"name":"rs","year":2018.5,"value":0.1},{"name":"rs","year":2018.6,"value":0.1},{"name":"rs","year":2018.7,"value":0.1},{"name":"rs","year":2018.8,"value":0.1},{"name":"rs","year":2018.9,"value":0.1},{"name":"rs","year":2019.0,"value":0.1},{"name":"rs","year":2019.1,"value":0.1},{"name":"rs","year":2019.2,"value":0.1},{"name":"rs","year":2019.3,"value":0.1},{"name":"rs","year":2019.4,"value":0.1},{"name":"rs","year":2019.5,"value":0.1},{"name":"rs","year":2019.6,"value":0.1},{"name":"rs","year":2019.7,"value":0.1},{"name":"rs","year":2019.8,"value":0.1},{"name":"rs","year":2019.9,"value":0.1},{"name":"rs","year":2020.0,"value":0.1},{"name":"rs","year":2020.1,"value":0.1},{"name":"rs","year":2020.2,"value":0.1},{"name":"rs","year":2020.3,"value":0.1},{"name":"rs","year":2020.4,"value":0.1},{"name":"rs","year":2020.5,"value":0.1},{"name":"rs","year":2020.6,"value":0.1},{"name":"rs","year":2020.7,"value":0.1},{"name":"rs","year":2020.8,"value":0.1},{"name":"rs","year":2020.9,"value":0.1},{"name":"rs","year":2021.0,"value":5.0},{"name":"rs","year":2021.1,"value":9.0},{"name":"rs","year":2021.2,"value":14.0},{"name":"rs","year":2021.3,"value":19.0},{"name":"rs","year":2021.4,"value":24.0},{"name":"rs","year":2021.5,"value":28.0},{"name":"rs","year":2021.6,"value":33.0},{"name":"rs","year":2021.7,"value":38.0},{"name":"rs","year":2021.8,"value":42.0},{"name":"rs","year":2021.9,"value":47.0},{"name":"rs","year":2022.0,"value":42.0},{"name":"rs","year":2022.1,"value":38.0},{"name":"rs","year":2022.2,"value":33.0},{"name":"rs","year":2022.3,"value":28.0},{"name":"rs","year":2022.4,"value":24.0},{"name":"rs","year":2022.5,"value":19.0},{"name":"rs","year":2022.6,"value":14.0},{"name":"rs","year":2022.7,"value":9.0},{"name":"rs","year":2022.8,"value":5.0},{"name":"rs","year":2022.9,"value":0.1},{"name":"json5","year":2017.0,"value":0.1},{"name":"json5","year":2017.1,"value":0.1},{"name":"json5","year":2017.2,"value":0.1},{"name":"json5","year":2017.3,"value":0.1},{"name":"json5","year":2017.4,"value":0.1},{"name":"json5","year":2017.5,"value":0.1},{"name":"json5","year":2017.6,"value":0.1},{"name":"json5","year":2017.7,"value":0.1},{"name":"json5","year":2017.8,"value":0.1},{"name":"json5","year":2017.9,"value":0.1},{"name":"json5","year":2018.0,"value":0.1},{"name":"json5","year":2018.1,"value":0.1},{"name":"json5","year":2018.2,"value":0.1},{"name":"json5","year":2018.3,"value":0.1},{"name":"json5","year":2018.4,"value":0.1},{"name":"json5","year":2018.5,"value":0.1},{"name":"json5","year":2018.6,"value":0.1},{"name":"json5","year":2018.7,"value":0.1},{"name":"json5","year":2018.8,"value":0.1},{"name":"json5","year":2018.9,"value":0.1},{"name":"json5","year":2019.0,"value":0.1},{"name":"json5","year":2019.1,"value":0.1},{"name":"json5","year":2019.2,"value":0.1},{"name":"json5","year":2019.3,"value":0.1},{"name":"json5","year":2019.4,"value":0.1},{"name":"json5","year":2019.5,"value":0.1},{"name":"json5","year":2019.6,"value":0.1},{"name":"json5","year":2019.7,"value":0.1},{"name":"json5","year":2019.8,"value":0.1},{"name":"json5","year":2019.9,"value":0.1},{"name":"json5","year":2020.0,"value":1.0},{"name":"json5","year":2020.1,"value":3.0},{"name":"json5","year":2020.2,"value":4.0},{"name":"json5","year":2020.3,"value":5.0},{"name":"json5","year":2020.4,"value":7.0},{"name":"json5","year":2020.5,"value":8.0},{"name":"json5","year":2020.6,"value":9.0},{"name":"json5","year":2020.7,"value":10.0},{"name":"json5","year":2020.8,"value":12.0},{"name":"json5","year":2020.9,"value":13.0},{"name":"json5","year":2021.0,"value":14.0},{"name":"json5","year":2021.1,"value":14.0},{"name":"json5","year":2021.2,"value":15.0},{"name":"json5","year":2021.3,"value":15.0},{"name":"json5","year":2021.4,"value":16.0},{"name":"json5","year":2021.5,"value":17.0},{"name":"json5","year":2021.6,"value":17.0},{"name":"json5","year":2021.7,"value":18.0},{"name":"json5","year":2021.8,"value":18.0},{"name":"json5","year":2021.9,"value":19.0},{"name":"json5","year":2022.0,"value":18.0},{"name":"json5","year":2022.1,"value":16.0},{"name":"json5","year":2022.2,"value":15.0},{"name":"json5","year":2022.3,"value":13.0},{"name":"json5","year":2022.4,"value":12.0},{"name":"json5","year":2022.5,"value":10.0},{"name":"json5","year":2022.6,"value":9.0},{"name":"json5","year":2022.7,"value":7.0},{"name":"json5","year":2022.8,"value":6.0},{"name":"json5","year":2022.9,"value":4.0},{"name":"tf","year":2017.0,"value":0.1},{"name":"tf","year":2017.1,"value":0.1},{"name":"tf","year":2017.2,"value":0.1},{"name":"tf","year":2017.3,"value":0.1},{"name":"tf","year":2017.4,"value":0.1},{"name":"tf","year":2017.5,"value":0.1},{"name":"tf","year":2017.6,"value":0.1},{"name":"tf","year":2017.7,"value":0.1},{"name":"tf","year":2017.8,"value":0.1},{"name":"tf","year":2017.9,"value":0.1},{"name":"tf","year":2018.0,"value":0.1},{"name":"tf","year":2018.1,"value":0.1},{"name":"tf","year":2018.2,"value":0.1},{"name":"tf","year":2018.3,"value":0.1},{"name":"tf","year":2018.4,"value":0.1},{"name":"tf","year":2018.5,"value":0.1},{"name":"tf","year":2018.6,"value":0.1},{"name":"tf","year":2018.7,"value":0.1},{"name":"tf","year":2018.8,"value":0.1},{"name":"tf","year":2018.9,"value":0.1},{"name":"tf","year":2019.0,"value":0.1},{"name":"tf","year":2019.1,"value":0.1},{"name":"tf","year":2019.2,"value":0.1},{"name":"tf","year":2019.3,"value":0.1},{"name":"tf","year":2019.4,"value":0.1},{"name":"tf","year":2019.5,"value":0.1},{"name":"tf","year":2019.6,"value":0.1},{"name":"tf","year":2019.7,"value":0.1},{"name":"tf","year":2019.8,"value":0.1},{"name":"tf","year":2019.9,"value":0.1},{"name":"tf","year":2020.0,"value":0.1},{"name":"tf","year":2020.1,"value":0.1},{"name":"tf","year":2020.2,"value":0.1},{"name":"tf","year":2020.3,"value":0.1},{"name":"tf","year":2020.4,"value":0.1},{"name":"tf","year":2020.5,"value":0.1},{"name":"tf","year":2020.6,"value":0.1},{"name":"tf","year":2020.7,"value":0.1},{"name":"tf","year":2020.8,"value":0.1},{"name":"tf","year":2020.9,"value":0.1},{"name":"tf","year":2021.0,"value":2.0},{"name":"tf","year":2021.1,"value":3.0},{"name":"tf","year":2021.2,"value":5.0},{"name":"tf","year":2021.3,"value":6.0},{"name":"tf","year":2021.4,"value":8.0},{"name":"tf","year":2021.5,"value":10.0},{"name":"tf","year":2021.6,"value":11.0},{"name":"tf","year":2021.7,"value":13.0},{"name":"tf","year":2021.8,"value":14.0},{"name":"tf","year":2021.9,"value":16.0},{"name":"tf","year":2022.0,"value":14.0},{"name":"tf","year":2022.1,"value":13.0},{"name":"tf","year":2022.2,"value":11.0},{"name":"tf","year":2022.3,"value":10.0},{"name":"tf","year":2022.4,"value":8.0},{"name":"tf","year":2022.5,"value":6.0},{"name":"tf","year":2022.6,"value":5.0},{"name":"tf","year":2022.7,"value":3.0},{"name":"tf","year":2022.8,"value":2.0},{"name":"tf","year":2022.9,"value":0.1},{"name":"vue","year":2017.0,"value":0.1},{"name":"vue","year":2017.1,"value":0.1},{"name":"vue","year":2017.2,"value":0.1},{"name":"vue","year":2017.3,"value":0.1},{"name":"vue","year":2017.4,"value":0.1},{"name":"vue","year":2017.5,"value":0.1},{"name":"vue","year":2017.6,"value":0.1},{"name":"vue","year":2017.7,"value":0.1},{"name":"vue","year":2017.8,"value":0.1},{"name":"vue","year":2017.9,"value":0.1},{"name":"vue","year":2018.0,"value":0.1},{"name":"vue","year":2018.1,"value":0.1},{"name":"vue","year":2018.2,"value":0.1},{"name":"vue","year":2018.3,"value":0.1},{"name":"vue","year":2018.4,"value":0.1},{"name":"vue","year":2018.5,"value":0.1},{"name":"vue","year":2018.6,"value":0.1},{"name":"vue","year":2018.7,"value":0.1},{"name":"vue","year":2018.8,"value":0.1},{"name":"vue","year":2018.9,"value":0.1},{"name":"vue","year":2019.0,"value":11.0},{"name":"vue","year":2019.1,"value":22.0},{"name":"vue","year":2019.2,"value":34.0},{"name":"vue","year":2019.3,"value":45.0},{"name":"vue","year":2019.4,"value":56.0},{"name":"vue","year":2019.5,"value":67.0},{"name":"vue","year":2019.6,"value":78.0},{"name":"vue","year":2019.7,"value":90.0},{"name":"vue","year":2019.8,"value":101.0},{"name":"vue","year":2019.9,"value":112.0},{"name":"vue","year":2020.0,"value":105.0},{"name":"vue","year":2020.1,"value":98.0},{"name":"vue","year":2020.2,"value":91.0},{"name":"vue","year":2020.3,"value":84.0},{"name":"vue","year":2020.4,"value":77.0},{"name":"vue","year":2020.5,"value":70.0},{"name":"vue","year":2020.6,"value":63.0},{"name":"vue","year":2020.7,"value":56.0},{"name":"vue","year":2020.8,"value":49.0},{"name":"vue","year":2020.9,"value":42.0},{"name":"vue","year":2021.0,"value":38.0},{"name":"vue","year":2021.1,"value":34.0},{"name":"vue","year":2021.2,"value":31.0},{"name":"vue","year":2021.3,"value":27.0},{"name":"vue","year":2021.4,"value":23.0},{"name":"vue","year":2021.5,"value":19.0},{"name":"vue","year":2021.6,"value":15.0},{"name":"vue","year":2021.7,"value":12.0},{"name":"vue","year":2021.8,"value":8.0},{"name":"vue","year":2021.9,"value":4.0},{"name":"vue","year":2022.0,"value":5.0},{"name":"vue","year":2022.1,"value":5.0},{"name":"vue","year":2022.2,"value":6.0},{"name":"vue","year":2022.3,"value":6.0},{"name":"vue","year":2022.4,"value":7.0},{"name":"vue","year":2022.5,"value":7.0},{"name":"vue","year":2022.6,"value":8.0},{"name":"vue","year":2022.7,"value":8.0},{"name":"vue","year":2022.8,"value":9.0},{"name":"vue","year":2022.9,"value":9.0},{"name":"tsx","year":2017.0,"value":0.1},{"name":"tsx","year":2017.1,"value":0.1},{"name":"tsx","year":2017.2,"value":0.1},{"name":"tsx","year":2017.3,"value":0.1},{"name":"tsx","year":2017.4,"value":0.1},{"name":"tsx","year":2017.5,"value":0.1},{"name":"tsx","year":2017.6,"value":0.1},{"name":"tsx","year":2017.7,"value":0.1},{"name":"tsx","year":2017.8,"value":0.1},{"name":"tsx","year":2017.9,"value":0.1},{"name":"tsx","year":2018.0,"value":0.1},{"name":"tsx","year":2018.1,"value":0.1},{"name":"tsx","year":2018.2,"value":0.1},{"name":"tsx","year":2018.3,"value":0.1},{"name":"tsx","year":2018.4,"value":0.1},{"name":"tsx","year":2018.5,"value":0.1},{"name":"tsx","year":2018.6,"value":0.1},{"name":"tsx","year":2018.7,"value":0.1},{"name":"tsx","year":2018.8,"value":0.1},{"name":"tsx","year":2018.9,"value":0.1},{"name":"tsx","year":2019.0,"value":6.0},{"name":"tsx","year":2019.1,"value":12.0},{"name":"tsx","year":2019.2,"value":18.0},{"name":"tsx","year":2019.3,"value":24.0},{"name":"tsx","year":2019.4,"value":30.0},{"name":"tsx","year":2019.5,"value":36.0},{"name":"tsx","year":2019.6,"value":42.0},{"name":"tsx","year":2019.7,"value":48.0},{"name":"tsx","year":2019.8,"value":54.0},{"name":"tsx","year":2019.9,"value":60.0},{"name":"tsx","year":2020.0,"value":56.0},{"name":"tsx","year":2020.1,"value":52.0},{"name":"tsx","year":2020.2,"value":48.0},{"name":"tsx","year":2020.3,"value":44.0},{"name":"tsx","year":2020.4,"value":41.0},{"name":"tsx","year":2020.5,"value":37.0},{"name":"tsx","year":2020.6,"value":33.0},{"name":"tsx","year":2020.7,"value":29.0},{"name":"tsx","year":2020.8,"value":25.0},{"name":"tsx","year":2020.9,"value":21.0},{"name":"tsx","year":2021.0,"value":20.0},{"name":"tsx","year":2021.1,"value":19.0},{"name":"tsx","year":2021.2,"value":18.0},{"name":"tsx","year":2021.3,"value":17.0},{"name":"tsx","year":2021.4,"value":16.0},{"name":"tsx","year":2021.5,"value":15.0},{"name":"tsx","year":2021.6,"value":14.0},{"name":"tsx","year":2021.7,"value":13.0},{"name":"tsx","year":2021.8,"value":12.0},{"name":"tsx","year":2021.9,"value":11.0},{"name":"tsx","year":2022.0,"value":10.0},{"name":"tsx","year":2022.1,"value":9.0},{"name":"tsx","year":2022.2,"value":8.0},{"name":"tsx","year":2022.3,"value":7.0},{"name":"tsx","year":2022.4,"value":6.0},{"name":"tsx","year":2022.5,"value":4.0},{"name":"tsx","year":2022.6,"value":3.0},{"name":"tsx","year":2022.7,"value":2.0},{"name":"tsx","year":2022.8,"value":1.0},{"name":"tsx","year":2022.9,"value":0.1},{"name":"proto","year":2017.0,"value":0.1},{"name":"proto","year":2017.1,"value":0.1},{"name":"proto","year":2017.2,"value":0.1},{"name":"proto","year":2017.3,"value":0.1},{"name":"proto","year":2017.4,"value":0.1},{"name":"proto","year":2017.5,"value":0.1},{"name":"proto","year":2017.6,"value":0.1},{"name":"proto","year":2017.7,"value":0.1},{"name":"proto","year":2017.8,"value":0.1},{"name":"proto","year":2017.9,"value":0.1},{"name":"proto","year":2018.0,"value":0.1},{"name":"proto","year":2018.1,"value":0.1},{"name":"proto","year":2018.2,"value":0.1},{"name":"proto","year":2018.3,"value":0.1},{"name":"proto","year":2018.4,"value":0.1},{"name":"proto","year":2018.5,"value":0.1},{"name":"proto","year":2018.6,"value":0.1},{"name":"proto","year":2018.7,"value":0.1},{"name":"proto","year":2018.8,"value":0.1},{"name":"proto","year":2018.9,"value":0.1},{"name":"proto","year":2019.0,"value":0.1},{"name":"proto","year":2019.1,"value":0.1},{"name":"proto","year":2019.2,"value":0.1},{"name":"proto","year":2019.3,"value":0.1},{"name":"proto","year":2019.4,"value":0.1},{"name":"proto","year":2019.5,"value":0.1},{"name":"proto","year":2019.6,"value":0.1},{"name":"proto","year":2019.7,"value":0.1},{"name":"proto","year":2019.8,"value":0.1},{"name":"proto","year":2019.9,"value":0.1},{"name":"proto","year":2020.0,"value":0.1},{"name":"proto","year":2020.1,"value":0.1},{"name":"proto","year":2020.2,"value":0.1},{"name":"proto","year":2020.3,"value":0.1},{"name":"proto","year":2020.4,"value":0.1},{"name":"proto","year":2020.5,"value":0.1},{"name":"proto","year":2020.6,"value":0.1},{"name":"proto","year":2020.7,"value":0.1},{"name":"proto","year":2020.8,"value":0.1},{"name":"proto","year":2020.9,"value":0.1},{"name":"proto","year":2021.0,"value":1.0},{"name":"proto","year":2021.1,"value":2.0},{"name":"proto","year":2021.2,"value":3.0},{"name":"proto","year":2021.3,"value":4.0},{"name":"proto","year":2021.4,"value":5.0},{"name":"proto","year":2021.5,"value":5.0},{"name":"proto","year":2021.6,"value":6.0},{"name":"proto","year":2021.7,"value":7.0},{"name":"proto","year":2021.8,"value":8.0},{"name":"proto","year":2021.9,"value":9.0},{"name":"proto","year":2022.0,"value":8.0},{"name":"proto","year":2022.1,"value":8.0},{"name":"proto","year":2022.2,"value":7.0},{"name":"proto","year":2022.3,"value":6.0},{"name":"proto","year":2022.4,"value":6.0},{"name":"proto","year":2022.5,"value":5.0},{"name":"proto","year":2022.6,"value":4.0},{"name":"proto","year":2022.7,"value":3.0},{"name":"proto","year":2022.8,"value":3.0},{"name":"proto","year":2022.9,"value":2.0},{"name":"tex","year":2017.0,"value":0.1},{"name":"tex","year":2017.1,"value":0.1},{"name":"tex","year":2017.2,"value":0.1},{"name":"tex","year":2017.3,"value":0.1},{"name":"tex","year":2017.4,"value":0.1},{"name":"tex","year":2017.5,"value":0.1},{"name":"tex","year":2017.6,"value":0.1},{"name":"tex","year":2017.7,"value":0.1},{"name":"tex","year":2017.8,"value":0.1},{"name":"tex","year":2017.9,"value":0.1},{"name":"tex","year":2018.0,"value":0.1},{"name":"tex","year":2018.1,"value":0.1},{"name":"tex","year":2018.2,"value":0.1},{"name":"tex","year":2018.3,"value":0.1},{"name":"tex","year":2018.4,"value":0.1},{"name":"tex","year":2018.5,"value":0.1},{"name":"tex","year":2018.6,"value":0.1},{"name":"tex","year":2018.7,"value":0.1},{"name":"tex","year":2018.8,"value":0.1},{"name":"tex","year":2018.9,"value":0.1},{"name":"tex","year":2019.0,"value":0.1},{"name":"tex","year":2019.1,"value":1.0},{"name":"tex","year":2019.2,"value":1.0},{"name":"tex","year":2019.3,"value":1.0},{"name":"tex","year":2019.4,"value":2.0},{"name":"tex","year":2019.5,"value":2.0},{"name":"tex","year":2019.6,"value":2.0},{"name":"tex","year":2019.7,"value":2.0},{"name":"tex","year":2019.8,"value":3.0},{"name":"tex","year":2019.9,"value":3.0},{"name":"tex","year":2020.0,"value":5.0},{"name":"tex","year":2020.1,"value":6.0},{"name":"tex","year":2020.2,"value":8.0},{"name":"tex","year":2020.3,"value":9.0},{"name":"tex","year":2020.4,"value":11.0},{"name":"tex","year":2020.5,"value":13.0},{"name":"tex","year":2020.6,"value":14.0},{"name":"tex","year":2020.7,"value":16.0},{"name":"tex","year":2020.8,"value":17.0},{"name":"tex","year":2020.9,"value":19.0},{"name":"tex","year":2021.0,"value":18.0},{"name":"tex","year":2021.1,"value":16.0},{"name":"tex","year":2021.2,"value":15.0},{"name":"tex","year":2021.3,"value":13.0},{"name":"tex","year":2021.4,"value":12.0},{"name":"tex","year":2021.5,"value":10.0},{"name":"tex","year":2021.6,"value":9.0},{"name":"tex","year":2021.7,"value":7.0},{"name":"tex","year":2021.8,"value":6.0},{"name":"tex","year":2021.9,"value":4.0},{"name":"tex","year":2022.0,"value":4.0},{"name":"tex","year":2022.1,"value":4.0},{"name":"tex","year":2022.2,"value":4.0},{"name":"tex","year":2022.3,"value":4.0},{"name":"tex","year":2022.4,"value":4.0},{"name":"tex","year":2022.5,"value":4.0},{"name":"tex","year":2022.6,"value":4.0},{"name":"tex","year":2022.7,"value":4.0},{"name":"tex","year":2022.8,"value":4.0},{"name":"tex","year":2022.9,"value":4.0},{"name":"mjs","year":2017.0,"value":0.1},{"name":"mjs","year":2017.1,"value":0.1},{"name":"mjs","year":2017.2,"value":0.1},{"name":"mjs","year":2017.3,"value":0.1},{"name":"mjs","year":2017.4,"value":0.1},{"name":"mjs","year":2017.5,"value":0.1},{"name":"mjs","year":2017.6,"value":0.1},{"name":"mjs","year":2017.7,"value":0.1},{"name":"mjs","year":2017.8,"value":0.1},{"name":"mjs","year":2017.9,"value":0.1},{"name":"mjs","year":2018.0,"value":0.1},{"name":"mjs","year":2018.1,"value":0.1},{"name":"mjs","year":2018.2,"value":0.1},{"name":"mjs","year":2018.3,"value":0.1},{"name":"mjs","year":2018.4,"value":0.1},{"name":"mjs","year":2018.5,"value":0.1},{"name":"mjs","year":2018.6,"value":0.1},{"name":"mjs","year":2018.7,"value":0.1},{"name":"mjs","year":2018.8,"value":0.1},{"name":"mjs","year":2018.9,"value":0.1},{"name":"mjs","year":2019.0,"value":0.1},{"name":"mjs","year":2019.1,"value":0.1},{"name":"mjs","year":2019.2,"value":0.1},{"name":"mjs","year":2019.3,"value":0.1},{"name":"mjs","year":2019.4,"value":0.1},{"name":"mjs","year":2019.5,"value":0.1},{"name":"mjs","year":2019.6,"value":0.1},{"name":"mjs","year":2019.7,"value":0.1},{"name":"mjs","year":2019.8,"value":0.1},{"name":"mjs","year":2019.9,"value":0.1},{"name":"mjs","year":2020.0,"value":0.1},{"name":"mjs","year":2020.1,"value":0.1},{"name":"mjs","year":2020.2,"value":0.1},{"name":"mjs","year":2020.3,"value":0.1},{"name":"mjs","year":2020.4,"value":0.1},{"name":"mjs","year":2020.5,"value":0.1},{"name":"mjs","year":2020.6,"value":0.1},{"name":"mjs","year":2020.7,"value":0.1},{"name":"mjs","year":2020.8,"value":0.1},{"name":"mjs","year":2020.9,"value":0.1},{"name":"mjs","year":2021.0,"value":1.0},{"name":"mjs","year":2021.1,"value":1.0},{"name":"mjs","year":2021.2,"value":2.0},{"name":"mjs","year":2021.3,"value":2.0},{"name":"mjs","year":2021.4,"value":3.0},{"name":"mjs","year":2021.5,"value":3.0},{"name":"mjs","year":2021.6,"value":4.0},{"name":"mjs","year":2021.7,"value":4.0},{"name":"mjs","year":2021.8,"value":5.0},{"name":"mjs","year":2021.9,"value":5.0},{"name":"mjs","year":2022.0,"value":5.0},{"name":"mjs","year":2022.1,"value":5.0},{"name":"mjs","year":2022.2,"value":4.0},{"name":"mjs","year":2022.3,"value":4.0},{"name":"mjs","year":2022.4,"value":4.0},{"name":"mjs","year":2022.5,"value":4.0},{"name":"mjs","year":2022.6,"value":4.0},{"name":"mjs","year":2022.7,"value":3.0},{"name":"mjs","year":2022.8,"value":3.0},{"name":"mjs","year":2022.9,"value":3.0},{"name":"html","year":2017.0,"value":12.0},{"name":"html","year":2017.1,"value":23.0},{"name":"html","year":2017.2,"value":35.0},{"name":"html","year":2017.3,"value":47.0},{"name":"html","year":2017.4,"value":59.0},{"name":"html","year":2017.5,"value":70.0},{"name":"html","year":2017.6,"value":82.0},{"name":"html","year":2017.7,"value":94.0},{"name":"html","year":2017.8,"value":105.0},{"name":"html","year":2017.9,"value":117.0},{"name":"html","year":2018.0,"value":106.0},{"name":"html","year":2018.1,"value":95.0},{"name":"html","year":2018.2,"value":84.0},{"name":"html","year":2018.3,"value":73.0},{"name":"html","year":2018.4,"value":61.0},{"name":"html","year":2018.5,"value":50.0},{"name":"html","year":2018.6,"value":39.0},{"name":"html","year":2018.7,"value":28.0},{"name":"html","year":2018.8,"value":17.0},{"name":"html","year":2018.9,"value":6.0},{"name":"html","year":2019.0,"value":7.0},{"name":"html","year":2019.1,"value":8.0},{"name":"html","year":2019.2,"value":9.0},{"name":"html","year":2019.3,"value":10.0},{"name":"html","year":2019.4,"value":11.0},{"name":"html","year":2019.5,"value":12.0},{"name":"html","year":2019.6,"value":13.0},{"name":"html","year":2019.7,"value":14.0},{"name":"html","year":2019.8,"value":15.0},{"name":"html","year":2019.9,"value":16.0},{"name":"html","year":2020.0,"value":15.0},{"name":"html","year":2020.1,"value":13.0},{"name":"html","year":2020.2,"value":12.0},{"name":"html","year":2020.3,"value":10.0},{"name":"html","year":2020.4,"value":9.0},{"name":"html","year":2020.5,"value":7.0},{"name":"html","year":2020.6,"value":6.0},{"name":"html","year":2020.7,"value":4.0},{"name":"html","year":2020.8,"value":3.0},{"name":"html","year":2020.9,"value":1.0},{"name":"html","year":2021.0,"value":1.0},{"name":"html","year":2021.1,"value":2.0},{"name":"html","year":2021.2,"value":2.0},{"name":"html","year":2021.3,"value":2.0},{"name":"html","year":2021.4,"value":3.0},{"name":"html","year":2021.5,"value":3.0},{"name":"html","year":2021.6,"value":3.0},{"name":"html","year":2021.7,"value":3.0},{"name":"html","year":2021.8,"value":4.0},{"name":"html","year":2021.9,"value":4.0},{"name":"html","year":2022.0,"value":4.0},{"name":"html","year":2022.1,"value":4.0},{"name":"html","year":2022.2,"value":3.0},{"name":"html","year":2022.3,"value":3.0},{"name":"html","year":2022.4,"value":3.0},{"name":"html","year":2022.5,"value":3.0},{"name":"html","year":2022.6,"value":3.0},{"name":"html","year":2022.7,"value":2.0},{"name":"html","year":2022.8,"value":2.0},{"name":"html","year":2022.9,"value":2.0},{"name":"java","year":2017.0,"value":0.1},{"name":"java","year":2017.1,"value":0.1},{"name":"java","year":2017.2,"value":0.1},{"name":"java","year":2017.3,"value":0.1},{"name":"java","year":2017.4,"value":0.1},{"name":"java","year":2017.5,"value":0.1},{"name":"java","year":2017.6,"value":0.1},{"name":"java","year":2017.7,"value":0.1},{"name":"java","year":2017.8,"value":0.1},{"name":"java","year":2017.9,"value":0.1},{"name":"java","year":2018.0,"value":0.1},{"name":"java","year":2018.1,"value":0.1},{"name":"java","year":2018.2,"value":0.1},{"name":"java","year":2018.3,"value":0.1},{"name":"java","year":2018.4,"value":1.0},{"name":"java","year":2018.5,"value":1.0},{"name":"java","year":2018.6,"value":1.0},{"name":"java","year":2018.7,"value":1.0},{"name":"java","year":2018.8,"value":1.0},{"name":"java","year":2018.9,"value":1.0},{"name":"java","year":2019.0,"value":2.0},{"name":"java","year":2019.1,"value":2.0},{"name":"java","year":2019.2,"value":3.0},{"name":"java","year":2019.3,"value":4.0},{"name":"java","year":2019.4,"value":5.0},{"name":"java","year":2019.5,"value":5.0},{"name":"java","year":2019.6,"value":6.0},{"name":"java","year":2019.7,"value":7.0},{"name":"java","year":2019.8,"value":7.0},{"name":"java","year":2019.9,"value":8.0},{"name":"java","year":2020.0,"value":7.0},{"name":"java","year":2020.1,"value":6.0},{"name":"java","year":2020.2,"value":6.0},{"name":"java","year":2020.3,"value":5.0},{"name":"java","year":2020.4,"value":4.0},{"name":"java","year":2020.5,"value":3.0},{"name":"java","year":2020.6,"value":2.0},{"name":"java","year":2020.7,"value":2.0},{"name":"java","year":2020.8,"value":1.0},{"name":"java","year":2020.9,"value":0.1},{"name":"java","year":2021.0,"value":1.0},{"name":"java","year":2021.1,"value":1.0},{"name":"java","year":2021.2,"value":2.0},{"name":"java","year":2021.3,"value":2.0},{"name":"java","year":2021.4,"value":3.0},{"name":"java","year":2021.5,"value":4.0},{"name":"java","year":2021.6,"value":4.0},{"name":"java","year":2021.7,"value":5.0},{"name":"java","year":2021.8,"value":5.0},{"name":"java","year":2021.9,"value":6.0},{"name":"java","year":2022.0,"value":5.0},{"name":"java","year":2022.1,"value":5.0},{"name":"java","year":2022.2,"value":4.0},{"name":"java","year":2022.3,"value":4.0},{"name":"java","year":2022.4,"value":3.0},{"name":"java","year":2022.5,"value":2.0},{"name":"java","year":2022.6,"value":2.0},{"name":"java","year":2022.7,"value":1.0},{"name":"java","year":2022.8,"value":1.0},{"name":"java","year":2022.9,"value":0.1},{"name":"lua","year":2017.0,"value":0.1},{"name":"lua","year":2017.1,"value":0.1},{"name":"lua","year":2017.2,"value":0.1},{"name":"lua","year":2017.3,"value":0.1},{"name":"lua","year":2017.4,"value":0.1},{"name":"lua","year":2017.5,"value":0.1},{"name":"lua","year":2017.6,"value":0.1},{"name":"lua","year":2017.7,"value":0.1},{"name":"lua","year":2017.8,"value":0.1},{"name":"lua","year":2017.9,"value":0.1},{"name":"lua","year":2018.0,"value":0.1},{"name":"lua","year":2018.1,"value":0.1},{"name":"lua","year":2018.2,"value":0.1},{"name":"lua","year":2018.3,"value":0.1},{"name":"lua","year":2018.4,"value":0.1},{"name":"lua","year":2018.5,"value":0.1},{"name":"lua","year":2018.6,"value":0.1},{"name":"lua","year":2018.7,"value":0.1},{"name":"lua","year":2018.8,"value":0.1},{"name":"lua","year":2018.9,"value":0.1},{"name":"lua","year":2019.0,"value":0.1},{"name":"lua","year":2019.1,"value":0.1},{"name":"lua","year":2019.2,"value":0.1},{"name":"lua","year":2019.3,"value":0.1},{"name":"lua","year":2019.4,"value":0.1},{"name":"lua","year":2019.5,"value":0.1},{"name":"lua","year":2019.6,"value":0.1},{"name":"lua","year":2019.7,"value":0.1},{"name":"lua","year":2019.8,"value":0.1},{"name":"lua","year":2019.9,"value":0.1},{"name":"lua","year":2020.0,"value":0.1},{"name":"lua","year":2020.1,"value":0.1},{"name":"lua","year":2020.2,"value":0.1},{"name":"lua","year":2020.3,"value":0.1},{"name":"lua","year":2020.4,"value":0.1},{"name":"lua","year":2020.5,"value":0.1},{"name":"lua","year":2020.6,"value":0.1},{"name":"lua","year":2020.7,"value":0.1},{"name":"lua","year":2020.8,"value":0.1},{"name":"lua","year":2020.9,"value":0.1},{"name":"lua","year":2021.0,"value":0.1},{"name":"lua","year":2021.1,"value":1.0},{"name":"lua","year":2021.2,"value":1.0},{"name":"lua","year":2021.3,"value":1.0},{"name":"lua","year":2021.4,"value":2.0},{"name":"lua","year":2021.5,"value":2.0},{"name":"lua","year":2021.6,"value":2.0},{"name":"lua","year":2021.7,"value":2.0},{"name":"lua","year":2021.8,"value":3.0},{"name":"lua","year":2021.9,"value":3.0},{"name":"lua","year":2022.0,"value":3.0},{"name":"lua","year":2022.1,"value":3.0},{"name":"lua","year":2022.2,"value":3.0},{"name":"lua","year":2022.3,"value":3.0},{"name":"lua","year":2022.4,"value":3.0},{"name":"lua","year":2022.5,"value":2.0},{"name":"lua","year":2022.6,"value":2.0},{"name":"lua","year":2022.7,"value":2.0},{"name":"lua","year":2022.8,"value":2.0},{"name":"lua","year":2022.9,"value":2.0},{"name":"tfstate","year":2017.0,"value":0.1},{"name":"tfstate","year":2017.1,"value":0.1},{"name":"tfstate","year":2017.2,"value":0.1},{"name":"tfstate","year":2017.3,"value":0.1},{"name":"tfstate","year":2017.4,"value":0.1},{"name":"tfstate","year":2017.5,"value":0.1},{"name":"tfstate","year":2017.6,"value":0.1},{"name":"tfstate","year":2017.7,"value":0.1},{"name":"tfstate","year":2017.8,"value":0.1},{"name":"tfstate","year":2017.9,"value":0.1},{"name":"tfstate","year":2018.0,"value":0.1},{"name":"tfstate","year":2018.1,"value":0.1},{"name":"tfstate","year":2018.2,"value":0.1},{"name":"tfstate","year":2018.3,"value":0.1},{"name":"tfstate","year":2018.4,"value":0.1},{"name":"tfstate","year":2018.5,"value":0.1},{"name":"tfstate","year":2018.6,"value":0.1},{"name":"tfstate","year":2018.7,"value":0.1},{"name":"tfstate","year":2018.8,"value":0.1},{"name":"tfstate","year":2018.9,"value":0.1},{"name":"tfstate","year":2019.0,"value":0.1},{"name":"tfstate","year":2019.1,"value":0.1},{"name":"tfstate","year":2019.2,"value":0.1},{"name":"tfstate","year":2019.3,"value":0.1},{"name":"tfstate","year":2019.4,"value":0.1},{"name":"tfstate","year":2019.5,"value":0.1},{"name":"tfstate","year":2019.6,"value":0.1},{"name":"tfstate","year":2019.7,"value":0.1},{"name":"tfstate","year":2019.8,"value":0.1},{"name":"tfstate","year":2019.9,"value":0.1},{"name":"tfstate","year":2020.0,"value":0.1},{"name":"tfstate","year":2020.1,"value":0.1},{"name":"tfstate","year":2020.2,"value":0.1},{"name":"tfstate","year":2020.3,"value":0.1},{"name":"tfstate","year":2020.4,"value":0.1},{"name":"tfstate","year":2020.5,"value":0.1},{"name":"tfstate","year":2020.6,"value":0.1},{"name":"tfstate","year":2020.7,"value":0.1},{"name":"tfstate","year":2020.8,"value":0.1},{"name":"tfstate","year":2020.9,"value":0.1},{"name":"tfstate","year":2021.0,"value":0.1},{"name":"tfstate","year":2021.1,"value":1.0},{"name":"tfstate","year":2021.2,"value":1.0},{"name":"tfstate","year":2021.3,"value":2.0},{"name":"tfstate","year":2021.4,"value":2.0},{"name":"tfstate","year":2021.5,"value":2.0},{"name":"tfstate","year":2021.6,"value":3.0},{"name":"tfstate","year":2021.7,"value":3.0},{"name":"tfstate","year":2021.8,"value":4.0},{"name":"tfstate","year":2021.9,"value":4.0},{"name":"tfstate","year":2022.0,"value":4.0},{"name":"tfstate","year":2022.1,"value":3.0},{"name":"tfstate","year":2022.2,"value":3.0},{"name":"tfstate","year":2022.3,"value":2.0},{"name":"tfstate","year":2022.4,"value":2.0},{"name":"tfstate","year":2022.5,"value":2.0},{"name":"tfstate","year":2022.6,"value":1.0},{"name":"tfstate","year":2022.7,"value":1.0},{"name":"tfstate","year":2022.8,"value":0.1},{"name":"tfstate","year":2022.9,"value":0.1},{"name":"h","year":2017.0,"value":0.1},{"name":"h","year":2017.1,"value":0.1},{"name":"h","year":2017.2,"value":0.1},{"name":"h","year":2017.3,"value":0.1},{"name":"h","year":2017.4,"value":0.1},{"name":"h","year":2017.5,"value":0.1},{"name":"h","year":2017.6,"value":0.1},{"name":"h","year":2017.7,"value":0.1},{"name":"h","year":2017.8,"value":0.1},{"name":"h","year":2017.9,"value":0.1},{"name":"h","year":2018.0,"value":0.1},{"name":"h","year":2018.1,"value":0.1},{"name":"h","year":2018.2,"value":0.1},{"name":"h","year":2018.3,"value":0.1},{"name":"h","year":2018.4,"value":0.1},{"name":"h","year":2018.5,"value":0.1},{"name":"h","year":2018.6,"value":0.1},{"name":"h","year":2018.7,"value":0.1},{"name":"h","year":2018.8,"value":0.1},{"name":"h","year":2018.9,"value":0.1},{"name":"h","year":2019.0,"value":1.0},{"name":"h","year":2019.1,"value":1.0},{"name":"h","year":2019.2,"value":2.0},{"name":"h","year":2019.3,"value":2.0},{"name":"h","year":2019.4,"value":3.0},{"name":"h","year":2019.5,"value":3.0},{"name":"h","year":2019.6,"value":4.0},{"name":"h","year":2019.7,"value":4.0},{"name":"h","year":2019.8,"value":5.0},{"name":"h","year":2019.9,"value":5.0},{"name":"h","year":2020.0,"value":5.0},{"name":"h","year":2020.1,"value":6.0},{"name":"h","year":2020.2,"value":6.0},{"name":"h","year":2020.3,"value":7.0},{"name":"h","year":2020.4,"value":7.0},{"name":"h","year":2020.5,"value":7.0},{"name":"h","year":2020.6,"value":8.0},{"name":"h","year":2020.7,"value":8.0},{"name":"h","year":2020.8,"value":9.0},{"name":"h","year":2020.9,"value":9.0},{"name":"h","year":2021.0,"value":8.0},{"name":"h","year":2021.1,"value":8.0},{"name":"h","year":2021.2,"value":7.0},{"name":"h","year":2021.3,"value":7.0},{"name":"h","year":2021.4,"value":6.0},{"name":"h","year":2021.5,"value":5.0},{"name":"h","year":2021.6,"value":5.0},{"name":"h","year":2021.7,"value":4.0},{"name":"h","year":2021.8,"value":4.0},{"name":"h","year":2021.9,"value":3.0},{"name":"h","year":2022.0,"value":3.0},{"name":"h","year":2022.1,"value":2.0},{"name":"h","year":2022.2,"value":2.0},{"name":"h","year":2022.3,"value":2.0},{"name":"h","year":2022.4,"value":2.0},{"name":"h","year":2022.5,"value":1.0},{"name":"h","year":2022.6,"value":1.0},{"name":"h","year":2022.7,"value":1.0},{"name":"h","year":2022.8,"value":0.1},{"name":"h","year":2022.9,"value":0.1},{"name":"css","year":2017.0,"value":3.0},{"name":"css","year":2017.1,"value":5.0},{"name":"css","year":2017.2,"value":8.0},{"name":"css","year":2017.3,"value":10.0},{"name":"css","year":2017.4,"value":13.0},{"name":"css","year":2017.5,"value":15.0},{"name":"css","year":2017.6,"value":18.0},{"name":"css","year":2017.7,"value":20.0},{"name":"css","year":2017.8,"value":23.0},{"name":"css","year":2017.9,"value":25.0},{"name":"css","year":2018.0,"value":23.0},{"name":"css","year":2018.1,"value":20.0},{"name":"css","year":2018.2,"value":18.0},{"name":"css","year":2018.3,"value":15.0},{"name":"css","year":2018.4,"value":13.0},{"name":"css","year":2018.5,"value":10.0},{"name":"css","year":2018.6,"value":8.0},{"name":"css","year":2018.7,"value":5.0},{"name":"css","year":2018.8,"value":3.0},{"name":"css","year":2018.9,"value":0.1},{"name":"css","year":2019.0,"value":1.0},{"name":"css","year":2019.1,"value":2.0},{"name":"css","year":2019.2,"value":3.0},{"name":"css","year":2019.3,"value":4.0},{"name":"css","year":2019.4,"value":6.0},{"name":"css","year":2019.5,"value":7.0},{"name":"css","year":2019.6,"value":8.0},{"name":"css","year":2019.7,"value":9.0},{"name":"css","year":2019.8,"value":10.0},{"name":"css","year":2019.9,"value":11.0},{"name":"css","year":2020.0,"value":10.0},{"name":"css","year":2020.1,"value":9.0},{"name":"css","year":2020.2,"value":8.0},{"name":"css","year":2020.3,"value":7.0},{"name":"css","year":2020.4,"value":6.0},{"name":"css","year":2020.5,"value":5.0},{"name":"css","year":2020.6,"value":4.0},{"name":"css","year":2020.7,"value":3.0},{"name":"css","year":2020.8,"value":2.0},{"name":"css","year":2020.9,"value":1.0},{"name":"css","year":2021.0,"value":1.0},{"name":"css","year":2021.1,"value":1.0},{"name":"css","year":2021.2,"value":1.0},{"name":"css","year":2021.3,"value":1.0},{"name":"css","year":2021.4,"value":2.0},{"name":"css","year":2021.5,"value":2.0},{"name":"css","year":2021.6,"value":2.0},{"name":"css","year":2021.7,"value":2.0},{"name":"css","year":2021.8,"value":2.0},{"name":"css","year":2021.9,"value":2.0},{"name":"css","year":2022.0,"value":2.0},{"name":"css","year":2022.1,"value":2.0},{"name":"css","year":2022.2,"value":1.0},{"name":"css","year":2022.3,"value":1.0},{"name":"css","year":2022.4,"value":1.0},{"name":"css","year":2022.5,"value":1.0},{"name":"css","year":2022.6,"value":1.0},{"name":"css","year":2022.7,"value":0.1},{"name":"css","year":2022.8,"value":0.1},{"name":"css","year":2022.9,"value":0.1},{"name":"py","year":2017.0,"value":0.1},{"name":"py","year":2017.1,"value":0.1},{"name":"py","year":2017.2,"value":0.1},{"name":"py","year":2017.3,"value":0.1},{"name":"py","year":2017.4,"value":0.1},{"name":"py","year":2017.5,"value":0.1},{"name":"py","year":2017.6,"value":0.1},{"name":"py","year":2017.7,"value":0.1},{"name":"py","year":2017.8,"value":0.1},{"name":"py","year":2017.9,"value":0.1},{"name":"py","year":2018.0,"value":1.0},{"name":"py","year":2018.1,"value":3.0},{"name":"py","year":2018.2,"value":4.0},{"name":"py","year":2018.3,"value":5.0},{"name":"py","year":2018.4,"value":7.0},{"name":"py","year":2018.5,"value":8.0},{"name":"py","year":2018.6,"value":9.0},{"name":"py","year":2018.7,"value":10.0},{"name":"py","year":2018.8,"value":12.0},{"name":"py","year":2018.9,"value":13.0},{"name":"py","year":2019.0,"value":12.0},{"name":"py","year":2019.1,"value":10.0},{"name":"py","year":2019.2,"value":9.0},{"name":"py","year":2019.3,"value":8.0},{"name":"py","year":2019.4,"value":7.0},{"name":"py","year":2019.5,"value":5.0},{"name":"py","year":2019.6,"value":4.0},{"name":"py","year":2019.7,"value":3.0},{"name":"py","year":2019.8,"value":1.0},{"name":"py","year":2019.9,"value":0.1},{"name":"py","year":2020.0,"value":0.1},{"name":"py","year":2020.1,"value":0.1},{"name":"py","year":2020.2,"value":0.1},{"name":"py","year":2020.3,"value":0.1},{"name":"py","year":2020.4,"value":1.0},{"name":"py","year":2020.5,"value":1.0},{"name":"py","year":2020.6,"value":1.0},{"name":"py","year":2020.7,"value":1.0},{"name":"py","year":2020.8,"value":1.0},{"name":"py","year":2020.9,"value":1.0},{"name":"py","year":2021.0,"value":1.0},{"name":"py","year":2021.1,"value":1.0},{"name":"py","year":2021.2,"value":1.0},{"name":"py","year":2021.3,"value":1.0},{"name":"py","year":2021.4,"value":1.0},{"name":"py","year":2021.5,"value":1.0},{"name":"py","year":2021.6,"value":1.0},{"name":"py","year":2021.7,"value":1.0},{"name":"py","year":2021.8,"value":1.0},{"name":"py","year":2021.9,"value":1.0},{"name":"py","year":2022.0,"value":1.0},{"name":"py","year":2022.1,"value":1.0},{"name":"py","year":2022.2,"value":1.0},{"name":"py","year":2022.3,"value":1.0},{"name":"py","year":2022.4,"value":1.0},{"name":"py","year":2022.5,"value":0.1},{"name":"py","year":2022.6,"value":0.1},{"name":"py","year":2022.7,"value":0.1},{"name":"py","year":2022.8,"value":0.1},{"name":"py","year":2022.9,"value":0.1},{"name":"scss","year":2017.0,"value":0.1},{"name":"scss","year":2017.1,"value":0.1},{"name":"scss","year":2017.2,"value":0.1},{"name":"scss","year":2017.3,"value":0.1},{"name":"scss","year":2017.4,"value":0.1},{"name":"scss","year":2017.5,"value":0.1},{"name":"scss","year":2017.6,"value":0.1},{"name":"scss","year":2017.7,"value":0.1},{"name":"scss","year":2017.8,"value":0.1},{"name":"scss","year":2017.9,"value":0.1},{"name":"scss","year":2018.0,"value":0.1},{"name":"scss","year":2018.1,"value":0.1},{"name":"scss","year":2018.2,"value":0.1},{"name":"scss","year":2018.3,"value":0.1},{"name":"scss","year":2018.4,"value":0.1},{"name":"scss","year":2018.5,"value":0.1},{"name":"scss","year":2018.6,"value":0.1},{"name":"scss","year":2018.7,"value":0.1},{"name":"scss","year":2018.8,"value":0.1},{"name":"scss","year":2018.9,"value":0.1},{"name":"scss","year":2019.0,"value":2.0},{"name":"scss","year":2019.1,"value":5.0},{"name":"scss","year":2019.2,"value":7.0},{"name":"scss","year":2019.3,"value":9.0},{"name":"scss","year":2019.4,"value":12.0},{"name":"scss","year":2019.5,"value":14.0},{"name":"scss","year":2019.6,"value":16.0},{"name":"scss","year":2019.7,"value":18.0},{"name":"scss","year":2019.8,"value":21.0},{"name":"scss","year":2019.9,"value":23.0},{"name":"scss","year":2020.0,"value":22.0},{"name":"scss","year":2020.1,"value":20.0},{"name":"scss","year":2020.2,"value":19.0},{"name":"scss","year":2020.3,"value":17.0},{"name":"scss","year":2020.4,"value":16.0},{"name":"scss","year":2020.5,"value":14.0},{"name":"scss","year":2020.6,"value":13.0},{"name":"scss","year":2020.7,"value":11.0},{"name":"scss","year":2020.8,"value":10.0},{"name":"scss","year":2020.9,"value":8.0},{"name":"scss","year":2021.0,"value":7.0},{"name":"scss","year":2021.1,"value":6.0},{"name":"scss","year":2021.2,"value":6.0},{"name":"scss","year":2021.3,"value":5.0},{"name":"scss","year":2021.4,"value":4.0},{"name":"scss","year":2021.5,"value":3.0},{"name":"scss","year":2021.6,"value":2.0},{"name":"scss","year":2021.7,"value":2.0},{"name":"scss","year":2021.8,"value":1.0},{"name":"scss","year":2021.9,"value":0.1},{"name":"scss","year":2022.0,"value":0.1},{"name":"scss","year":2022.1,"value":0.1},{"name":"scss","year":2022.2,"value":0.1},{"name":"scss","year":2022.3,"value":0.1},{"name":"scss","year":2022.4,"value":0.1},{"name":"scss","year":2022.5,"value":0.1},{"name":"scss","year":2022.6,"value":0.1},{"name":"scss","year":2022.7,"value":0.1},{"name":"scss","year":2022.8,"value":0.1},{"name":"scss","year":2022.9,"value":0.1},{"name":"sty","year":2017.0,"value":0.1},{"name":"sty","year":2017.1,"value":0.1},{"name":"sty","year":2017.2,"value":0.1},{"name":"sty","year":2017.3,"value":0.1},{"name":"sty","year":2017.4,"value":0.1},{"name":"sty","year":2017.5,"value":0.1},{"name":"sty","year":2017.6,"value":0.1},{"name":"sty","year":2017.7,"value":0.1},{"name":"sty","year":2017.8,"value":0.1},{"name":"sty","year":2017.9,"value":0.1},{"name":"sty","year":2018.0,"value":0.1},{"name":"sty","year":2018.1,"value":0.1},{"name":"sty","year":2018.2,"value":0.1},{"name":"sty","year":2018.3,"value":0.1},{"name":"sty","year":2018.4,"value":0.1},{"name":"sty","year":2018.5,"value":0.1},{"name":"sty","year":2018.6,"value":0.1},{"name":"sty","year":2018.7,"value":0.1},{"name":"sty","year":2018.8,"value":0.1},{"name":"sty","year":2018.9,"value":0.1},{"name":"sty","year":2019.0,"value":0.1},{"name":"sty","year":2019.1,"value":0.1},{"name":"sty","year":2019.2,"value":0.1},{"name":"sty","year":2019.3,"value":0.1},{"name":"sty","year":2019.4,"value":0.1},{"name":"sty","year":2019.5,"value":0.1},{"name":"sty","year":2019.6,"value":0.1},{"name":"sty","year":2019.7,"value":0.1},{"name":"sty","year":2019.8,"value":0.1},{"name":"sty","year":2019.9,"value":0.1},{"name":"sty","year":2020.0,"value":0.1},{"name":"sty","year":2020.1,"value":0.1},{"name":"sty","year":2020.2,"value":1.0},{"name":"sty","year":2020.3,"value":1.0},{"name":"sty","year":2020.4,"value":1.0},{"name":"sty","year":2020.5,"value":1.0},{"name":"sty","year":2020.6,"value":1.0},{"name":"sty","year":2020.7,"value":2.0},{"name":"sty","year":2020.8,"value":2.0},{"name":"sty","year":2020.9,"value":2.0},{"name":"sty","year":2021.0,"value":2.0},{"name":"sty","year":2021.1,"value":2.0},{"name":"sty","year":2021.2,"value":1.0},{"name":"sty","year":2021.3,"value":1.0},{"name":"sty","year":2021.4,"value":1.0},{"name":"sty","year":2021.5,"value":1.0},{"name":"sty","year":2021.6,"value":1.0},{"name":"sty","year":2021.7,"value":0.1},{"name":"sty","year":2021.8,"value":0.1},{"name":"sty","year":2021.9,"value":0.1},{"name":"sty","year":2022.0,"value":0.1},{"name":"sty","year":2022.1,"value":0.1},{"name":"sty","year":2022.2,"value":0.1},{"name":"sty","year":2022.3,"value":0.1},{"name":"sty","year":2022.4,"value":0.1},{"name":"sty","year":2022.5,"value":0.1},{"name":"sty","year":2022.6,"value":0.1},{"name":"sty","year":2022.7,"value":0.1},{"name":"sty","year":2022.8,"value":0.1},{"name":"sty","year":2022.9,"value":0.1}];
+
+    let prevItem = null;
+
+    data.forEach(item => {
+        if (prevItem != null) {
+            if (prevItem.name == item.name) {
+                item.lastValue = prevItem.value;
+            } else {
+                item.lastValue = 0.0;
+            }
+        } else {
+            item.lastValue = 0.0;
+        }
+        prevItem = item;
+    });
+
+    data.sort((a, b) => a.name.localeCompare(b.name)).forEach(d => {
+        d.value = +d.value,
+            d.lastValue = +d.lastValue,
+            d.year = +d.year,
+            d.colour = d3.hsl(Math.random() * 360, 0.75, 0.75)
+    });
+
+
+    const halo = function (text, strokeWidth) {
+        text.select(function () {
+            return this.parentNode.insertBefore(this.cloneNode(true), this);
+        })
+            .style('fill', '#ffffff')
+            .style('stroke', '#ffffff')
+            .style('stroke-width', strokeWidth)
+            .style('stroke-linejoin', 'round')
+            .style('opacity', 1);
+
+    }
+
+    let yearSlice = data.filter(d => d.year == year && !isNaN(d.value))
+        .sort((a, b) => b.value - a.value)
+        .slice(0, top_n);
+
+    yearSlice.forEach((d, i) => d.rank = i);
+
+    console.log('yearSlice: ', yearSlice)
+
+    let x = d3.scaleLinear()
+        .domain([0, d3.max(yearSlice, d => d.value)])
+        .range([margin.left, width - margin.right - 65]);
+
+    let y = d3.scaleLinear()
+        .domain([top_n, 0])
+        .range([height - margin.bottom, margin.top]);
+
+    let xAxis = d3.axisTop()
+        .scale(x)
+        .ticks(width > 500 ? 5 : 2)
+        .tickSize(-(height - margin.top - margin.bottom))
+        .tickFormat(d => d3.format(',')(d));
+
+    svg.append('g')
+        .attr('class', 'axis xAxis')
+        .attr('transform', `translate(0, ${margin.top})`)
+        .call(xAxis)
+        .selectAll('.tick line')
+        .classed('origin', d => d == 0);
+
+    svg.selectAll('rect.bar')
+        .data(yearSlice, d => d.name)
+        .enter()
+        .append('rect')
+        .attr('class', 'bar')
+        .attr('x', x(0) + 1)
+        .attr('width', d => Math.max(0, x(d.value) - x(0) - 1))
+        .attr('y', d => y(d.rank) + 5)
+        .attr('height', y(1) - y(0) - barPadding)
+        .style('fill', d => d.colour);
+
+    svg.selectAll('text.label')
+        .data(yearSlice, d => d.name)
+        .enter()
+        .append('text')
+        .attr('class', 'label')
+        .attr('x', d => x(d.value) - 8)
+        .attr('y', d => y(d.rank) + 5 + ((y(1) - y(0)) / 2) + 1)
+        .style('text-anchor', 'end')
+        .html(d => d.name);
+
+    svg.selectAll('text.valueLabel')
+        .data(yearSlice, d => d.name)
+        .enter()
+        .append('text')
+        .attr('class', 'valueLabel')
+        .attr('x', d => x(d.value) + 5)
+        .attr('y', d => y(d.rank) + 5 + ((y(1) - y(0)) / 2) + 1)
+        .text(d => d3.format(',.0f')(d.lastValue));
+
+    let yearText = svg.append('text')
+        .attr('class', 'yearText')
+        .attr('x', width - margin.right)
+        .attr('y', 500)
+        .style('text-anchor', 'end')
+        .html(~~year)
+        .call(halo, 10);
+
+    let ticker = d3.interval(e => {
+
+        yearSlice = data.filter(d => d.year == year && !isNaN(d.value))
+            .sort((a, b) => b.value - a.value)
+            .slice(0, top_n);
+
+        yearSlice.forEach((d, i) => d.rank = i);
+
+        //console.log('IntervalYear: ', yearSlice);
+
+        x.domain([0, d3.max(yearSlice, d => d.value)]);
+
+        svg.select('.xAxis')
+            .transition()
+            .duration(tickDuration)
+            .ease(d3.easeLinear)
+            .call(xAxis);
+
+        let bars = svg.selectAll('.bar').data(yearSlice, d => d.name);
+
+        bars
+            .enter()
+            .append('rect')
+            .attr('class', d => `bar ${d.name.replace(/\s/g, '_')}`)
+            .attr('x', x(0) + 1)
+            .attr('width', d => Math.max(0, x(d.value) - x(0) - 1))
+            .attr('y', d => y(top_n + 1) + 5)
+            .attr('height', y(1) - y(0) - barPadding)
+            .style('fill', d => d.colour)
+            .transition()
+            .duration(tickDuration)
+            .ease(d3.easeLinear)
+            .attr('y', d => y(d.rank) + 5);
+
+        bars
+            .transition()
+            .duration(tickDuration)
+            .ease(d3.easeLinear)
+            .attr('width', d => Math.max(0, x(d.value) - x(0) - 1))
+            .attr('y', d => y(d.rank) + 5);
+
+        bars
+            .exit()
+            .transition()
+            .duration(tickDuration)
+            .ease(d3.easeLinear)
+            .attr('width', d => Math.max(0, x(d.value) - x(0) - 1))
+            .attr('y', d => y(top_n + 1) + 5)
+            .remove();
+
+        let labels = svg.selectAll('.label')
+            .data(yearSlice, d => d.name);
+
+        labels
+            .enter()
+            .append('text')
+            .attr('class', 'label')
+            .attr('x', d => Math.max(0, x(d.value) - 8))
+            .attr('y', d => y(top_n + 1) + 5 + ((y(1) - y(0)) / 2))
+            .style('text-anchor', 'end')
+            .html(d => d.name)
+            .transition()
+            .duration(tickDuration)
+            .ease(d3.easeLinear)
+            .attr('y', d => y(d.rank) + 5 + ((y(1) - y(0)) / 2) + 1);
+
+
+        labels
+            .transition()
+            .duration(tickDuration)
+            .ease(d3.easeLinear)
+            .attr('x', d => x(d.value) - 8)
+            .attr('y', d => y(d.rank) + 5 + ((y(1) - y(0)) / 2) + 1);
+
+        labels
+            .exit()
+            .transition()
+            .duration(tickDuration)
+            .ease(d3.easeLinear)
+            .attr('x', d => x(d.value) - 8)
+            .attr('y', d => y(top_n + 1) + 5)
+            .remove();
+
+
+        let valueLabels = svg.selectAll('.valueLabel').data(yearSlice, d => d.name);
+
+        valueLabels
+            .enter()
+            .append('text')
+            .attr('class', 'valueLabel')
+            .attr('x', d => x(d.value) + 5)
+            .attr('y', d => y(top_n + 1) + 5)
+            .text(d => d3.format(',.0f')(d.lastValue))
+            .transition()
+            .duration(tickDuration)
+            .ease(d3.easeLinear)
+            .attr('y', d => y(d.rank) + 5 + ((y(1) - y(0)) / 2) + 1);
+
+        valueLabels
+            .transition()
+            .duration(tickDuration)
+            .ease(d3.easeLinear)
+            .attr('x', d => x(d.value) + 5)
+            .attr('y', d => y(d.rank) + 5 + ((y(1) - y(0)) / 2) + 1)
+            .tween("text", function (d) {
+                let i = d3.interpolateRound(d.lastValue, d.value);
+                return function (t) {
+                    this.textContent = d3.format(',')(i(t));
+                };
+            });
+
+
+        valueLabels
+            .exit()
+            .transition()
+            .duration(tickDuration)
+            .ease(d3.easeLinear)
+            .attr('x', d => x(d.value) + 5)
+            .attr('y', d => y(top_n + 1) + 5)
+            .remove();
+
+        yearText.html(~~year);
+
+        if (year == new Date().getFullYear()) ticker.stop();
+        year = d3.format('.1f')((+year) + 0.1);
+    }, tickDuration);
+
+
+</script>
+</body>
